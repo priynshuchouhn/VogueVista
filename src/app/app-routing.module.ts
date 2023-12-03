@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ContentComponent } from './shared/components/layouts/content/content.component';
 import { FullComponent } from './shared/components/layouts/full/full.component';
 import { content } from './shared/routes/routes';
+import { full } from './shared/routes/full.routes';
 
 const routes: Routes = [
   {
@@ -13,8 +14,10 @@ const routes: Routes = [
   },
   {
     path: '',
-    component: FullComponent
-  }
+    component: FullComponent,
+    children: full
+  },
+  {path:'**', redirectTo:'' }
 ];
 
 @NgModule({
