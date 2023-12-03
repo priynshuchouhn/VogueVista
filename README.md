@@ -1,27 +1,95 @@
-# VogueVista
+<br/>
+<p align="center">
+  <h1 align="center">Vogue Vista</h1>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.1.
+  <p align="center">
+     Angular E-Commerce Web App
+    <br/>
+    <br/>
+    <a href="https://github.com/priynshuchouhn/VogueVista/issues">Report Bug</a>
+    .
+    <a href="https://github.com/priynshuchouhn/VogueVista/issues">Request Feature</a>
+  </p>
+</p>
 
-## Development server
+![Contributors](https://img.shields.io/github/contributors/priynshuchouhn/VogueVista?color=dark-green) ![Forks](https://img.shields.io/github/forks/priynshuchouhn/VogueVista?style=social) ![Stargazers](https://img.shields.io/github/stars/priynshuchouhn/VogueVista?style=social) ![Issues](https://img.shields.io/github/issues/priynshuchouhn/VogueVista) ![License](https://img.shields.io/github/license/priynshuchouhn/VogueVista) 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Table Of Contents
 
-## Code scaffolding
+* [Overview](#overview)
+* [Built With](#built-with)
+* [Getting Started](#getting-started)
+  * [Prerequisites](#prerequisites)
+  * [Installation](#installation)
+* [Authors](#authors)
+* [Acknowledgements](#acknowledgements)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Overview
 
-## Build
+Welcome to Vogue Vista, a stylish and modern E-Commerce web application built with Angular. Vogue Vista provides a seamless and enjoyable shopping experience for users, offering a wide range of fashionable products.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Features
 
-## Running unit tests
+* **User Authentication:** Secure user authentication system for a personalized shopping experience.
+* **Product Catalog:** Browse through a diverse catalogue of trendy fashion items.
+* **Search and Filters:** Easily find products using search functionality and filters.
+* **Shopping Cart:** Add products to your cart and manage your shopping list effortlessly.
+* **Secure Checkout:** A secure and straightforward checkout process for a hassle-free purchase.
+* **User Profiles:** Manage your profile and track your order history.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+## Built With
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+* Angular
+* TypeScript
+* HTML5/CSS3
+* Bootstrap
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Getting Started
+
+Follow these steps to set up Vogue Vista locally:
+
+### Prerequisites
+
+* Node.js
+* npm
+
+```sh
+npm install npm@latest -g
+```
+* Angular
+```sh
+npm install -g @angular/cli
+```
+
+
+### Installation
+
+1. Clone the Repository
+
+```sh
+git clone https://github.com/piynshuchouhn/vogue-vista.git
+
+cd vogue-vista
+```
+
+2. Install Dependencies:
+
+```sh
+npm install
+```
+
+4. Run the Development Server
+
+```sh
+ng serve
+```
+
+## Authors
+
+* **Priyanshu Chouhan** - *Web Developer* - [Priyanshu Chouhan](https://github.com/priynshuchouhn/)
+
+## Acknowledgements
+
+* Hat tip to the Angular and Bootstrap communities for their excellent frameworks.
