@@ -5,6 +5,7 @@ import { FullComponent } from './components/layouts/full/full.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { RouterModule } from '@angular/router';
+import { AnnoucementBarComponent } from './components/annoucement-bar/annoucement-bar.component';
 
 
 
@@ -13,7 +14,8 @@ import { RouterModule } from '@angular/router';
     ContentComponent,
     FullComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    AnnoucementBarComponent
   ],
   imports: [
     CommonModule,

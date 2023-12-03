@@ -1,0 +1,8 @@
+.annoucement-bar-link{
+    color: var(--secondary-light-subtle-color);
+    font-style: italic;
+}
+.annoucement-bar-number{
+    text-decoration: none;
+    color: unset;
+}
