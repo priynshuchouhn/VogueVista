@@ -2,11 +2,14 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ContentComponent } from './shared/components/layouts/content/content.component';
 import { FullComponent } from './shared/components/layouts/full/full.component';
+import { content } from './shared/routes/routes';
 
 const routes: Routes = [
   {
     path: '',
-    component: ContentComponent
+    component: ContentComponent,
+    children: content
+
   },
   {
     path: '',
