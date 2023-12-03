@@ -40,10 +40,10 @@ Welcome to Vogue Vista, a stylish and modern E-Commerce web application built wi
 
 ## Built With
 
-Angular
-TypeScript
-HTML5/CSS3
-Bootstrap
+* Angular
+* TypeScript
+* HTML5/CSS3
+* Bootstrap
 
 
 ## Getting Started
