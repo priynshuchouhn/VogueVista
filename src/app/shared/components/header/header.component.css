@@ -1,0 +1,58 @@
+.brand-name {
+  color: var(--secondary-light-color);
+  cursor: pointer;
+}
+.nav-btn a {
+  text-decoration: none;
+  color: #000 !important;
+}
+.nav-btn:hover > svg{
+  cursor: pointer;
+}
+.badge{
+top: 5px;
+right: 0px;
+}
+
+
+#button-addon2 {
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: 0;
+  height: 100%;
+  z-index: 99;
+  border: 1px solid rgb(222, 226, 230);
+  border-left: none;
+}
+#button-addon2:hover {
+  color: var(--secondary-light-color);
+}
+#search {
+  border-right: none;
+}
+#search:focus {
+  border: 1px solid var(--secondary-light-color);
+  box-shadow: none;
+}
+#search:focus + #button-addon2 {
+    border: 1px solid  var(--secondary-light-color);
+    border-left: none;
+  color: var(--secondary-light-color);
+}
+
+.nav-item a {
+  color: rgb(218, 138, 19);
+}
+.nav-item.menu {
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+}
+
+.nav-item.menu:hover {
+  border-bottom: 2px solid rgb(218, 138, 19);
+}
+#search{
+    padding: 12px;
+}

@@ -1,10 +1,38 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap');
+
+
 :root {
     --primary-dark-color : #17181D;
     --primary-dark-subtle-color: #292C35;
     --secondary-light-color: #E09145;
     --secondary-light-subtle-color: #FCD9B8;
     --black-color: #000;
-    --white-color: #FFF
+    --white-color: #FFF;
 
+    --success: #198754;
+    --success-text-emphasis: rgb(117, 183, 152);
+
+    --bs-badge-padding-x: 0.65rem;
+    --bs-badge-padding-y: 0.35rem;
+}
+
+*{
+    font-size: 14px;
+    font-family: 'Inter', sans-serif !important;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+*::-webkit-scrollbar {
+    display: none;
+  }
+
+.badge{
+padding: 0.45em 0.65em;
+font-size: .55rem;
+
+}
+.badge-light-secondary{
+    border: 1px solid #fff;
+    background-color: var(--secondary-light-color) !important;
 }
