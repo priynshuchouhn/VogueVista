@@ -69,7 +69,7 @@ npm install -g @angular/cli
 1. Clone the Repository
 
 ```sh
-git clone https://github.com/your-username/vogue-vista.git
+git clone https://github.com/piynshuchouhn/vogue-vista.git
 
 cd vogue-vista
 ```
