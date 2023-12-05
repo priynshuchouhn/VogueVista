@@ -58,8 +58,12 @@ font-size: .62rem;
     background-color: #ECF1F4;
 }
 
-.text-light-lavender{
+.text-slate-blue{
     color: #525F80;
+}
+
+.text-forest-green{
+    color: #0B422B;
 }
 
 .brand-text{

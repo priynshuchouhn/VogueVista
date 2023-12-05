@@ -7,6 +7,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { AnnoucementBarComponent } from './components/annoucement-bar/annoucement-bar.component';
 import { ProductCardComponent } from './components/product-card/product-card.component';
+import { ProductImageCardComponent } from './components/product-image-card/product-image-card.component';
 
 
 
@@ -17,7 +18,8 @@ import { ProductCardComponent } from './components/product-card/product-card.com
     HeaderComponent,
     FooterComponent,
     AnnoucementBarComponent,
-    ProductCardComponent
+    ProductCardComponent,
+    ProductImageCardComponent
   ],
   imports: [
     CommonModule,
@@ -26,7 +28,8 @@ import { ProductCardComponent } from './components/product-card/product-card.com
   exports: [
     HeaderComponent,
     FooterComponent,
-    ProductCardComponent
+    ProductCardComponent,
+    ProductImageCardComponent
   ]
 })
 export class SharedModule { }

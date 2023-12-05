@@ -4,6 +4,7 @@ import { HomeComponent } from './home.component';
 import { HomeRoutingModule } from './home-routing.module';
 import { CategoryToVisitCardComponent } from './category-to-visit-card/category-to-visit-card.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
 
 
 
@@ -15,7 +16,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
   imports: [
     CommonModule,
     HomeRoutingModule,
-    SharedModule
+    SharedModule,
+    SlickCarouselModule
   ]
 })
 export class HomeModule { }

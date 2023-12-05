@@ -1,0 +1,45 @@
+.fashion-trends {
+  background-image: url("https://img.freepik.com/free-photo/black-friday-elements-assortment_23-2149074076.jpg?w=1800&t=st=1701792323~exp=1701792923~hmac=b08a9989dd8c9a387c5f8062d6cb6267e52c3516db94f974dd89139bca91e496");
+  min-height: 400px;
+  width: 100%;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: grid;
+  align-content: center;
+}
+.fashion-trend-year {
+  font-size: 6.5rem;
+  font-weight: 700;
+}
+.fashion-trend-main-text {
+  font-size: 3.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #5c0925;
+}
+
+.fashion-trend-tag-text {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  color: #777;
+  letter-spacing: 1rem;
+}
+.glass-effect-card {
+  background-color: #ffffff32;
+}
+
+.card{
+    border-radius: 0;
+    border: none;
+}
+
+.side-card-text{
+    font-size: 2rem;
+}
+.side-card-content{
+    /* background-color: aqua; */
+    bottom: 10%;
+   
+}
