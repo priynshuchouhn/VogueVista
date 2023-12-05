@@ -4,7 +4,13 @@
 <section>Banner</section>
 
 <!-- Category to visit -->
-<section> Category to Visit</section>
+<section class="container-flid">
+    <div class="row p-4">
+        <div class="col-md-4 mb-4" *ngFor="let category of categoriesToVisit">
+            <app-category-to-visit-card [category]="category"></app-category-to-visit-card>
+        </div>
+    </div>
+</section>
 <!-- Product Card Row -->
 
 <section>Product Card Row</section>

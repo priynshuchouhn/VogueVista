@@ -7,4 +7,15 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
+  categoriesToVisit =  [
+    {category_name: 'Clothing', bgColorClass: 'bg-eggshell'},
+    {category_name: 'Bags', bgColorClass: 'bg-creamy-ivory'},
+    {category_name: 'Shoes', bgColorClass: 'bg-linen-white'},
+  ]
+
+  categoryToVisitBgClass: string[] = [
+    'bg-eggshell',
+    'bg-creamy-ivory'
+  ];
+
 }
