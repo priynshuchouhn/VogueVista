@@ -1,0 +1,27 @@
+.card{
+    border-radius: 0;
+    border: none
+}
+p{
+    margin-bottom:0;
+}
+.category-name{
+    color: #777;
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+.product-rating{
+    color: rgb(255, 178, 29);
+}
+.product-name{
+    font-size: 1.5rem;
+}
+.product-price{
+    font-size: 1.4rem;
+}
+
+.card-header{
+    aspect-ratio: 4/5;
+    border: none;
+    border-radius: 0;
+}

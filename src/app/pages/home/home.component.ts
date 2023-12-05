@@ -11,11 +11,7 @@ export class HomeComponent {
     {category_name: 'Clothing', bgColorClass: 'bg-eggshell'},
     {category_name: 'Bags', bgColorClass: 'bg-creamy-ivory'},
     {category_name: 'Shoes', bgColorClass: 'bg-linen-white'},
-  ]
-
-  categoryToVisitBgClass: string[] = [
-    'bg-eggshell',
-    'bg-creamy-ivory'
   ];
 
+  products = Array(4).fill(0);
 }

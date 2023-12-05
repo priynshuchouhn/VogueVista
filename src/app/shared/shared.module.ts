@@ -6,6 +6,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { AnnoucementBarComponent } from './components/annoucement-bar/annoucement-bar.component';
+import { ProductCardComponent } from './components/product-card/product-card.component';
 
 
 
@@ -15,7 +16,8 @@ import { AnnoucementBarComponent } from './components/annoucement-bar/annoucemen
     FullComponent,
     HeaderComponent,
     FooterComponent,
-    AnnoucementBarComponent
+    AnnoucementBarComponent,
+    ProductCardComponent
   ],
   imports: [
     CommonModule,
@@ -24,6 +26,7 @@ import { AnnoucementBarComponent } from './components/annoucement-bar/annoucemen
   exports: [
     HeaderComponent,
     FooterComponent,
+    ProductCardComponent
   ]
 })
 export class SharedModule { }

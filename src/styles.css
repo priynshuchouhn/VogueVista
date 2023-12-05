@@ -47,3 +47,24 @@ font-size: .62rem;
 .bg-eggshell{
     background-color: rgb(240, 234, 214);
 }
+
+.bg-light-lavender{
+    background-color: #E8E6F0;
+}
+.bg-misty-gray{
+    background-color: #F4F4F4;
+}
+.bg-pale-blue-gray{
+    background-color: #ECF1F4;
+}
+
+.text-light-lavender{
+    color: #525F80;
+}
+
+.brand-text{
+    color: var(--secondary-light-color);
+    font-style: italic;
+    font-weight: bold;
+    font-size: 2rem;
+}
