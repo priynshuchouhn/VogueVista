@@ -1,0 +1,31 @@
+.main-div{
+    height: 100vh;
+    overflow: hidden;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url('https://img.freepik.com/free-photo/front-view-cyber-monday-composition_23-2149055988.jpg?w=1800&t=st=1701839635~exp=1701840235~hmac=e9bb4be8a3944cd3d553a57b12733d4b12b5254c1ac70826bc32392fc1e2cc9e');
+}
+
+.card{
+    border: none;
+    border-radius: 0;
+}
+
+a {
+    font-style: italic;
+    text-decoration: none;
+}
+
+.sign-in-divider{
+    top: 10%;
+    right: 35%;
+}
+
+@media only screen and (max-width:768px) {
+    .sign-in-divider{
+        top: 10%;
+        right: 27%;
+    }
+    
+}
