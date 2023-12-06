@@ -86,16 +86,16 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12 text-slate-blue">
-                <h5>Find Your Favorites</h5>
+                <h5>Best Seller</h5>
             </div>
             <div class="col-md-12 mb-4">
                 <h2 class="section-heading">This Week's Featured</h2>
             </div>
-            <div class="col-md-12 p-md-5 mb-4">
+            <div class="col-md-12 p-lg-5 mb-4">
                 <ngx-slick-carousel class="carousel caurosel-width" #slickModal="slick-carousel" [config]="slideConfigTwo">
                     @for (slide of slides; track slide.img) {
                     <div ngxSlickItem class="slide" >
-                        <div class="px-2">
+                        <div class="px-lg-2">
                             <app-product-horizontal-card></app-product-horizontal-card>
                         </div>
                     </div>

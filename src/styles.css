@@ -109,10 +109,12 @@ font-size: .62rem;
 
 @media only screen and (max-width:768px) {
     .slick-prev:before{
-        bottom: -12rem !important;
+        margin-top: 2rem;
+        bottom: -10rem !important;
     }
     .slick-next:before{
-        bottom: -12rem !important;
-        right: 32rem;
+        margin-top: 2rem;
+        bottom: -10rem !important;
+        right: 20rem;
     }
 }
