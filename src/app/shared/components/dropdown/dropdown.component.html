@@ -1,0 +1,8 @@
+<div class="dropdown">
+    <button class="dropdown-toggle" type="button" data-toggle="dropdown">
+      {{ (selectedOption | uppercase) || (defaultOption | uppercase) }}
+    </button>
+    <div class="dropdown-menu">
+      <a *ngFor="let option of options" class="dropdown-item" (click)="selectOption(option)">{{ option.name }}</a>
+    </div>
+  </div>

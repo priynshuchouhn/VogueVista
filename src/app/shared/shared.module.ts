@@ -9,6 +9,7 @@ import { AnnoucementBarComponent } from './components/annoucement-bar/annoucemen
 import { ProductCardComponent } from './components/product-card/product-card.component';
 import { ProductImageCardComponent } from './components/product-image-card/product-image-card.component';
 import { ProductHorizontalCardComponent } from './components/product-horizontal-card/product-horizontal-card.component';
+import { DropdownComponent } from './components/dropdown/dropdown.component';
 
 
 
@@ -21,7 +22,8 @@ import { ProductHorizontalCardComponent } from './components/product-horizontal-
     AnnoucementBarComponent,
     ProductCardComponent,
     ProductImageCardComponent,
-    ProductHorizontalCardComponent
+    ProductHorizontalCardComponent,
+    DropdownComponent,
   ],
   imports: [
     CommonModule,
@@ -32,7 +34,8 @@ import { ProductHorizontalCardComponent } from './components/product-horizontal-
     FooterComponent,
     ProductCardComponent,
     ProductImageCardComponent,
-    ProductHorizontalCardComponent
+    ProductHorizontalCardComponent,
+    DropdownComponent
   ]
 })
 export class SharedModule { }

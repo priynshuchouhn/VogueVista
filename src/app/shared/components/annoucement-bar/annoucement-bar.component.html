@@ -12,13 +12,13 @@
         <div class="col-2 d-md-flex d-none justify-content-end">
             <div class="row">
                 <div class="col-auto border-start border-end">
-                    <div class="annonucement-bar-items">En</div>
+                    <app-dropdown [options]="lstLanguage" [defaultOption]="'en'"></app-dropdown>
                 </div>
                 <div class="col-auto border-end">
-                    <div class="annonucement-bar-items">INR</div>
+                    <app-dropdown [options]="lstCurrency" [defaultOption]="'INR'"></app-dropdown>
                 </div>
                 <div class="col-auto">
-                    <div class="annonucement-bar-items">&#64;</div>
+                    <div class="annonucement-bar-items">Setting</div>
                 </div>
             </div>
         </div>
