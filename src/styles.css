@@ -22,6 +22,7 @@
     font-family: 'Inter', sans-serif !important;
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
+    /* overflow-x: hidden; */
 }
 *::-webkit-scrollbar {
     display: none;
@@ -104,7 +105,7 @@ font-size: .62rem;
 .slick-next:before{
     position: absolute;
     bottom: -13rem !important;
-    right: 102rem;
+    right: 100rem;
 }
 
 @media only screen and (max-width:768px) {
