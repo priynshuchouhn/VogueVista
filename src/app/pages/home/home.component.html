@@ -19,9 +19,9 @@
             <h5>Find Your Favorites</h5>
         </div>
         <div class="col-md-12 text-center mb-4">
-            <h2>Popular on the <span class="brand-text">Vogue Vista</span> store.</h2>
+            <h2 class="section-heading">Popular on the <span class="brand-text">Vogue Vista</span> store.</h2>
         </div>
-        <div class="col-md-3 col-6" *ngFor="let product of products">
+        <div class="col-md-3 col-6 mb-4" *ngFor="let product of products">
             <app-product-image-card></app-product-image-card>
         </div>
     </div>
@@ -77,15 +77,31 @@
                 </div>
             </div>
         </div>
-        <!-- <div class="col-md-4 p-md-5">
-
-            <div class="card h-100">
-                <div class="card-body bg-light-lavender"></div>
-            </div>
-        </div> -->
     </div>
 </section>
 
 <!-- This Week's Featured -->
 
-<section>This Weeks's Featured</section>
+<section class="bg-dark-subtle py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-slate-blue">
+                <h5>Find Your Favorites</h5>
+            </div>
+            <div class="col-md-12 mb-4">
+                <h2 class="section-heading">This Week's Featured</h2>
+            </div>
+            <div class="col-md-12 p-md-5 mb-4">
+                <ngx-slick-carousel class="carousel caurosel-width" #slickModal="slick-carousel" [config]="slideConfigTwo">
+                    @for (slide of slides; track slide.img) {
+                    <div ngxSlickItem class="slide" >
+                        <div class="px-2">
+                            <app-product-horizontal-card></app-product-horizontal-card>
+                        </div>
+                    </div>
+                    }
+                </ngx-slick-carousel>
+            </div>
+        </div>
+    </div>
+</section>

@@ -43,3 +43,18 @@
     bottom: 10%;
    
 }
+.section-heading{
+    font-size: 3rem;
+    font-weight: 500;
+}
+.caurosel-width{
+    width: 120% !important;
+}
+
+/* for responsiveness */
+
+@media only screen and (max-width:768px) {
+    .caurosel-width{
+        width: 100% !important;
+    }
+}

@@ -14,7 +14,18 @@ export class HomeComponent {
   ];
 
   products = Array(4).fill(0);
-  slideConfig = {"slidesToShow": 2, "slidesToScroll": 2, infinite: true,dots: true,};
+  slideConfig = {"slidesToShow": 2, "slidesToScroll": 2, infinite: true,dots: true, prevArrow: false,
+  nextArrow: false};
+  slideConfigTwo = {"slidesToShow": 3, "slidesToScroll": 1, infinite: true, responsive: [
+    {
+      breakpoint: 692,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+      
+      }
+    }
+  ]};
   slides = [
     {img: "http://placehold.it/350x150/000000"},
     {img: "http://placehold.it/350x150/111111"},

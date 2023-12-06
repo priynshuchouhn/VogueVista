@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
 import { AnnoucementBarComponent } from './components/annoucement-bar/annoucement-bar.component';
 import { ProductCardComponent } from './components/product-card/product-card.component';
 import { ProductImageCardComponent } from './components/product-image-card/product-image-card.component';
+import { ProductHorizontalCardComponent } from './components/product-horizontal-card/product-horizontal-card.component';
 
 
 
@@ -19,7 +20,8 @@ import { ProductImageCardComponent } from './components/product-image-card/produ
     FooterComponent,
     AnnoucementBarComponent,
     ProductCardComponent,
-    ProductImageCardComponent
+    ProductImageCardComponent,
+    ProductHorizontalCardComponent
   ],
   imports: [
     CommonModule,
@@ -29,7 +31,8 @@ import { ProductImageCardComponent } from './components/product-image-card/produ
     HeaderComponent,
     FooterComponent,
     ProductCardComponent,
-    ProductImageCardComponent
+    ProductImageCardComponent,
+    ProductHorizontalCardComponent
   ]
 })
 export class SharedModule { }
