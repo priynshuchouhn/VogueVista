@@ -7,11 +7,13 @@ import { MyOrderComponent } from './my-order/my-order.component';
 import { NotificationComponent } from './notification/notification.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { AddressComponent } from './address/address.component';
+import { AccountComponent } from './account.component';
 
 
 
 @NgModule({
   declarations: [
+    AccountComponent,
     ProfileComponent,
     ProfileDetailComponent,
     MyOrderComponent,

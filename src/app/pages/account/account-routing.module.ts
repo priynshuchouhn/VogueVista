@@ -10,6 +10,7 @@ import { ChangePasswordComponent } from "./change-password/change-password.compo
 
 
 const routes: Routes = [
+    {path: '', redirectTo: 'profile', pathMatch: 'full'},
     {
         path: '', component: AccountComponent,
         children: [
@@ -19,7 +20,8 @@ const routes: Routes = [
             { path: 'notfication', component: NotificationComponent },
             { path: 'my-order', component: MyOrderComponent },
             { path: 'change-password', component: ChangePasswordComponent }
-        ]
+        ],
+        
     }
 ];
 
