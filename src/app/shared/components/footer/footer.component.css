@@ -15,7 +15,7 @@ li a {
   background-color: var(--primary-dark-color) !important;
 }
 
-a:hover {
+.footer-link:hover {
   color: #fff !important;
 }
 .nav-btn {
@@ -35,4 +35,11 @@ a:hover {
     position: fixed;
     bottom: 0%;
     z-index: 2;
+}
+
+.footer-nav-link{
+  color: #000;
+}
+.footer-nav-link.active{
+color: var(--secondary-light-color);
 }

@@ -17,8 +17,8 @@ const routes: Routes = [
             { path: 'profile', component: ProfileComponent },
             { path: 'profile-detail', component: ProfileDetailComponent },
             { path: 'address', component: AddressComponent },
-            { path: 'notfication', component: NotificationComponent },
-            { path: 'my-order', component: MyOrderComponent },
+            { path: 'notification', component: NotificationComponent },
+            { path: 'my-orders', component: MyOrderComponent },
             { path: 'change-password', component: ChangePasswordComponent }
         ],
         
