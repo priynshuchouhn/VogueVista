@@ -1,1 +1,38 @@
-<p>my-order works!</p>
+<div class="contianer h-100">
+    <div class="row mb-4">
+        <div class="col-md-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th width="15%">Order ID</th>
+                        <th class="text-center">Product</th>
+                        <th width="10%">Status</th>
+                        <th width="10%">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (order of lstOrder; track $index) {
+                        <tr class="align-middle">
+                            <td>#8659{{ $index }}</td>
+                            <td>
+                                <div class="row">
+                                    <div class="col-2">
+                                        <img src="https://systematixmedia.com/storage/product_varient/large/MQ0G3HN-A_1_20220909103130.PNG" alt="" class="img-fluid">
+                                    </div>
+                                    <div class="col-10">
+                                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis, voluptas.</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td><span class="badge bg-success">Delivered</span></td>
+                            <td class="text-center action-icons"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="" class="bi bi-eye-fill" viewBox="0 0 16 16">
+                                <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0"/>
+                                <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8m8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7"/>
+                              </svg></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

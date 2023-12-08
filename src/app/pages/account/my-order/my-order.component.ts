@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class MyOrderComponent {
 
+  lstOrder = Array(5).fill(0);
+
 }
