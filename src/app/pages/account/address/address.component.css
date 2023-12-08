@@ -1,0 +1,9 @@
+.add-new-address-link{
+    text-decoration: none;
+    color: var(--secondary-light-color);
+    cursor: pointer;
+}
+
+p{
+    margin-bottom: 0;
+}

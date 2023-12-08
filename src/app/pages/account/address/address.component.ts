@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AddressComponent {
 
+  lstAddress = Array(3).fill(0)
+
 }
