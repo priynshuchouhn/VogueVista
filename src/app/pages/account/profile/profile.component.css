@@ -1,0 +1,10 @@
+.salutation-text{
+    font-size: 2rem;
+    font-weight: 600;
+}
+.note-text{
+    font-size: 1.15rem;
+}
+p{
+    margin-bottom: 0;
+}
