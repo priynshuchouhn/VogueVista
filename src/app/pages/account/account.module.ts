@@ -8,6 +8,7 @@ import { NotificationComponent } from './notification/notification.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { AddressComponent } from './address/address.component';
 import { AccountComponent } from './account.component';
+import { AccountWebComponent } from './account-web/account-web.component';
 
 
 
@@ -19,7 +20,8 @@ import { AccountComponent } from './account.component';
     MyOrderComponent,
     NotificationComponent,
     ChangePasswordComponent,
-    AddressComponent
+    AddressComponent,
+    AccountWebComponent
   ],
   imports: [
     CommonModule,
