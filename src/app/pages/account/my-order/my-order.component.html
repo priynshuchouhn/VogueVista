@@ -1,6 +1,15 @@
-<div class="contianer h-100">
-    <div class="row mb-4">
-        <div class="col-md-12">
+<div class="row bg-dark-subtle px-3 py-3 mx-0 d-flex d-md-none">
+    <div class="col-md-12">
+        <a routerLink="../" class="back-navigation">
+            <h2 class="mb-0 d-flex align-items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
+              </svg> My Orders</h2> 
+        </a>
+    </div>
+</div>
+<div class="contianer h-100 p-2 py-4">
+    <div class="row mb-4 mx-0">
+        <div class="col-md-12 d-md-flex d-none">
             <table class="table">
                 <thead>
                     <tr>
@@ -34,5 +43,26 @@
                 </tbody>
             </table>
         </div>
+    </div>
+    <div class="row mx-0 d-flex d-md-none">
+        @for (order of lstOrder; track $index) {
+        <div class="col-md-12 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-3 h-100">
+                            <img src="https://systematixmedia.com/storage/product_varient/large/MQ0G3HN-A_1_20220909103130.PNG" alt="" class="img-fluid">
+                        </div>
+                        <div class="col-9">
+                            <div>
+                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis, voluptas.</p>
+                                <p><span class="badge bg-success rounded-0">Delivered</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
     </div>
 </div>

@@ -1,12 +1,21 @@
-<div class="contianer h-100">
+<div class="row bg-dark-subtle px-3 py-3 mx-0 d-flex d-md-none">
+  <div class="col-md-12">
+      <a routerLink="../" class="back-navigation">
+          <h2 class="mb-0 d-flex align-items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
+            </svg> Manage Addresses</h2> 
+      </a>
+  </div>
+</div>
+<div class="contianer h-100 p-2 py-2">
   <div class="row mb-4">
-    <div class="col-md-12">
+    <div class="col-md-12 d-md-block d-none">
       <h4 class="fw-bold">Manage Address</h4>
     </div>
   </div>
-  <div class="row mb-3">
+  <div class="row mb-3 mx-0">
     <div class="col-md-12">
-        <div class="border px-3 p-2 d-flex align-items-center">
+        <div class="border px-3 p-md-2 p-4 d-flex align-items-center">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#E09145" class="bi bi-plus" viewBox="0 0 16 16">
                 <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
               </svg>
@@ -15,12 +24,12 @@
     </div>
   </div>
   @for (address of lstAddress; track $index) {
-      <div class="row mb-3">
+      <div class="row mb-3 mx-0">
         <div class="col-md-12">
             <div class="border px-3 p-2 d-flex align-items-center">
                 <div class="row w-100">
                     <div class="col-md-10">
-                        <div class="address-type p-2">
+                        <div class="address-type">
                             <small>Home</small>
                         </div>
                     </div>

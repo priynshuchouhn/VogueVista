@@ -1,0 +1,14 @@
+.card{
+    border-radius: 0;
+}
+a{
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.3rem;
+    color: unset;
+}
+
+.username{
+    font-size: 1.4rem;
+    font-weight: 600;
+}

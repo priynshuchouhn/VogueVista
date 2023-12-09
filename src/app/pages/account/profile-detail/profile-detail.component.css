@@ -2,3 +2,11 @@
     background-color: transparent;
     border-right:  none;
 }
+.back-navigation{
+    text-decoration: none;
+    color: unset;
+   
+}
+.back-navigation h2{
+    font-weight: 600;
+}

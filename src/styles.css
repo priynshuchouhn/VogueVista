@@ -1,125 +1,132 @@
 /* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap");
 
 :root {
-    --primary-dark-color : #17181D;
-    --primary-dark-subtle-color: #292C35;
-    --secondary-light-color: #E09145;
-    --secondary-light-subtle-color: #FCD9B8;
-    --secondary-light-subtle-lighten-color: #fbecde;
-    --black-color: #000;
-    --white-color: #FFF;
+  --primary-dark-color: #17181d;
+  --primary-dark-subtle-color: #292c35;
+  --secondary-light-color: #e09145;
+  --secondary-light-subtle-color: #fcd9b8;
+  --secondary-light-subtle-lighten-color: #fbecde;
+  --black-color: #000;
+  --white-color: #fff;
 
-    --success: #198754;
-    --success-text-emphasis: rgb(117, 183, 152);
+  --success: #198754;
+  --success-text-emphasis: rgb(117, 183, 152);
 
-    --bs-badge-padding-x: 0.65rem;
-    --bs-badge-padding-y: 0.35rem;
+  --bs-badge-padding-x: 0.65rem;
+  --bs-badge-padding-y: 0.35rem;
 }
 
-*{
-    font-size: 14px;
-    font-family: 'Inter', sans-serif !important;
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
-    /* overflow-x: hidden; */
+* {
+  font-size: 14px;
+  font-family: "Inter", sans-serif !important;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  /* overflow-x: hidden; */
 }
 *::-webkit-scrollbar {
-    display: none;
+  display: none;
+}
+
+.badge {
+  padding: 0.45em 0.65em;
+  font-size: 0.62rem;
+}
+.badge-light-secondary {
+  border: 1px solid #fff;
+  background-color: var(--secondary-light-color) !important;
+}
+
+.bg-linen-white {
+  background-color: rgb(250, 240, 230);
+}
+.bg-creamy-ivory {
+  background-color: rgb(255, 248, 231);
+}
+.bg-eggshell {
+  background-color: rgb(240, 234, 214);
+}
+
+.bg-light-lavender {
+  background-color: #e8e6f0;
+}
+.bg-misty-gray {
+  background-color: #f4f4f4;
+}
+.bg-pale-blue-gray {
+  background-color: #ecf1f4;
+}
+
+.text-slate-blue {
+  color: #525f80;
+}
+
+.text-forest-green {
+  color: #0b422b;
+}
+
+.brand-text {
+  color: var(--secondary-light-color);
+  font-style: italic;
+  font-weight: bold;
+  font-size: 2rem;
+}
+.slick-prev:before,
+.slick-next:before {
+  font-family: unset;
+}
+.slick-prev:before {
+  content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="white" class="bi bi-arrow-left" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/></svg>');
+}
+.slick-next:before {
+  content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="white" class="bi bi-arrow-right" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/></svg>');
+}
+
+.slick-prev:before {
+  position: absolute;
+  bottom: -13rem !important;
+  left: 2rem;
+}
+
+.slick-next:before {
+  position: absolute;
+  bottom: -13rem !important;
+  right: 100rem;
+}
+
+.action-icons svg {
+  fill: var(--secondary-light-color);
+}
+
+.form-check-input:checked {
+  background-color: var(--secondary-light-color);
+  border-color: var(--secondary-light-subtle-color);
+}
+.form-check-input:focus {
+  /* background-color: ; */
+  border-color: var(--secondary-light-color);
+  box-shadow: 0 0 0 0.25rem #e0904548;
+}
+@media only screen and (max-width: 768px) {
+  .slick-prev:before {
+    margin-top: 2rem;
+    bottom: -10rem !important;
+  }
+  .slick-next:before {
+    margin-top: 2rem;
+    bottom: -10rem !important;
+    right: 20rem;
   }
 
-.badge{
-padding: 0.45em 0.65em;
-font-size: .62rem;
+  .form-check-input {
+    height: 1.7rem;
+    width: 3rem !important;
+  }
 
-}
-.badge-light-secondary{
-    border: 1px solid #fff;
-    background-color: var(--secondary-light-color) !important;
-}
-
-.bg-linen-white{
-    background-color: rgb(250, 240, 230);
-}
-.bg-creamy-ivory{
-    background-color: rgb(255, 248, 231);
-
-}
-.bg-eggshell{
-    background-color: rgb(240, 234, 214);
-}
-
-.bg-light-lavender{
-    background-color: #E8E6F0;
-}
-.bg-misty-gray{
-    background-color: #F4F4F4;
-}
-.bg-pale-blue-gray{
-    background-color: #ECF1F4;
-}
-
-.text-slate-blue{
-    color: #525F80;
-}
-
-.text-forest-green{
-    color: #0B422B;
-}
-
-.brand-text{
-    color: var(--secondary-light-color);
-    font-style: italic;
-    font-weight: bold;
-    font-size: 2rem;
-}
-.slick-prev:before, .slick-next:before{
-    font-family: unset;
-}
-.slick-prev:before{
-    content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="white" class="bi bi-arrow-left" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/></svg>');
-
-}
-.slick-next:before{
-    content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="white" class="bi bi-arrow-right" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/></svg>');
-
-}
-
-.slick-prev:before{
-    position: absolute;
-    bottom: -13rem !important;
-    left: 2rem;
-}
-
-
-.slick-next:before{
-    position: absolute;
-    bottom: -13rem !important;
-    right: 100rem;
-}
-
-.action-icons svg{
-    fill: var(--secondary-light-color);
-}
-
-.form-check-input:checked{
-    background-color: var(--secondary-light-color);
-    border-color: var(--secondary-light-subtle-color) ;
-}
-.form-check-input:focus{
-    /* background-color: ; */
-    border-color: var(--secondary-light-color);
-    box-shadow: 0 0 0 0.25rem #e0904548;
-}
-@media only screen and (max-width:768px) {
-    .slick-prev:before{
-        margin-top: 2rem;
-        bottom: -10rem !important;
-    }
-    .slick-next:before{
-        margin-top: 2rem;
-        bottom: -10rem !important;
-        right: 20rem;
-    }
+  .form-check-input{
+    margin-right: 1rem !important
+  }
+  .form-check-label{
+    vertical-align: middle !important;
+  }
 }

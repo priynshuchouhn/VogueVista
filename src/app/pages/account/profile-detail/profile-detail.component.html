@@ -1,10 +1,19 @@
-<div class="contianer h-100">
-    <div class="row mb-4">
-        <div class="col-md-12">
+<div class="row bg-dark-subtle px-3 py-3 mx-0 d-flex d-md-none">
+    <div class="col-md-12">
+        <a routerLink="../" class="back-navigation">
+            <h2 class="mb-0 d-flex align-items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
+              </svg> Edit Personal Detail</h2> 
+        </a>
+    </div>
+</div>
+<div class="contianer h-100 p-2 py-4">
+    <div class="row mb-4 mx-0">
+        <div class="col-md-12 d-md-block d-none">
             <h4 class="fw-bold">Personal Details</h4>
         </div>
     </div>
-    <div class="row">
+    <div class="row mx-0">
         <div class="col-md-6">
             <div class="form-group">
                 <div class="input-group mb-3">
@@ -67,8 +76,9 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-6 mt-5">
-            <button class="btn btn-lg btn-outline-dark rounded-0">Update Profile</button>
+        <div class="col-md-6 mt-md-5 mt-3">
+            <button class="btn btn-lg btn-outline-dark rounded-0 d-none d-md-block">Update Profile</button>
+            <button class="btn btn-lg btn-outline-dark rounded-0 w-100 d-md-none">Update Profile</button>
         </div>
     </div>
 </div>

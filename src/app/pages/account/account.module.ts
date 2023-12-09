@@ -9,6 +9,7 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
 import { AddressComponent } from './address/address.component';
 import { AccountComponent } from './account.component';
 import { AccountWebComponent } from './account-web/account-web.component';
+import { AccountMobileComponent } from './account-mobile/account-mobile.component';
 
 
 
@@ -21,7 +22,9 @@ import { AccountWebComponent } from './account-web/account-web.component';
     NotificationComponent,
     ChangePasswordComponent,
     AddressComponent,
-    AccountWebComponent
+    AccountWebComponent,
+    AccountMobileComponent
+
   ],
   imports: [
     CommonModule,

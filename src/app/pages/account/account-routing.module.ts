@@ -8,6 +8,7 @@ import { MyOrderComponent } from "./my-order/my-order.component";
 import { ChangePasswordComponent } from "./change-password/change-password.component";
 import { AccountWebComponent } from "./account-web/account-web.component";
 import { AccountComponent } from "./account.component";
+import { AccountMobileComponent } from "./account-mobile/account-mobile.component";
 
 
 const routes: Routes = [
@@ -27,6 +28,7 @@ const routes: Routes = [
     {
         path: 'm', component: AccountComponent,
         children: [
+            {path:'', component: AccountMobileComponent},
             { path: 'profile', component: ProfileComponent },
             { path: 'profile-detail', component: ProfileDetailComponent },
             { path: 'address', component: AddressComponent },
