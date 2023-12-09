@@ -28,4 +28,8 @@ export class AnnoucementBarComponent {
     { name: 'Chinese Yuan', code: 'CNY' },
   ]
 
+  lstSetting = [
+    { name: 'Account', link: 'account' },
+  ]
+
 }

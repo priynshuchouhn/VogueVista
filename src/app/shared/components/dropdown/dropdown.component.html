@@ -1,8 +1,19 @@
 <div class="dropdown">
     <button class="dropdown-toggle" type="button" data-toggle="dropdown">
-      {{ (selectedOption | uppercase) || (defaultOption | uppercase) }}
+      @if (type!='setting') {
+        <span>{{ (selectedOption | uppercase) || (defaultOption | uppercase) }}</span>
+      }
+      @else {
+        <span>Setting</span>
+      }
     </button>
     <div class="dropdown-menu">
-      <a *ngFor="let option of options" class="dropdown-item" (click)="selectOption(option)">{{ option.name }}</a>
+      @if (type!='setting') {
+        <a *ngFor="let option of options" class="dropdown-item" (click)="selectOption(option)" >{{ option.name }}</a>
+      }
+      @else {
+        <a routerLink="{{ option.link }}" *ngFor="let option of options" class="dropdown-item" >{{ option.name }}</a>
+      }
+      
     </div>
   </div>

@@ -43,6 +43,9 @@
     bottom: 10%;
    
 }
+.category-to-visit-section{
+  overflow-x: hidden;
+}
 .section-heading{
     font-size: 3rem;
     font-weight: 500;
