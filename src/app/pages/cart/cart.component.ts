@@ -8,5 +8,6 @@ import { Component } from '@angular/core';
 export class CartComponent {
 
   cartItem = Array(3).fill(0)
+  similarProducts = Array(5).fill(0)
 
 }
