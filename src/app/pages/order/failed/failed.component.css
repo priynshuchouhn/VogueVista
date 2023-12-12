@@ -1,0 +1,29 @@
+.main-container{
+    min-height: 80vh;
+}
+
+.card{
+    background-color: transparent;
+    border: none;
+}
+.circle{
+    border: 1px solid var(--red);
+    border-radius: 50%;
+    aspect-ratio: 1/1;
+    /* max-width: 10rem; */
+    padding: 2rem !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+svg{
+    fill: var(--red) !important;
+}
+
+.card-box-shadow{
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2) !important;
+}
+td{
+    padding: 1rem .5rem;
+}
