@@ -4,7 +4,7 @@
     </div>
     <div class="col-10">
         <div class="row justify-content-center">
-            <div class="col-md-8 order-2 order-md-1">
+            <div class="col-md-8">
                 <ng-container *ngFor="let item of cartItem">
                     <div class="row mb-5">
                         <div class="col-md-3 text-center mb-3">
@@ -51,7 +51,7 @@
                     <hr />
                 </ng-container>
             </div>
-            <div class="col-md-4 order-1 order-md-2 mb-5">
+            <div class="col-md-4 mb-5">
                 <div class="mb-3">
                     <h2>Summary</h2>
                 </div>
@@ -83,7 +83,9 @@
                     <p class="text-success">Lorem ipsum dolor sit amet.</p>
                 </div>
                 <div class="text-center">
-                    <button class="btn btn-lg btn-dark w-100 rounded-0">Checkout</button>
+                    <a [routerLink]="['../checkout']">
+                        <button class="btn btn-lg btn-dark w-100 rounded-0">Checkout</button>
+                    </a>
                 </div>
             </div>
         </div>

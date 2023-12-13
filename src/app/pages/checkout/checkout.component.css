@@ -1,0 +1,51 @@
+td{
+    font-size: 1.25rem;
+    padding: 0.8rem;
+}
+tbody td{
+    border: none;
+}
+tfoot td{
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+tfoot tr{
+    border-top: 2px dashed #ccc !important;
+    border-bottom: 2px dashed #ccc;
+}
+
+.product-name{
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.seller-name{
+    color: #777;
+    margin-bottom: 0;
+}
+.price{
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.quantity .btn{
+border: 1px solid #777;
+}
+
+.quantity .input-field{
+    font-size:1.2rem ;
+    border: 1px solid #777;
+    border-left: none;
+    border-right: none;
+
+}
+
+.input-field:focus{
+box-shadow: none;
+border: none;
+outline: none !important;
+}
+
+
+/* Accordian  */
+
