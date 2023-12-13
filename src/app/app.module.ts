@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { RegisterComponent } from './auth/register/register.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SharedModule
+    SharedModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

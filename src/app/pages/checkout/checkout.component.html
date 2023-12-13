@@ -1,41 +1,83 @@
 <div class="container p-2 py-5 d-flex flex-column align-items-center">
-    <div class="col-md-10 mb-4">
-        <h1>Checkout</h1>
-    </div>
-    <div class="col-10">
+    <div class="col-md-10">
+        <div class="col-md-10 mb-4">
+            <h1>Checkout</h1>
+        </div>
         <div class="row justify-content-center">
-            <div class="col-md-8">
-                <ng-container *ngFor="let item of cartItem">
-                    <div class="row mb-5">
-                        <div class="col-md-3 text-center mb-3">
-                            <img src="https://static.nike.com/a/images/t_PDP_864_v1,f_auto,q_auto:eco/a277aa72-0b73-48da-8a6a-1fe1a21a6f03/victori-one-slides-QTTJHP.png"
-                                alt="" class="img-fluid" />
-                        </div>
-                        <div class="col-md-9">
-                            <p class="product-name">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam,
-                                dolorum!
-                            </p>
-                            <p class="seller-name">Quantity: <strong>1</strong></p>
-                            <p class="price">&#8377;1700</p>
-                            <button class="btn text-danger">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                    class="bi bi-trash" viewBox="0 0 16 16">
-                                    <path
-                                        d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z" />
-                                    <path
-                                        d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z" />
-                                </svg>
-                            </button>
+            <div class="col-md-8 order-2 order-md-1">
+                <div ngbAccordion [closeOthers]="true">
+                    <div ngbAccordionItem>
+                        <h2 ngbAccordionHeader>
+                            <button ngbAccordionButton>Order Summary</button>
+                        </h2>
+                        <div ngbAccordionCollapse>
+                            <div ngbAccordionBody>
+                                <ng-template>
+                                    <ng-container *ngFor="let item of cartItem; let i = index">
+                                        <div class="row">
+                                            <div class="col-md-3 text-center">
+                                                <img src="https://static.nike.com/a/images/t_PDP_864_v1,f_auto,q_auto:eco/a277aa72-0b73-48da-8a6a-1fe1a21a6f03/victori-one-slides-QTTJHP.png"
+                                                    alt="" class="img-fluid" />
+                                            </div>
+                                            <div class="col-md-9">
+                                                <p class="product-name mb-0">
+                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam,
+                                                    dolorum!
+                                                </p>
+                                                <p class="seller-name">Quantity: <strong>1</strong></p>
+                                                <p class="price mb-1">&#8377;1700</p>
+                                                <!-- <button class="btn text-danger"> -->
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28"
+                                                    fill="currentColor" class="bi bi-trash text-danger"
+                                                    viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z" />
+                                                    <path
+                                                        d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z" />
+                                                </svg>
+                                                <!-- </button> -->
+                                            </div>
+                                        </div>
+                                        <hr *ngIf="i < (cartItem.length-1)" />
+                                    </ng-container>
+                                </ng-template>
+                            </div>
                         </div>
                     </div>
-                    <hr />
-                </ng-container>
-            </div>
-            <div class="col-md-4 mb-5">
-                <div class="mb-3">
-                    <h2>Summary</h2>
+                    <div ngbAccordionItem [collapsed]="false">
+                        <h2 ngbAccordionHeader>
+                            <button ngbAccordionButton>Delivery Address</button>
+                        </h2>
+                        <div ngbAccordionCollapse>
+                            <div ngbAccordionBody>
+                                <ng-template>
+
+                                </ng-template>
+                            </div>
+                        </div>
+                    </div>
+                    <div ngbAccordionItem >
+                        <h2 ngbAccordionHeader>
+                            <button ngbAccordionButton>Payment</button>
+                        </h2>
+                        <div ngbAccordionCollapse>
+                            <div ngbAccordionBody>
+                                <ng-template>
+                                    <div class="row">
+                                        <div class="col-md-12 text-end">
+                                            <button class="btn btn-dark rounded-0 btn-lg w-50">Place Order</button>
+                                        </div>
+                                    </div>
+                                </ng-template>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+            </div>
+            <div class="col-md-4 col-10 mb-5 order-1 order-md-2">
+                <!-- <div class="mb-3">
+                    <h2>Summary</h2>
+                </div> -->
                 <div class="mb-3">
                     <table class="table">
                         <tbody>
