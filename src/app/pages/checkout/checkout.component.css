@@ -75,3 +75,14 @@ outline: none !important;
     border-radius:  0;
 } */
 
+
+.add-new-address-link{
+    text-decoration: none;
+    color: var(--secondary-light-color);
+    cursor: pointer;
+}
+
+.form-check-label{
+    margin-left: 1rem;
+    font-weight: 500;
+}

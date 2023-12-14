@@ -118,6 +118,13 @@
   border-color: var(--secondary-light-color);
   box-shadow: 0 0 0 0.25rem #e0904548;
 }
+
+
+input[type='radio'].form-check-input {
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
 @media only screen and (max-width: 768px) {
   .slick-prev:before {
     margin-top: 2rem;
@@ -129,15 +136,15 @@
     right: 20rem;
   }
 
-  .form-check-input {
+  input[type='checkbox'].form-check-input {
     height: 1.7rem;
     width: 3rem !important;
   }
 
-  .form-check-input {
+  input[type='checkbox'].form-check-input {
     margin-right: 1rem !important;
   }
-  .form-check-label {
+  input[type='checkbox'].form-check-label {
     vertical-align: middle !important;
   }
 }
