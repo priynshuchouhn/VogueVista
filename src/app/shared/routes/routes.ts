@@ -8,6 +8,7 @@ export const content : Routes = [
     { path: 'wishlist' , loadChildren: ()=> import('../../pages/wishlist/wishlist.module').then((m)=> m.WishlistModule)},
     { path: 'order' , loadChildren: ()=> import('../../pages/order/order.module').then((m)=> m.OrderModule)},
     { path: 'checkout' , loadChildren: ()=> import('../../pages/checkout/checkout.module').then((m)=> m.CheckoutModule)},
+    { path: 'product' , loadChildren: ()=> import('../../pages/product/product.module').then((m)=> m.ProductModule)},
 ]
 
 

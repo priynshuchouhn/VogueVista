@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class ProductListingComponent {
 
+  products = Array(15).fill(0)
+
 }

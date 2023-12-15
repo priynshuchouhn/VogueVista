@@ -1,0 +1,16 @@
+.card{
+    border-radius: 0;
+    border: none;
+}
+p{
+    margin-bottom: 0;
+}
+h5{
+    margin-bottom: 0;
+}
+
+.sort-card{
+    position: sticky;
+    top: 63px;
+    z-index:10
+}
