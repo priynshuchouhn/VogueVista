@@ -1,6 +1,6 @@
 <div class="container position-relative">
     <div class="row">
-        <div class="col-md-2">
+        <div class="col-md-2 d-none d-md-block">
             <div class="card sort-card">
                 <div class="card-body">
                     <div class="row">
@@ -59,7 +59,7 @@
             </div>
         </div>
         <div class="col-md-10">
-            <div class="row mb-3 sort-card">
+            <div class="row mb-3 d-none d-md-flex sort-card">
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-body">
@@ -75,9 +75,17 @@
                     </div>
                 </div>
             </div>
+            <div class="row mb-3 d-flex d-md-none sort-card-mobile">
+                <div class="col-6 bg-dark-subtle p-3 text-center border-end border-2">
+                    <p class="fs-1">Filter</p>
+                </div>
+                <div class="col-6 bg-dark-subtle p-3 text-center border-start border-2">
+                    <p class="fs-1">Sort</p>
+                </div>
+            </div>
             <div class="row">
                 @for (item of products; track $index) {
-                    <div class="col-md-3">
+                    <div class="col-md-3 col-6">
                         <app-product-card></app-product-card>
                     </div>
                 }
