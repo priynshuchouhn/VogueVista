@@ -13,13 +13,15 @@ export class SimilarProductsComponent implements AfterViewInit {
   constructor(private el: ElementRef) {}
 
   ngAfterViewInit(): void {
-    const scrollContainer = this.el.nativeElement.querySelector('#similarProducts');
-    const hammer = new Hammer(scrollContainer);
-
-    hammer.get('pan').set({ direction: Hammer.DIRECTION_HORIZONTAL });
-    hammer.on('pan', (event) => {
-      scrollContainer.scrollLeft -= event.deltaX;
-    });
+    if(window.innerWidth >=1024){
+      const scrollContainer = this.el.nativeElement.querySelector('#similarProducts');
+      const hammer = new Hammer(scrollContainer);
+  
+      hammer.get('pan').set({ direction: Hammer.DIRECTION_HORIZONTAL });
+      hammer.on('pan', (event) => {
+        scrollContainer.scrollLeft -= event.deltaX;
+      });
+    }
   }
 
 }
