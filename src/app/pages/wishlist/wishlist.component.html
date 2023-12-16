@@ -43,12 +43,5 @@
     </div>
 </div>
 <div class="container-fuild px-3">
-    <div class="row mb-4">
-        <h2>You Might Also Like</h2>
-    </div>
-    <div class="row-md d-flex overflow-x-scroll">
-        <div class="col-md-3 col-12 me-2" *ngFor="let item of similarProducts">
-            <app-product-card></app-product-card>
-        </div>
-    </div>
+   <app-similar-products></app-similar-products>
 </div>

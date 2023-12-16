@@ -25,3 +25,7 @@ p{
     border: none;
     border-radius: 0;
 }
+
+a{
+    text-decoration: none;
+}

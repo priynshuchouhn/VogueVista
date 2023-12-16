@@ -1,0 +1,54 @@
+.product-name{
+    font-size: 1.7rem;
+    font-weight: 600;
+    margin-bottom: .5rem;
+    letter-spacing: .8px;
+}
+
+.seller-name{
+    color: #777;
+    margin-bottom: .25rem;
+}
+
+.price{
+   font-size: 1.4rem;
+   color: #777;
+   font-weight: 600;
+}
+.quantity .btn{
+    border: 1px solid #777;
+    }
+    
+    .quantity .input-field{
+        font-size:1.2rem ;
+        border: 1px solid #777;
+        border-left: none;
+        border-right: none;
+    
+    }
+    
+    .input-field:focus{
+    box-shadow: none;
+    border: none;
+    outline: none !important;
+    }
+    .description{
+        color: #777;
+    }
+
+
+.accordion-button{
+   padding-left: 0;
+   font-weight: 600;
+}
+
+.accordion-item {
+    border-radius: 0;
+    /* margin-bottom: 1rem; */
+    border: none;
+
+}
+.accordion-button:not(.collapsed){
+    background-color: #fff !important;
+    color: #000;
+}

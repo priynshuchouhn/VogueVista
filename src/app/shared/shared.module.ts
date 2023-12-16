@@ -10,6 +10,7 @@ import { ProductCardComponent } from './components/product-card/product-card.com
 import { ProductImageCardComponent } from './components/product-image-card/product-image-card.component';
 import { ProductHorizontalCardComponent } from './components/product-horizontal-card/product-horizontal-card.component';
 import { DropdownComponent } from './components/dropdown/dropdown.component';
+import { SimilarProductsComponent } from './components/similar-products/similar-products.component';
 
 
 
@@ -24,6 +25,7 @@ import { DropdownComponent } from './components/dropdown/dropdown.component';
     ProductImageCardComponent,
     ProductHorizontalCardComponent,
     DropdownComponent,
+    SimilarProductsComponent,
   ],
   imports: [
     CommonModule,
@@ -35,7 +37,8 @@ import { DropdownComponent } from './components/dropdown/dropdown.component';
     ProductCardComponent,
     ProductImageCardComponent,
     ProductHorizontalCardComponent,
-    DropdownComponent
+    DropdownComponent,
+    SimilarProductsComponent,
   ]
 })
 export class SharedModule { }
