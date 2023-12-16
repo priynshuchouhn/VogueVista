@@ -9,10 +9,35 @@
   display: grid;
   align-content: center;
 }
+.mobile-banner-text{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  top: 0;
+  /* background-color: #5c0925; */
+}
+.banner-small-text{
+  margin-bottom: .15rem;
+  font-size: 1.2rem;
+  color: #777;
+}
+.banner-heading-text{
+font-size: 2.5rem;
+font-weight: 600;
+letter-spacing: 1.3px;
+
+}
+.banner-sub-heading{
+  font-size: 2rem;
+  font-style: italic;
+}
+
 .fashion-trend-year {
   font-size: 6.5rem;
   font-weight: 700;
 }
+
 .fashion-trend-main-text {
   font-size: 3.75rem;
   font-weight: 700;
@@ -26,38 +51,75 @@
   color: #777;
   letter-spacing: 1rem;
 }
+
 .glass-effect-card {
   background-color: #ffffff32;
 }
 
-.card{
-    border-radius: 0;
-    border: none;
+.card {
+  border-radius: 0;
+  border: none;
 }
 
-.side-card-text{
-    font-size: 2rem;
+.side-card-text {
+  font-size: 2rem;
 }
-.side-card-content{
-    /* background-color: aqua; */
-    bottom: 10%;
-   
+
+.side-card-content {
+  /* background-color: aqua; */
+  bottom: 10%;
+
 }
-.category-to-visit-section{
+
+.category-to-visit-section {
   overflow-x: hidden;
 }
-.section-heading{
-    font-size: 3rem;
-    font-weight: 500;
+
+.section-heading {
+  font-size: 3rem;
+  font-weight: 500;
 }
-.caurosel-width{
-    width: 120% !important;
+
+.caurosel-width {
+  width: 120% !important;
+}
+
+.banner {
+  height: 80vh;
+}
+
+.banner img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
 
 /* for responsiveness */
 
 @media only screen and (max-width:768px) {
-    .caurosel-width{
-        width: 100% !important;
-    }
+  .caurosel-width {
+    width: 100% !important;
+  }
+
+  .banner-small-text{
+    margin-bottom: .15rem;
+    font-size: 1.1rem;
+    color: #777;
+  }
+  .banner-heading-text{
+  font-size: 1.8rem;
+  font-weight: 600;
+  letter-spacing: 1.1px;
+  margin-bottom: .15rem;
+  
+  }
+  .banner-sub-heading{
+    font-size: 1.3rem;
+    font-style: italic;
+  }
+
+  .banner {
+    height: 60vh;
+  }
+  
 }

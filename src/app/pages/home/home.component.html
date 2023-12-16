@@ -1,7 +1,35 @@
 <!-- <p>home works!</p> -->
 
 <!-- Banner -->
-<section>Banner</section>
+<section>
+    <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="bannerConfig">
+        @for (slide of slides; track slide.img) {
+        <div ngxSlickItem class="slide">
+            <div class="row banner">
+                <div class="col-md-6 bg-warning-subtle px-0 d-none d-md-flex align-items-center">
+                    <div class="px-5">
+                        <p class="banner-small-text">Lorem, ipsum dolor.</p>
+                        <p class="banner-heading-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Qui, magnam?</p>
+                        <p class="banner-sub-heading">Lorem ipsum dolor sit amet.</p>
+                        <button class="btn-light btn-lg btn rounded-0">Shop now -></button>
+                    </div>
+                </div>
+                <div class="col-md-6 px-md-0 position-relative">
+                    <img src="{{ slide.img }}" alt="">
+                    <div class="px-5 mobile-banner-text py-3">
+                        <div class="d-flex justify-content-end h-100 flex-column align-items-start">
+                            <p class="banner-small-text">Lorem, ipsum dolor.</p>
+                            <p class="banner-heading-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Qui, magnam?</p>
+                            <p class="banner-sub-heading">Lorem ipsum dolor sit amet.</p>
+                            <button class="btn-light btn-lg btn rounded-0">Shop now -></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        }
+    </ngx-slick-carousel>
+</section>
 
 <!-- Category to visit -->
 <section class="category-to-visit-section">

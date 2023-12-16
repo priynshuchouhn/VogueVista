@@ -14,8 +14,8 @@ export class HomeComponent {
   ];
 
   products = Array(4).fill(0);
-  slideConfig = {"slidesToShow": 2, "slidesToScroll": 2, infinite: true,dots: true, prevArrow: false,
-  nextArrow: false};
+  bannerConfig = {"slidesToShow": 1, "slidesToScroll": 1, infinite: true,dots: false, prevArrow: false,nextArrow: false, autoplay: true, autoplaySpeed: 3000};
+  slideConfig = {"slidesToShow": 2, "slidesToScroll": 2, infinite: true,dots: true, prevArrow: false,nextArrow: false};
   slideConfigTwo = {"slidesToShow": 3, "slidesToScroll": 1, infinite: true, responsive: [
     {
       breakpoint: 692,
