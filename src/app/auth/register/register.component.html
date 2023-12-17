@@ -31,44 +31,51 @@
                                 with Email</span>
                         </div>
                         <div class="col-md-8">
-                            <div class="row justify-content-center">
-                                <div class="col-md-12">
-                                    <div class="form-group mb-3">
-                                        <label for="name" class="form-label">Your Name</label>
-                                        <input type="text" id="name" class="form-control form-control-lg rounded-0"
-                                            placeholder="Priyanshu">
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="form-group mb-3">
-                                        <label for="email" class="form-label">Your Email</label>
-                                        <input type="email" id="email" class="form-control form-control-lg rounded-0"
-                                            placeholder="yourname@email.com">
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="form-group mb-3">
-                                        <label for="password" class="form-label">Create Password</label>
-                                        <input type="password" id="password" class="form-control form-control-lg rounded-0"
-                                            placeholder="*********">
-                                    </div>
-                                </div>
-                                <div class="col-md-12 mb-3">
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <div class="form-check">
-                                                <input class="form-check-input rounded-0" type="checkbox" value="" id="flexCheckDefault">
-                                                <label class="form-check-label" for="flexCheckDefault">
-                                                    I accept the terms of the <a href="#"> Service & Privacy Policy.</a>
-                                                </label>
-                                              </div>
+                            <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                                <div class="row justify-content-center">
+                                    <div class="col-md-12">
+                                        <div class="form-group mb-3">
+                                            <label for="name" class="form-label">Your Name</label>
+                                            <input type="text" id="name" class="form-control form-control-lg rounded-0"
+                                                placeholder="Priyanshu" formControlName="username">
+                                                <small class="text-danger" *ngIf="isSubmitted && f['username'].errors?.['required']">Name is required</small>
                                         </div>
                                     </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group mb-3">
+                                            <label for="email" class="form-label">Your Email</label>
+                                            <input type="email" id="email" class="form-control form-control-lg rounded-0"
+                                                placeholder="yourname@email.com" formControlName="email">
+                                                <small class="text-danger" *ngIf="isSubmitted && f['email'].errors?.['required']">Email is required</small>
+                                                <small class="text-danger" *ngIf="isSubmitted && !f['email'].errors?.['required'] && f['email'].errors?.['email']">Email is not valid</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group mb-3">
+                                            <label for="password" class="form-label">Create Password</label>
+                                            <input type="password" id="password" class="form-control form-control-lg rounded-0"
+                                                placeholder="*********" formControlName="password">
+                                                <small class="text-danger" *ngIf="isSubmitted && f['password'].errors?.['required']">Password is required</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 mb-3">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="form-check">
+                                                    <input class="form-check-input rounded-0" type="checkbox" value="" id="flexCheckDefault" formControlName="terms_conditions">
+                                                    <label class="form-check-label" for="flexCheckDefault" >
+                                                        I accept the <a href="#">terms of the Service & Privacy Policy.</a>
+                                                    </label>
+                                                </div>
+                                                <small class="text-danger" *ngIf="isSubmitted && f['terms_conditions'].errors?.['required']">Please accept the terms of the Service & Privacy Policy.</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <button class="btn btn-outline-dark rounded-0 w-100 btn-lg" type="submit">Sign up</button>
+                                    </div>
                                 </div>
-                                <div class="col-md-12">
-                                    <button class="btn btn-outline-dark rounded-0 w-100 btn-lg">Sign up</button>
-                                </div>
-                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>
