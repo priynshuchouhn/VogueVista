@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SideMenuService } from 'src/app/shared/services/side-menu.service';
 
 @Component({
   selector: 'app-content',
@@ -6,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./content.component.css']
 })
 export class ContentComponent {
+  constructor(public sideMenuService: SideMenuService){}
 
 }

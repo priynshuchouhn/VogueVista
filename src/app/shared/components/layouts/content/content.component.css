@@ -7,5 +7,21 @@
 .header{
     position: sticky;
     top: 0;
-    z-index: 999;
+    z-index: 99;
+}
+
+.sidebar{
+    position: fixed;
+    top: 0;
+    background-color: aqua;
+    width: 80%;
+    height: 100%;
+    z-index: 100;
+    transform: translateX(-100%);
+    transition: .1s all linear;
+}
+
+.side-menu-active{
+    transform: translateX(0%);
+    transition: .1s all linear;
 }

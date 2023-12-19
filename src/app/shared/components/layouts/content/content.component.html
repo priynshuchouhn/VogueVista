@@ -1,12 +1,17 @@
-<div class="annonucement-bar">
-    <app-annoucement-bar></app-annoucement-bar>
-</div>
-<div class="header">
-    <app-header></app-header>
-</div>
-<div class="main-content">
-    <router-outlet></router-outlet>
-</div>
-<div class="footer">
-    <app-footer></app-footer>
+<div class="page-wrapper">
+    <div class="annonucement-bar">
+        <app-annoucement-bar></app-annoucement-bar>
+    </div>
+    <div class="header">
+        <app-header></app-header>
+    </div>
+    <div class="main-content">
+        <router-outlet></router-outlet>
+    </div>
+    <div class="sidebar d-block d-md-none" [class.side-menu-active]="sideMenuService.sideMenuCollapsed">
+        <app-side-menu></app-side-menu>
+    </div>
+    <div class="footer">
+        <app-footer></app-footer>
+    </div>
 </div>

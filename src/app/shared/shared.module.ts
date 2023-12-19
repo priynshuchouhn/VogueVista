@@ -11,6 +11,7 @@ import { ProductImageCardComponent } from './components/product-image-card/produ
 import { ProductHorizontalCardComponent } from './components/product-horizontal-card/product-horizontal-card.component';
 import { DropdownComponent } from './components/dropdown/dropdown.component';
 import { SimilarProductsComponent } from './components/similar-products/similar-products.component';
+import { SideMenuComponent } from './components/side-menu/side-menu.component';
 
 
 
@@ -26,6 +27,7 @@ import { SimilarProductsComponent } from './components/similar-products/similar-
     ProductHorizontalCardComponent,
     DropdownComponent,
     SimilarProductsComponent,
+    SideMenuComponent,
   ],
   imports: [
     CommonModule,
