@@ -56,3 +56,41 @@ right: 0px;
 #search{
     padding: 12px;
 }
+
+.nav-item{
+  position: relative;
+  font-size: 1.2rem;
+  color: var(--slate-blue);
+  font-weight: 500;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: .3s all;
+}
+
+/* .nav-item:hover{
+  position: relative;
+} */
+
+.nav-item:hover::after{
+  content: ""; /* Create a pseudo-element for the animated border-bottom */
+  position: absolute; /* Position it absolutely within the parent */
+  bottom: 0; /* Place it at the bottom */
+  left: 0;   /* Start from the left */
+  height: 2px; /* Define the thickness of the border */
+  width: 0;    /* Initially, no width */
+  background-color: var(--secondary-light-color); /* You can change the color as per your requirement */
+  animation: borderBottomAnimation 0.2s forwards; /* Animation duration is set to 0.5 seconds on hover */
+  transform-origin: left; 
+}
+
+
+@keyframes borderBottomAnimation {
+  0% {
+    width: 0; /* Start with no border */
+    left: 0;  /* Start from the left side */
+  }
+  100% {
+    width: 100%; /* End with full border */
+    left: 0;    /* Still starting from the left side, but this is to illustrate the motion */
+  }
+}
