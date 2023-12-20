@@ -1,6 +1,7 @@
 .side-menu{
+    position: relative;
     background-color: #fff;
-    width: 100% !important;
+    width: 80% !important;
     height: 100%;
     text-align: start;
 }

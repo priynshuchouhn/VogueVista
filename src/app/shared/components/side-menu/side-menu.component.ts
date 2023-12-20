@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SideMenuService } from '../../services/side-menu.service';
 
 @Component({
   selector: 'app-side-menu',
@@ -6,5 +7,17 @@ import { Component } from '@angular/core';
   styleUrl: './side-menu.component.css'
 })
 export class SideMenuComponent {
+
+  constructor(private sideMenuService: SideMenuService){
+
+  }
+
+  menuItem = [
+    'Fashion', 'Electronics', 'Books', 'Kitchen Ware'
+  ]
+
+  closeSideMenu(){
+    this.sideMenuService.sideMenuCollapsed = false
+  }
 
 }
