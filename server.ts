@@ -34,6 +34,7 @@ export function app(): express.Express {
     commonEngine
       .render({
         bootstrap: AppServerModule,
+        inlineCriticalCss: false,
         documentFilePath: indexHtml,
         url: `${protocol}://${headers.host}${originalUrl}`,
         publicPath: distFolder,
