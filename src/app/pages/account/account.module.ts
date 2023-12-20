@@ -10,6 +10,7 @@ import { AddressComponent } from './address/address.component';
 import { AccountComponent } from './account.component';
 import { AccountWebComponent } from './account-web/account-web.component';
 import { AccountMobileComponent } from './account-mobile/account-mobile.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -28,7 +29,8 @@ import { AccountMobileComponent } from './account-mobile/account-mobile.componen
   ],
   imports: [
     CommonModule,
-    AccountRoutingModule
+    AccountRoutingModule,
+    ReactiveFormsModule
   ]
 })
 export class AccountModule { }
