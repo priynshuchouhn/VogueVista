@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class SideMenuService {
 
-  sideMenuCollapsed: boolean = true
+  sideMenuCollapsed: boolean = false
 
   constructor() { }
 }
