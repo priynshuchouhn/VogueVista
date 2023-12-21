@@ -14,18 +14,20 @@ export class SimilarProductsComponent implements AfterViewInit {
   constructor(private el: ElementRef, @Inject(PLATFORM_ID) private platformId: any) {}
 
   ngAfterViewInit(): void {
-    import('hammerjs').then((HammerModule) => {
-      const Hammer = HammerModule || HammerModule;
-      
-      if (window.innerWidth >= 1024) {
-        const scrollContainer = this.el.nativeElement.querySelector('#similarProducts');
-        const hammer = new Hammer(scrollContainer);
-        hammer.get('pan').set({ direction: Hammer.DIRECTION_HORIZONTAL });
-        hammer.on('pan', (event: any) => {
-          scrollContainer.scrollLeft -= event.deltaX;
-        });
-      }
-    });
+    if(isPlatformBrowser(this.platformId)){
+      import('hammerjs').then((HammerModule) => {
+        const Hammer = HammerModule || HammerModule;
+        
+        if (window.innerWidth >= 1024) {
+          const scrollContainer = this.el.nativeElement.querySelector('#similarProducts');
+          const hammer = new Hammer(scrollContainer);
+          hammer.get('pan').set({ direction: Hammer.DIRECTION_HORIZONTAL });
+          hammer.on('pan', (event: any) => {
+            scrollContainer.scrollLeft -= event.deltaX;
+          });
+        }
+      });
+    }
   }
 
 }
