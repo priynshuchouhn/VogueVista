@@ -12,6 +12,7 @@ import { ProductHorizontalCardComponent } from './components/product-horizontal-
 import { DropdownComponent } from './components/dropdown/dropdown.component';
 import { SimilarProductsComponent } from './components/similar-products/similar-products.component';
 import { SideMenuComponent } from './components/side-menu/side-menu.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -31,7 +32,8 @@ import { SideMenuComponent } from './components/side-menu/side-menu.component';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    NgbModule
   ],
   exports: [
     HeaderComponent,

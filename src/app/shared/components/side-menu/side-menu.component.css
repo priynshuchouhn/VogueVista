@@ -5,3 +5,23 @@
     height: 100%;
     text-align: start;
 }
+.menu-items{
+    overflow-y: scroll;
+    max-height: 80vh;
+}
+
+.accordion-button{
+    padding: 1.5rem 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    /* color: #777; */
+}
+
+.accordion-item {
+    border-radius: 0;
+    border: none;
+}
+.accordion-button:not(.collapsed){
+    background-color: #fff !important;
+    color: #000;
+}
