@@ -1,7 +1,7 @@
 {
-  "name": "VogueVista",
-  "short_name": "VogueVista",
-  "theme_color": "#30989e",
+  "name": "Vogue Vista",
+  "short_name": "Vogue Vista",
+  "theme_color": "#e09145",
   "background_color": "#fafafa",
   "display": "standalone",
   "scope": "./",
