@@ -37,7 +37,7 @@ export class SideMenuService {
     ])
   ]
 
-  sideMenuCollapsed: boolean = true
+  sideMenuCollapsed: boolean = false
 
   getMenuItem(){
     return this.menuItem.slice()

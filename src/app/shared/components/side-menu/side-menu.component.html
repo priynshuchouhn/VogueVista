@@ -20,7 +20,7 @@
                 <div ngbAccordionCollapse>
                     <div ngbAccordionBody>
                         <ng-template>
-                            <p class="fs-5 fw-semibold" *ngFor="let a of item.children">{{ a.menuItemTitle }}</p>
+                            <a [routerLink] ="['/product/l']" (click)="closeSideMenu()" class="fs-5 fw-semibold d-block" *ngFor="let a of item.children">{{ a.menuItemTitle }}</a>
                         </ng-template>
                     </div>
                 </div>

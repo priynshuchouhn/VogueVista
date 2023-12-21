@@ -12,7 +12,6 @@ export class SideMenuComponent {
 
   constructor(private sideMenuService: SideMenuService){
     this.menuItem = this.sideMenuService.getMenuItem();
-    // console.log(this.menuItem)
 
   }
 
