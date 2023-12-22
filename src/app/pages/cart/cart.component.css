@@ -28,20 +28,3 @@ tfoot tr{
     font-weight: 600;
 }
 
-.quantity .btn{
-border: 1px solid #777;
-}
-
-.quantity .input-field{
-    font-size:1.2rem ;
-    border: 1px solid #777;
-    border-left: none;
-    border-right: none;
-
-}
-
-.input-field:focus{
-box-shadow: none;
-border: none;
-outline: none !important;
-}

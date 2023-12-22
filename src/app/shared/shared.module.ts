@@ -13,6 +13,8 @@ import { DropdownComponent } from './components/dropdown/dropdown.component';
 import { SimilarProductsComponent } from './components/similar-products/similar-products.component';
 import { SideMenuComponent } from './components/side-menu/side-menu.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { QuantityControlComponent } from './components/quantity-control/quantity-control.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -29,10 +31,12 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     DropdownComponent,
     SimilarProductsComponent,
     SideMenuComponent,
+    QuantityControlComponent,
   ],
   imports: [
     CommonModule,
     RouterModule,
+    FormsModule,
     NgbModule
   ],
   exports: [
@@ -43,6 +47,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ProductHorizontalCardComponent,
     DropdownComponent,
     SimilarProductsComponent,
+    QuantityControlComponent
   ]
 })
 export class SharedModule { }
