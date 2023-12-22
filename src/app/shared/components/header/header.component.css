@@ -67,9 +67,13 @@ right: 0px;
   transition: .3s all;
 }
 
-/* .nav-item:hover{
-  position: relative;
-} */
+.search-input{
+ display: none;
+}
+.search-input-active{
+ display: block;
+
+}
 
 .nav-item:hover::after{
   content: ""; /* Create a pseudo-element for the animated border-bottom */
