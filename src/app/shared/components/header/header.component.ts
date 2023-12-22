@@ -8,15 +8,11 @@ import { SideMenuService } from '../../services/side-menu.service';
 })
 export class HeaderComponent {
 
-  constructor(public sideMenuService: SideMenuService){}
+  constructor(private sideMenuService: SideMenuService){}
   userLogined:boolean = false;
   authPage: boolean = false
 
   toggleSideMenu(){
     this.sideMenuService.sideMenuCollapsed = !this.sideMenuService.sideMenuCollapsed
-  }
-  
-  toggleSearch(){
-    this.sideMenuService.searchCollapsed = !this.sideMenuService.searchCollapsed
   }
 }

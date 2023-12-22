@@ -5,9 +5,6 @@ import { MenuItems } from '../model/menu.model';
   providedIn: 'root'
 })
 export class SideMenuService {
-  
-  sideMenuCollapsed: boolean = false
-  searchCollapsed: boolean = true
 
   private menuItem: MenuItems[] = [
     new MenuItems(1, 'Fashion', [
@@ -40,6 +37,7 @@ export class SideMenuService {
     ])
   ]
 
+  sideMenuCollapsed: boolean = false
 
   getMenuItem(){
     return this.menuItem.slice()
