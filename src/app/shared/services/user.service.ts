@@ -1,5 +1,9 @@
 import { Injectable } from '@angular/core';
 import { User } from '../model/user.model';
+import { HttpClient } from '@angular/common/http';
+import { API } from '../API/API';
+import { Router } from '@angular/router';
+
 
 @Injectable({
   providedIn: 'root'
@@ -16,5 +20,17 @@ export class UserService {
     return tempUser;
   }
 
-  constructor() { }
+  login(body: any){
+   return this.http.post(API.LOGIN, body)
+  }
+
+  register(body: any){
+    this.http.post(API.REGISTER, body).subscribe((res:any)=>{
+      if(res['success']==true){
+        this.router.navigate(['/']);
+      }
+    })
+  }
+
+  constructor(private http: HttpClient, private router: Router) { }
 }

@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UserService } from 'src/app/shared/services/user.service';
+
 
 @Component({
   selector: 'app-register',
@@ -11,7 +13,7 @@ export class RegisterComponent {
   registerForm: FormGroup
   isSubmitted: boolean = false
 
-  constructor(){
+  constructor(public userService: UserService){
     this.registerForm = new FormGroup({
       username: new FormControl(null, Validators.required),
       email: new FormControl(null, [Validators.required, Validators.email]),
@@ -29,6 +31,13 @@ export class RegisterComponent {
     if(this.registerForm.invalid){
       return;
     }
+    const value = this.registerForm.value
+    const body = {
+      name : value.username,
+      password: value.password,
+      email: value.email,
+    }
+    this.userService.register(body);
   }
 
 }
