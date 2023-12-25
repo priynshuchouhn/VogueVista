@@ -141,8 +141,7 @@
           "configurations": {
             "development": {
               "browserTarget": "VogueVista:build:development",
-              "serverTarget": "VogueVista:server:development",
-              "host": "170.20.10.3"
+              "serverTarget": "VogueVista:server:development"
 
             },
             "production": {

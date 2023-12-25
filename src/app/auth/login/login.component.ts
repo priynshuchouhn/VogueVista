@@ -39,6 +39,12 @@ export class LoginComponent {
     this.userService.login(body).subscribe({
       next: (res: any) => {
         if (res['success'] == true) {
+          const user = res['data'];
+          if(value['rememberMe'] == true){
+            localStorage.setItem('user', JSON.stringify(user));
+          }else{
+            sessionStorage.setItem('user', JSON.stringify(user));
+          }
           this.router.navigate(['/']);
         }
       },

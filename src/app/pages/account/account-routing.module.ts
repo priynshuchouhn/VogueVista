@@ -9,6 +9,7 @@ import { ChangePasswordComponent } from "./change-password/change-password.compo
 import { AccountWebComponent } from "./account-web/account-web.component";
 import { AccountComponent } from "./account.component";
 import { AccountMobileComponent } from "./account-mobile/account-mobile.component";
+import { authGuard } from "src/app/shared/guard/auth.guard";
 
 
 const routes: Routes = [
@@ -16,25 +17,25 @@ const routes: Routes = [
     {
         path: '', component: AccountWebComponent,
         children: [
-            { path: 'profile', component: ProfileComponent },
-            { path: 'profile-detail', component: ProfileDetailComponent },
-            { path: 'address', component: AddressComponent },
-            { path: 'notification', component: NotificationComponent },
-            { path: 'my-orders', component: MyOrderComponent },
-            { path: 'change-password', component: ChangePasswordComponent }
+            { path: 'profile', component: ProfileComponent , canActivate: [authGuard]},
+            { path: 'profile-detail', component: ProfileDetailComponent , canActivate: [authGuard]},
+            { path: 'address', component: AddressComponent , canActivate: [authGuard]},
+            { path: 'notification', component: NotificationComponent , canActivate: [authGuard]},
+            { path: 'my-orders', component: MyOrderComponent , canActivate: [authGuard]},
+            { path: 'change-password', component: ChangePasswordComponent, canActivate: [authGuard] }
         ],
         
     },
     {
         path: 'm', component: AccountComponent,
         children: [
-            {path:'', component: AccountMobileComponent},
-            { path: 'profile', component: ProfileComponent },
-            { path: 'profile-detail', component: ProfileDetailComponent },
-            { path: 'address', component: AddressComponent },
-            { path: 'notification', component: NotificationComponent },
-            { path: 'my-orders', component: MyOrderComponent },
-            { path: 'change-password', component: ChangePasswordComponent }
+            {path:'', component: AccountMobileComponent, canActivate: [authGuard]},
+            { path: 'profile', component: ProfileComponent , canActivate: [authGuard]},
+            { path: 'profile-detail', component: ProfileDetailComponent , canActivate: [authGuard]},
+            { path: 'address', component: AddressComponent , canActivate: [authGuard]},
+            { path: 'notification', component: NotificationComponent , canActivate: [authGuard]},
+            { path: 'my-orders', component: MyOrderComponent , canActivate: [authGuard]},
+            { path: 'change-password', component: ChangePasswordComponent , canActivate: [authGuard]}
         ],
         
     },
