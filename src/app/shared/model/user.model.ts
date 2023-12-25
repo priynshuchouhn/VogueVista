@@ -2,7 +2,7 @@ export class User {
     userId?: number;
     username: string
     email: string
-    mobileNo: number
+    mobileNo?: number
     token?: string
 
 

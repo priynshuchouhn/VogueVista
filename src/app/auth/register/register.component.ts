@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { UserService } from 'src/app/shared/services/user.service';
 
 
@@ -9,11 +10,11 @@ import { UserService } from 'src/app/shared/services/user.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
-
+  errorMessage: string = ''
   registerForm: FormGroup
   isSubmitted: boolean = false
 
-  constructor(public userService: UserService){
+  constructor(public userService: UserService, private router: Router){
     this.registerForm = new FormGroup({
       username: new FormControl(null, Validators.required),
       email: new FormControl(null, [Validators.required, Validators.email]),
@@ -37,7 +38,17 @@ export class RegisterComponent {
       password: value.password,
       email: value.email,
     }
-    this.userService.register(body);
+    this.userService.register(body).subscribe({
+      next: (res: any) => {
+        if (res['success'] == true) {
+          this.router.navigate(['/']);
+        }
+      },
+      error: (err) => {
+        this.errorMessage = err
+        console.log(err)
+      }
+    })
   }
 
 }
