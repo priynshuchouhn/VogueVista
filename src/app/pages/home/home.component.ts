@@ -10,13 +10,14 @@ import { BannerService } from 'src/app/shared/services/promotionals/banner.servi
 export class HomeComponent implements OnInit {
 
   bannerSlides: homePageBanner[] = []
-  promoBanner: Banner[] = []
+  promoBanner!: Banner
 
   constructor(private bannerService: BannerService) { }
 
   async ngOnInit() {
     this.bannerSlides = await this.bannerService.getHomeBanner();
-    this.promoBanner = await this.bannerService.getHomePromoBanner()
+    this.promoBanner = await this.bannerService.getHomePromoBanner();
+    
   }
 
   categoriesToVisit = [

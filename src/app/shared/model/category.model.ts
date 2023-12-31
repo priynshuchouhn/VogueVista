@@ -1,7 +1,8 @@
 export class Category {
     categoryId: number
     name: string
-    description: string
+    description?: string
+    image?: string
     children? : Category[]
 
     constructor(categoryId: number, name: string, description: string, children? : Category[]) {

@@ -11,7 +11,10 @@ export class API {
     
     
     // ! ===================== Banner ====================== !//
-
+    
     public static HOME_BANNER = this.BASE_URL+'banner/homePageBanner'
     public static HOME_PROMO_BANNER = this.BASE_URL+'banner/getHomePromotionalBanner'
+    
+    // ! ===================== Product ====================== !//
+    public static CATEGORY_LIST = this.BASE_URL+'category/list'
 }

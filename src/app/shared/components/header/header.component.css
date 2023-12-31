@@ -59,9 +59,7 @@ right: 0px;
 
 .nav-item{
   position: relative;
-  font-size: 1.2rem;
   color: var(--slate-blue);
-  font-weight: 500;
   cursor: pointer;
   border-bottom: 2px solid transparent;
   transition: .3s all;
@@ -73,6 +71,13 @@ right: 0px;
 .search-input-active{
  display: block;
 
+}
+
+.nav-item a{
+  color: unset;
+  text-decoration: none;
+  font-size: 1.2rem !important;
+  font-weight: 500 !important;
 }
 
 .nav-item:hover::after{

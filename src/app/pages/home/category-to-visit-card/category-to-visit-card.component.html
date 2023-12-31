@@ -2,7 +2,7 @@
     <div class="category-image"></div>
     <div class="category-name-btn">
         <h3 class="my-3">{{ category.category_name }}</h3>
-        <a routerLink="product/l">
+        <a [routerLink]="['/product',category.category_name.toLowerCase().split(' ').join('-'),'l']">
             <button class="btn btn-lg btn-outline-dark my-3 rounded-0">Shop Now -></button>
         </a>
     </div>

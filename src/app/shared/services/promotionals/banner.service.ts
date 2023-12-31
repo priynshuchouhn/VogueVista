@@ -25,7 +25,7 @@ export class BannerService {
     try {
       const res = this.http.get(API.HOME_PROMO_BANNER);
       const data = await lastValueFrom(res) as any
-      return data.data;
+      return data.data[0];
     } catch (error: any) {
       this.sharedService.handleError(error)
       return null
