@@ -20,12 +20,13 @@ export class HomeComponent implements OnInit {
   }
 
   categoriesToVisit = [
-    { image:'assets/images/clothing.png', category_name: 'Clothing', bgColorClass: 'bg-eggshell' },
-    { image:'assets/images/bags.png', category_name: 'Bags', bgColorClass: 'bg-creamy-ivory' },
-    { image:'assets/images/shoes.png', category_name: 'Shoes', bgColorClass: 'bg-linen-white' },
+    { image:'assets/images/clothing.png', category_name: 'Fashion', bgColorClass: 'bg-eggshell' },
+    { image:'assets/images/electronics.png', category_name: 'Electronics', bgColorClass: 'bg-creamy-ivory' },
+    { image:'assets/images/kitchen-ware.png', category_name: 'Kitchen Ware', bgColorClass: 'bg-linen-white' },
   ];
 
   products = Array(4).fill(0);
+  
   bannerConfig = { "slidesToShow": 1, "slidesToScroll": 1, infinite: true, dots: false, prevArrow: false, nextArrow: false, autoplay: true, autoplaySpeed: 3000 };
   slideConfig = { "slidesToShow": 2, "slidesToScroll": 2, infinite: true, dots: true, prevArrow: false, nextArrow: false };
   slideConfigTwo = {
