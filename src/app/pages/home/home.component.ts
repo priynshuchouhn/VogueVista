@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { homePageBanner } from 'src/app/shared/model/promotionals/banner.model';
+import { Banner, homePageBanner } from 'src/app/shared/model/promotionals/banner.model';
 import { BannerService } from 'src/app/shared/services/promotionals/banner.service';
 
 @Component({
@@ -10,17 +10,19 @@ import { BannerService } from 'src/app/shared/services/promotionals/banner.servi
 export class HomeComponent implements OnInit {
 
   bannerSlides: homePageBanner[] = []
+  promoBanner: Banner[] = []
 
   constructor(private bannerService: BannerService) { }
 
   async ngOnInit() {
-    this.bannerSlides = await this.bannerService.getHomeBanner()
+    this.bannerSlides = await this.bannerService.getHomeBanner();
+    this.promoBanner = await this.bannerService.getHomePromoBanner()
   }
 
   categoriesToVisit = [
-    { category_name: 'Clothing', bgColorClass: 'bg-eggshell' },
-    { category_name: 'Bags', bgColorClass: 'bg-creamy-ivory' },
-    { category_name: 'Shoes', bgColorClass: 'bg-linen-white' },
+    { image:'assets/images/clothing.png', category_name: 'Clothing', bgColorClass: 'bg-eggshell' },
+    { image:'assets/images/bags.png', category_name: 'Bags', bgColorClass: 'bg-creamy-ivory' },
+    { image:'assets/images/shoes.png', category_name: 'Shoes', bgColorClass: 'bg-linen-white' },
   ];
 
   products = Array(4).fill(0);

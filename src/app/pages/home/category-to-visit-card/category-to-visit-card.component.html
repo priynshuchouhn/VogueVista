@@ -1,4 +1,4 @@
-<div class="p-5 d-flex align-items-center category-to-visit-card" [ngClass]="category.bgColorClass">
+<div class="p-5 d-flex align-items-center category-to-visit-card" [ngClass]="category.bgColorClass" [ngStyle]="{'background-image': 'url(' + category.image + ')'}">
     <div class="category-image"></div>
     <div class="category-name-btn">
         <h3 class="my-3">{{ category.category_name }}</h3>

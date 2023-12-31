@@ -10,7 +10,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     opacity: 0.8;
-    transition: .2s all;
+    transition: .6s all;
 }
 /* .category-image{
     left: 0;
@@ -26,8 +26,8 @@
     transition: .2s all;
 } */
 .category-to-visit-card:hover{
-    transition: .2s all;
-    background-size: 170%;
+    transition: .6s all;
+    background-size: 130%;
 }
 /* .category-name-btn{
     position: absolute;
