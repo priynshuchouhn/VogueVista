@@ -1,37 +1,49 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { homePageBanner } from 'src/app/shared/model/promotionals/banner.model';
+import { BannerService } from 'src/app/shared/services/promotionals/banner.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
 
-  categoriesToVisit =  [
-    {category_name: 'Clothing', bgColorClass: 'bg-eggshell'},
-    {category_name: 'Bags', bgColorClass: 'bg-creamy-ivory'},
-    {category_name: 'Shoes', bgColorClass: 'bg-linen-white'},
+  bannerSlides: homePageBanner[] = []
+
+  constructor(private bannerService: BannerService) { }
+
+  async ngOnInit() {
+    this.bannerSlides = await this.bannerService.getHomeBanner()
+  }
+
+  categoriesToVisit = [
+    { category_name: 'Clothing', bgColorClass: 'bg-eggshell' },
+    { category_name: 'Bags', bgColorClass: 'bg-creamy-ivory' },
+    { category_name: 'Shoes', bgColorClass: 'bg-linen-white' },
   ];
 
   products = Array(4).fill(0);
-  bannerConfig = {"slidesToShow": 1, "slidesToScroll": 1, infinite: true,dots: false, prevArrow: false,nextArrow: false, autoplay: true, autoplaySpeed: 3000};
-  slideConfig = {"slidesToShow": 2, "slidesToScroll": 2, infinite: true,dots: true, prevArrow: false,nextArrow: false};
-  slideConfigTwo = {"slidesToShow": 3, "slidesToScroll": 1, infinite: true, responsive: [
-    {
-      breakpoint: 692,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1,
-      
+  bannerConfig = { "slidesToShow": 1, "slidesToScroll": 1, infinite: true, dots: false, prevArrow: false, nextArrow: false, autoplay: true, autoplaySpeed: 3000 };
+  slideConfig = { "slidesToShow": 2, "slidesToScroll": 2, infinite: true, dots: true, prevArrow: false, nextArrow: false };
+  slideConfigTwo = {
+    "slidesToShow": 3, "slidesToScroll": 1, infinite: true, responsive: [
+      {
+        breakpoint: 692,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+
+        }
       }
-    }
-  ]};
+    ]
+  };
   slides = [
-    {img: "http://placehold.it/350x150/000000"},
-    {img: "http://placehold.it/350x150/111111"},
-    {img: "http://placehold.it/350x150/333333"},
-    {img: "http://placehold.it/350x150/666666"},
-    {img: "http://placehold.it/350x150/333333"},
-    {img: "http://placehold.it/350x150/666666"}
+    { img: "http://placehold.it/350x150/000000" },
+    { img: "http://placehold.it/350x150/111111" },
+    { img: "http://placehold.it/350x150/333333" },
+    { img: "http://placehold.it/350x150/666666" },
+    { img: "http://placehold.it/350x150/333333" },
+    { img: "http://placehold.it/350x150/666666" }
   ];
 }

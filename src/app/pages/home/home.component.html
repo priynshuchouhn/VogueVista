@@ -2,25 +2,25 @@
 
 <!-- Banner -->
 <section>
-    <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="bannerConfig">
-        @for (slide of slides; track slide.img) {
+    <ngx-slick-carousel class="carousel " #slickModal="slick-carousel" [config]="bannerConfig">
+        @for (banner of bannerSlides; track banner.bannerId) {
         <div ngxSlickItem class="slide">
-            <div class="row banner">
-                <div class="col-md-6 bg-warning-subtle px-0 d-none d-md-flex align-items-center">
+            <div class="row mx-0 px-0">
+                <div class="col-md-6 bg-dark text-white px-0 d-none d-md-flex align-items-center banner">
                     <div class="px-5">
-                        <p class="banner-small-text">Lorem, ipsum dolor.</p>
-                        <p class="banner-heading-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Qui, magnam?</p>
-                        <p class="banner-sub-heading">Lorem ipsum dolor sit amet.</p>
+                        <p class="banner-small-text">{{ banner.bannerSmallText }}</p>
+                        <p class="banner-heading-text">{{ banner.bannerHeading }}</p>
+                        <p class="banner-sub-heading">{{banner.bannerSubheading}}</p>
                         <button class="btn-light btn-lg btn rounded-0">Shop now -></button>
                     </div>
                 </div>
-                <div class="col-md-6 px-md-0 position-relative">
-                    <img src="{{ slide.img }}" alt="">
+                <div class="col-md-6 px-md-0 position-relative banner">
+                    <img src="{{ banner.bannerImage }}" alt="" class="img-fluid">
                     <div class="px-5 mobile-banner-text d-block d-md-none py-3">
                         <div class="d-flex justify-content-end h-100 flex-column align-items-start">
-                            <p class="banner-small-text">Lorem, ipsum dolor.</p>
-                            <p class="banner-heading-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Qui, magnam?</p>
-                            <p class="banner-sub-heading">Lorem ipsum dolor sit amet.</p>
+                            <p class="banner-small-text">{{ banner.bannerSmallText }}</p>
+                            <p class="banner-heading-text">{{ banner.bannerHeading }}</p>
+                            <p class="banner-sub-heading">{{banner.bannerSubheading}}</p>
                             <button class="btn-light btn-lg btn rounded-0">Shop now -></button>
                         </div>
                     </div>
@@ -120,9 +120,10 @@
                 <h2 class="section-heading">This Week's Featured</h2>
             </div>
             <div class="col-md-12 p-lg-5 mb-4">
-                <ngx-slick-carousel class="carousel caurosel-width" #slickModal="slick-carousel" [config]="slideConfigTwo">
+                <ngx-slick-carousel class="carousel caurosel-width" #slickModal="slick-carousel"
+                    [config]="slideConfigTwo">
                     @for (slide of slides; track slide.img) {
-                    <div ngxSlickItem class="slide" >
+                    <div ngxSlickItem class="slide">
                         <div class="px-lg-2">
                             <app-product-horizontal-card></app-product-horizontal-card>
                         </div>
