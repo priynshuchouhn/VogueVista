@@ -17,4 +17,8 @@ export class API {
     
     // ! ===================== Product ====================== !//
     public static CATEGORY_LIST = this.BASE_URL+'category/list'
+    public static PRODUCT_LIST_BY_CATEGORY = this.BASE_URL+'category/list'
+    public static PRODUCT_LIST = this.BASE_URL+'product/list'
+    public static TRENDING_ARRIVALS = this.BASE_URL+'product/trendingArrivals'
+    public static BEST_SELLER = this.BASE_URL+'product/bestSeller'
 }

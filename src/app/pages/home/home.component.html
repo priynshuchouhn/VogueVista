@@ -82,10 +82,10 @@
                         </div>
                         <div class="col-md-12 p-md-5">
                             <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
-                                @for (slide of slides; track slide.img) {
+                                @for (product of lstTrendingArrivals; track product.productId) {
                                 <div ngxSlickItem class="slide" style="width: 50%;">
                                     <div class="px-2">
-                                        <app-product-card></app-product-card>
+                                        <app-product-card [product]="product"></app-product-card>
                                     </div>
                                 </div>
                                 }
@@ -97,7 +97,7 @@
                     <div class="card h-100">
                         <div class="card-body bg-light-lavender position-relative" style="height: 513px;">
                             <div class="side-card-content position-absolute">
-                                <p class="side-card-text">Lorem, ipsum dolor sit amet consectetur adipisicing.</p>
+                                <p class="side-card-text">Unveil the hottest picks! Shop Trending Arrivals now!</p>
                                 <button class="btn btn-lg btn-outline-light rounded-0">Explore More -></button>
                             </div>
                         </div>
@@ -122,10 +122,10 @@
             <div class="col-md-12 p-lg-5 mb-4">
                 <ngx-slick-carousel class="carousel caurosel-width" #slickModal="slick-carousel"
                     [config]="slideConfigTwo">
-                    @for (slide of slides; track slide.img) {
+                    @for (product of lstBestSeller; track product.productId) {
                     <div ngxSlickItem class="slide">
                         <div class="px-lg-2">
-                            <app-product-horizontal-card></app-product-horizontal-card>
+                            <app-product-horizontal-card [product]="product"></app-product-horizontal-card>
                         </div>
                     </div>
                     }

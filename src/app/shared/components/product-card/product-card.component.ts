@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Product } from '../../model/product.model';
 
 @Component({
   selector: 'app-product-card',
@@ -7,6 +8,6 @@ import { Component } from '@angular/core';
 })
 export class ProductCardComponent {
 
+  @Input('product') product! : Product
   ratings = Array(4).fill(0)
-
 }

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Product } from '../../model/product.model';
 
 @Component({
   selector: 'app-product-horizontal-card',
@@ -6,6 +7,8 @@ import { Component } from '@angular/core';
   styleUrl: './product-horizontal-card.component.css'
 })
 export class ProductHorizontalCardComponent {
+
+  @Input('product') product!: Product
   ratings = Array(4).fill(0)
 
 }

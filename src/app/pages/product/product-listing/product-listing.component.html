@@ -84,9 +84,9 @@
                 </div>
             </div>
             <div class="row">
-                @for (item of products; track $index) {
+                @for (product of lstProduct; track $index) {
                     <div class="col-md-3 col-6">
-                        <app-product-card></app-product-card>
+                        <app-product-card [product]="product"></app-product-card>
                     </div>
                 }
             </div>
