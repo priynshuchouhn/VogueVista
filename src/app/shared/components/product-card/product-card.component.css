@@ -1,6 +1,6 @@
 .card{
     border-radius: 0;
-    border: none
+    border: none;
 }
 p{
     margin-bottom:0;
@@ -20,10 +20,15 @@ p{
     font-size: 1.4rem;
 }
 
-.card-header{
+.product-image{
     aspect-ratio: 4/5;
+    object-fit: cover;
+    overflow: hidden;
+}
+.card-header{
     border: none;
     border-radius: 0;
+    padding: 0;
 }
 
 a{

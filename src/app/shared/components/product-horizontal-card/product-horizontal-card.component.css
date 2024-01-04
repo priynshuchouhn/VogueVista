@@ -27,3 +27,7 @@ p{
     border-radius: 0;
     min-width: 40%;
 }
+
+a{
+     text-decoration: none;
+}

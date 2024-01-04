@@ -1,5 +1,6 @@
 import { isPlatformBrowser } from '@angular/common';
-import { AfterViewInit, Component, ElementRef, Inject, PLATFORM_ID } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Inject, Input, PLATFORM_ID } from '@angular/core';
+import { Product } from '../../model/product.model';
 
 
 @Component({
@@ -9,7 +10,7 @@ import { AfterViewInit, Component, ElementRef, Inject, PLATFORM_ID } from '@angu
 })
 export class SimilarProductsComponent implements AfterViewInit {
 
-  similarProducts = Array(5).fill(0)
+  @Input('products') products!: Product[]
 
   constructor(private el: ElementRef, @Inject(PLATFORM_ID) private platformId: any) {}
 
@@ -26,7 +27,7 @@ export class SimilarProductsComponent implements AfterViewInit {
           });
         }
       }).catch(error => {
-        console.error('Error loading hammerjs:', error);
+        console.warn('Error loading hammerjs:', error);
       });;
     }
     // if (isPlatformBrowser(this.platformId)) {

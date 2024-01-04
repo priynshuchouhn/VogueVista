@@ -2,7 +2,7 @@
     <h2>You Might Also Like</h2>
 </div>
 <div class="row-md d-flex overflow-x-scroll" id="similarProducts">
-    <div class="col-md-3 col-12 me-2" *ngFor="let item of similarProducts">
-        <app-product-card></app-product-card>
+    <div class="col-md-3 col-12 me-2" *ngFor="let product of products">
+        <app-product-card [product]="product"></app-product-card>
     </div>
 </div>

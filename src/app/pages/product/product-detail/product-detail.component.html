@@ -4,10 +4,10 @@
             <div class="row">
                 <div class="col-md-2 d-none d-md-block">
                     <ngx-slick-carousel class="carousel thumbnail" #slickModal="slick-carousel" [config]="slideVerticalConfig">
-                        @for (slide of slides; track slide.img) {
+                        @for (slide of product.images; track slide) {
                         <div ngxSlickItem class="slide">
                             <div class="ratio ratio-1x1">
-                                <img src="{{ slide.img }}" alt="" class="img-fluid" width="50%">
+                                <img src="{{ slide }}" alt="{{product.name}}" class="img-fluid" style="object-fit: contain;">
                             </div>
                         </div>
                         }
@@ -15,10 +15,10 @@
                 </div>
                 <div class="col-md-10">
                     <ngx-slick-carousel class="carousel main-slider" #slickModal="slick-carousel" [config]="slideConfig">
-                        @for (slide of slides; track slide.img) {
+                        @for (slide of product.images; track slide) {
                         <div ngxSlickItem class="slide">
-                            <div class="ratio ratio-1x1">
-                                <img src="{{ slide.img }}" alt="" class="img-fluid" width="50%">
+                            <div class="product-image" [ngStyle]="{'background-image':'url('+slide+')'}">
+                                <!-- <img src="{{ slide }}" alt="{{product.name}}" class="img-fluid"> -->
                             </div>
                         </div>
                         }
@@ -27,26 +27,16 @@
             </div>
         </div>
         <div class="col-md-6">
-            <p class="seller-name">Seller Name</p>
-            <p class="product-name">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure, quidem!</p>
-            <p class="price">$179</p>
-            <div class="row mb-3">
+            <p class="seller-name">{{ product.sellerName }}</p>
+            <p class="product-name">{{product.name}}</p>
+            <p class="price">&#8377;{{product.price}}</p>
+            <div class="row mb-3" *ngIf="product.size!.length > 0">
                 <div class="col-md-12">
                     <p><strong>Size</strong></p>
                 </div>
-                <div class="col-auto">
+                <div class="col-auto" *ngFor="let size of product.size">
                     <div class="btn btn-outline-dark rounded-0">
-                        S
-                    </div>
-                </div>
-                <div class="col-auto">
-                    <div class="btn btn-outline-dark rounded-0">
-                        M
-                    </div>
-                </div>
-                <div class="col-auto">
-                    <div class="btn btn-outline-dark rounded-0">
-                        L
+                       {{size.sizeName}}
                     </div>
                 </div>
             </div>
@@ -75,10 +65,7 @@
                         </svg></button>
                 </div>
             </div>
-            <p class="description">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto temporibus, mollitia
-                voluptates debitis, aut dolore magnam deleniti cumque laboriosam neque autem quam perferendis, quasi
-                saepe harum? Animi, enim. Quas excepturi vel eum ea vitae sunt minus quia rerum soluta, facere obcaecati
-                mollitia beatae, iusto sed at? Et facere dolore debitis?</p>
+            <p class="description">{{product.description}}</p>
             <div class="row">
                 <div class="col-md-12">
                     <div ngbAccordion [closeOthers]="true" #accordion="ngbAccordion">
@@ -136,6 +123,6 @@
         </div>
     </div>
 </div>
-<div class="container">
-    <app-similar-products></app-similar-products>
+<div class="container" *ngIf="similarProducts.length >0">
+    <app-similar-products [products]="similarProducts"></app-similar-products>
 </div>

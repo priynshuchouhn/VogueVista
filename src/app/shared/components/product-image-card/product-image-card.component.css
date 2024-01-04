@@ -1,25 +1,29 @@
-.card{
+.card {
     border-radius: 0;
     border: none
 }
-.card-header{
+
+.card-header {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
     aspect-ratio: 1/1;
     border: none;
     border-radius: 0;
 }
 
-.card-hover-content{
-    transform: translate(10%,10%);
+.card-hover-content {
+    transform: translate(10%, 10%);
     width: 80%;
     height: 80%;
     background-color: aquamarine;
     z-index: -1;
 }
 
-.card:hover .card-hover-content{
-z-index: 2;
+.card:hover .card-hover-content {
+    z-index: 2;
 }
 
-.product-type{
+.product-type {
     font-weight: 500;
 }

@@ -1,12 +1,12 @@
 <div class="card">
-    <div class="card-header bg-pale-blue-gray p-2">
+    <div class="card-header bg-pale-blue-gray p-2" [ngStyle]="{'background-image': 'url('+product.images[0]+')'}">
         <div class="bg-light position-absolute card-hover-content d-flex justify-content-center align-items-center">
            <div class="row text-center">
             <div class="col-md-12">
-                <p>Price</p>
+                <p>&#8377;{{product.price}}</p>
             </div>
             <div class="col-md-12">
-                <p class="product-type">Product Type</p>
+                <p class="product-type">{{product.category?.name}}</p>
             </div>
             <div class="col-md-12">
                 <button class="btn btn-outline-dark rounded-0">Add to Cart</button>

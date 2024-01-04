@@ -5,6 +5,14 @@
     letter-spacing: .8px;
 }
 
+.product-image{
+    aspect-ratio: 1/1;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    /* overflow: hidden; */
+}
+
 .seller-name{
     color: #777;
     margin-bottom: .25rem;

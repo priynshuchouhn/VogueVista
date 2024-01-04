@@ -21,10 +21,12 @@ export class HomeComponent implements OnInit {
     this.promoBanner = await this.bannerService.getHomePromoBanner();
     this.lstTrendingArrivals = await this.productService.getTrendingArrivals() as Product[];
     this.lstBestSeller = await this.productService.getBestSeller() as Product[];
+    this.lstPopularProducts = await this.productService.getPopularProduct() as Product[];
   }
 
   lstTrendingArrivals : Product[] = []
   lstBestSeller : Product[] = []
+  lstPopularProducts : Product[] = []
 
   categoriesToVisit = [
     { image:'assets/images/clothing.png', category_name: 'Fashion', bgColorClass: 'bg-eggshell' },
