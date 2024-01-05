@@ -2,7 +2,8 @@ export class API {
 
     // ! ===================== Base URL ====================== !//
     
-    public static BASE_URL = 'http://localhost:3000/api/';
+    public static BASE_URL = 'https://vogue-vista.onrender.com/api/';
+    // public static BASE_URL = 'http://localhost:3000/api/';
     
     // ! ===================== Auth ====================== !//
     
