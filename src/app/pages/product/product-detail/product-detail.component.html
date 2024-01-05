@@ -1,119 +1,116 @@
-<div class="container py-5">
-    <div class="row">
-        <div class="col-md-6">
-            <div class="row">
-                <div class="col-md-2 d-none d-md-block">
-                    <ngx-slick-carousel class="carousel thumbnail" #slickModal="slick-carousel" [config]="slideVerticalConfig">
-                        @for (slide of product.images; track slide) {
-                        <div ngxSlickItem class="slide">
-                            <div class="ratio ratio-1x1">
-                                <img src="{{ slide }}" alt="{{product.name}}" class="img-fluid" style="object-fit: contain;">
+@if (product) {
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-2 d-none d-md-block">
+                        <ngx-slick-carousel class="carousel thumbnail" #slickThumbnail="slick-carousel" [config]="slideVerticalConfig">
+                            <div ngxSlickItem class="slide" *ngFor="let slide of product.images; trackBy: trackByFn">
+                                <div class="ratio ratio-1x1">
+                                    <img src="{{ slide }}" alt="{{product.name}}" class="img-fluid" style="object-fit: contain;">
+                                </div>
                             </div>
-                        </div>
-                        }
-                    </ngx-slick-carousel>
-                </div>
-                <div class="col-md-10">
-                    <ngx-slick-carousel class="carousel main-slider" #slickModal="slick-carousel" [config]="slideConfig">
-                        @for (slide of product.images; track slide) {
-                        <div ngxSlickItem class="slide">
-                            <div class="product-image" [ngStyle]="{'background-image':'url('+slide+')'}">
-                                <!-- <img src="{{ slide }}" alt="{{product.name}}" class="img-fluid"> -->
+                        </ngx-slick-carousel>
+                    </div>
+                    <div class="col-md-10">
+                        <ngx-slick-carousel class="carousel main-slider" #slickMain="slick-carousel" [config]="slideConfig">
+                            <div ngxSlickItem class="slide" *ngFor="let slide of product.images; trackBy: trackByFn">
+                                <div class="product-image" [ngStyle]="{'background-image':'url('+slide+')'}">
+                                </div>
                             </div>
-                        </div>
-                        }
-                    </ngx-slick-carousel>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <p class="seller-name">{{ product.sellerName }}</p>
-            <p class="product-name">{{product.name}}</p>
-            <p class="price">&#8377;{{product.price}}</p>
-            <div class="row mb-3" *ngIf="product.size!.length > 0">
-                <div class="col-md-12">
-                    <p><strong>Size</strong></p>
-                </div>
-                <div class="col-auto" *ngFor="let size of product.size">
-                    <div class="btn btn-outline-dark rounded-0">
-                       {{size.sizeName}}
+                        </ngx-slick-carousel>
                     </div>
                 </div>
             </div>
-            <div class="row mb-3">
-                <div class="col-md-12">
-                    <p><strong>Quantity</strong></p>
-                </div>
-                <div class="col-6">
-                    <div class="d-flex quantity">
-                        <div class="btn rounded-0">-</div>
-                        <input type="text" class="w-25 text-center input-field rounded-0" maxlength="2" value="1"
-                            readonly />
-                        <div class="btn rounded-0">+</div>
+            <div class="col-md-6">
+                <p class="seller-name">{{ product.sellerName }}</p>
+                <p class="product-name">{{product.name}}</p>
+                <p class="price">&#8377;{{product.price}}</p>
+                <div class="row mb-3" *ngIf="product.size!.length > 0">
+                    <div class="col-md-12">
+                        <p><strong>Size</strong></p>
+                    </div>
+                    <div class="col-auto" *ngFor="let size of product.size">
+                        <div class="btn btn-outline-dark rounded-0">
+                           {{size.sizeName}}
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="row mb-4">
-                <div class="col-md-10 col-8">
-                    <button class="btn btn-dark btn-lg w-100 rounded-0">Add to Cart</button>
+                <div class="row mb-3">
+                    <div class="col-md-12">
+                        <p><strong>Quantity</strong></p>
+                    </div>
+                    <div class="col-6">
+                        <div class="d-flex quantity">
+                            <div class="btn rounded-0">-</div>
+                            <input type="text" class="w-25 text-center input-field rounded-0" maxlength="2" value="1"
+                                readonly />
+                            <div class="btn rounded-0">+</div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-2 col-4">
-                    <button class="btn btn-outline-dark btn-lg w-100 rounded-0"><svg xmlns="http://www.w3.org/2000/svg"
-                            width="24" height="24" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
-                            <path
-                                d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15" />
-                        </svg></button>
+                <div class="row mb-4">
+                    <div class="col-md-10 col-8">
+                        <button class="btn btn-dark btn-lg w-100 rounded-0">Add to Cart</button>
+                    </div>
+                    <div class="col-md-2 col-4">
+                        <button class="btn btn-outline-dark btn-lg w-100 rounded-0"><svg xmlns="http://www.w3.org/2000/svg"
+                                width="24" height="24" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                                <path
+                                    d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15" />
+                            </svg></button>
+                    </div>
                 </div>
-            </div>
-            <p class="description">{{product.description}}</p>
-            <div class="row">
-                <div class="col-md-12">
-                    <div ngbAccordion [closeOthers]="true" #accordion="ngbAccordion">
-                        <div ngbAccordionItem>
-                            <h2 ngbAccordionHeader>
-                                <button ngbAccordionButton>Other Details</button>
-                            </h2>
-                            <div ngbAccordionCollapse>
-                                <div ngbAccordionBody>
-                                    <ng-template>
-                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae vero beatae magni?</p>
-                                    </ng-template>
+                <p class="description">{{product.description}}</p>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div ngbAccordion [closeOthers]="true" #accordion="ngbAccordion">
+                            <div ngbAccordionItem>
+                                <h2 ngbAccordionHeader>
+                                    <button ngbAccordionButton>Other Details</button>
+                                </h2>
+                                <div ngbAccordionCollapse>
+                                    <div ngbAccordionBody>
+                                        <ng-template>
+                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae vero beatae magni?</p>
+                                        </ng-template>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div ngbAccordionItem>
-                            <h2 ngbAccordionHeader>
-                                <button ngbAccordionButton>Shipping Policy</button>
-                            </h2>
-                            <div ngbAccordionCollapse>
-                                <div ngbAccordionBody>
-                                    <ng-template>
-                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga inventore enim ducimus deleniti dolorum, quam quisquam nulla magni explicabo itaque.</p>
-                                    </ng-template>
+                            <div ngbAccordionItem>
+                                <h2 ngbAccordionHeader>
+                                    <button ngbAccordionButton>Shipping Policy</button>
+                                </h2>
+                                <div ngbAccordionCollapse>
+                                    <div ngbAccordionBody>
+                                        <ng-template>
+                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga inventore enim ducimus deleniti dolorum, quam quisquam nulla magni explicabo itaque.</p>
+                                        </ng-template>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div ngbAccordionItem>
-                            <h2 ngbAccordionHeader>
-                                <button ngbAccordionButton>Refund and Return Policy</button>
-                            </h2>
-                            <div ngbAccordionCollapse>
-                                <div ngbAccordionBody>
-                                    <ng-template>
-                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas quia inventore totam molestiae nihil, natus ducimus praesentium architecto? Minus animi, consectetur omnis in doloribus magni. Voluptates commodi alias deleniti earum deserunt dolorum animi? Nihil corrupti ratione esse obcaecati velit fuga neque praesentium, consequatur non iure itaque aut, provident est quas.</p>
-                                    </ng-template>
+                            <div ngbAccordionItem>
+                                <h2 ngbAccordionHeader>
+                                    <button ngbAccordionButton>Refund and Return Policy</button>
+                                </h2>
+                                <div ngbAccordionCollapse>
+                                    <div ngbAccordionBody>
+                                        <ng-template>
+                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas quia inventore totam molestiae nihil, natus ducimus praesentium architecto? Minus animi, consectetur omnis in doloribus magni. Voluptates commodi alias deleniti earum deserunt dolorum animi? Nihil corrupti ratione esse obcaecati velit fuga neque praesentium, consequatur non iure itaque aut, provident est quas.</p>
+                                        </ng-template>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div ngbAccordionItem>
-                            <h2 ngbAccordionHeader>
-                                <button ngbAccordionButton>Disclaimer</button>
-                            </h2>
-                            <div ngbAccordionCollapse>
-                                <div ngbAccordionBody>
-                                    <ng-template>
-                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt a odio reiciendis eveniet maxime architecto suscipit nulla, eos facilis. Sint?</p>
-                                    </ng-template>
+                            <div ngbAccordionItem>
+                                <h2 ngbAccordionHeader>
+                                    <button ngbAccordionButton>Disclaimer</button>
+                                </h2>
+                                <div ngbAccordionCollapse>
+                                    <div ngbAccordionBody>
+                                        <ng-template>
+                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt a odio reiciendis eveniet maxime architecto suscipit nulla, eos facilis. Sint?</p>
+                                        </ng-template>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -122,7 +119,7 @@
             </div>
         </div>
     </div>
-</div>
+}
 <div class="container" *ngIf="similarProducts.length >0">
     <app-similar-products [products]="similarProducts"></app-similar-products>
 </div>

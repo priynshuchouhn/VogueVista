@@ -90,12 +90,12 @@ export class ProductService {
       const body = {productId: id }
       const res = this.http.post(API.PRODUCT_DETAIL,body);
       const data = await lastValueFrom(res);
-      const lstSimilarProduct: Product[] = [];
+      let lstSimilarProduct: Product[] = [];
       (data as any).data['similarProducts'].forEach((el:any) => {
         const parsedProduct = this.fromJsonData(el);
         lstSimilarProduct.push(parsedProduct);
       });
-      const product =  this.fromJsonData( (data as any).data['product']);
+      let product =  this.fromJsonData( (data as any).data['product']);
       return {product: product, similarProducts: lstSimilarProduct};
     } catch (error: any) {
       const err = this.sharedService.handleError(error);
