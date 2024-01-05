@@ -25,7 +25,7 @@ p{
 
     border: none;
     border-radius: 0;
-    min-width: 40%;
+    max-width: 40%;
 }
 
 a{
