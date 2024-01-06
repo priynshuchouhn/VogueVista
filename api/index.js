@@ -1,3 +1,3 @@
-const server = require('../dist/VogueVista/server/main');
+import * as server from '../dist/angular-vercel-ssr/server/server.mjs';
 
-module.exports = server.app();
+export default server.app();

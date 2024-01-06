@@ -3,11 +3,14 @@
     "public": true,
     "name": "VogueVista",
     "rewrites": [
-      { "source": "/(.*)", "destination": "/api" }
+      {
+        "source": "/(.*)",
+        "destination": "/api"
+      }
     ],
     "functions": {
       "api/index.js": {
-        "includeFiles": "dist/VogueVista/browser/**"
+        "includeFiles": "dist/VogueVista/**"
       }
     }
   }
