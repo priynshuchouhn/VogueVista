@@ -3,7 +3,7 @@ import { User } from '../model/user.model';
 import { HttpClient } from '@angular/common/http';
 import { API } from '../API/API';
 import { Router } from '@angular/router';
-import { catchError } from 'rxjs';
+import { catchError, lastValueFrom } from 'rxjs';
 import { SharedService } from './shared.service';
 
 
@@ -22,12 +22,26 @@ export class UserService {
     return tempUser;
   }
 
-  login(body: any){
-   return this.http.post(API.LOGIN, body).pipe(catchError(this.sharedService.handleError))
+  async login(body: any){
+    try {
+      const res =  this.http.post(API.LOGIN, body);
+      const data = await lastValueFrom(res);
+      return data;
+    } catch (error: any) {
+      const err = this.sharedService.handleError(error)
+      return err;
+    }
   }
 
-  register(body: any){
-   return this.http.post(API.REGISTER, body).pipe(catchError(this.sharedService.handleError))
+ async register(body: any){
+    try {
+      const res =   this.http.post(API.REGISTER, body);
+      const data = await lastValueFrom(res);
+      return data;
+    } catch (error: any) {
+      const err = this.sharedService.handleError(error)
+      return err;
+    }
   }
 
   constructor(private http: HttpClient, private router: Router, private sharedService: SharedService) { }

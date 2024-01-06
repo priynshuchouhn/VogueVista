@@ -27,7 +27,7 @@ export class RegisterComponent {
     return this.registerForm.controls;
   }
 
-  onSubmit(){
+  async onSubmit(){
     this.isSubmitted = true
     if(this.registerForm.invalid){
       return;
@@ -38,17 +38,12 @@ export class RegisterComponent {
       password: value.password,
       email: value.email,
     }
-    this.userService.register(body).subscribe({
-      next: (res: any) => {
-        if (res['success'] == true) {
-          this.router.navigate(['/']);
-        }
-      },
-      error: (err) => {
-        this.errorMessage = err
-        console.log(err)
-      }
-    })
+    const res = await this.userService.register(body) as any
+    if (res['success'] == true) {
+      this.router.navigate(['/']);
+    }else{
+      this.errorMessage = res
+    }
   }
 
 }

@@ -26,7 +26,7 @@ export class LoginComponent {
     return this.loginForm.controls;
   }
 
-  onSubmit() {
+  async onSubmit() {
     this.isSubmitted = true;
     if (this.loginForm.invalid) {
       return;
@@ -36,25 +36,19 @@ export class LoginComponent {
       email: value.email,
       password: value.password
     }
-    this.userService.login(body).subscribe({
-      next: (res: any) => {
-        if (res['success'] == true) {
-          const user = res['data'];
-          if(value['rememberMe'] == true){
-            localStorage.setItem('user', JSON.stringify(user));
-          }else{
-            sessionStorage.setItem('user', JSON.stringify(user));
-          }
-          this.router.navigate(['/']);
-        }else{
-          this.errorMessage = res['message']
-        }
-      },
-      error: (err) => {
-        this.errorMessage = err
-        console.log(err)
-      }
-    })
-  }
 
+    const res = await this.userService.login(body) as any
+    if(res['success']== true){
+      const user = res['data'];
+      if (value['rememberMe'] == true) {
+        localStorage.setItem('user', JSON.stringify(user));
+      } else {
+        sessionStorage.setItem('user', JSON.stringify(user));
+      }
+      this.router.navigate(['/']);
+    }else{
+      this.errorMessage = res;
+    }
+  }
 }
+
