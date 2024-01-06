@@ -41,7 +41,7 @@
               "node_modules/popper.js/dist/umd/popper.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.min.js"
             ],
-            "serviceWorker": false,
+            "serviceWorker": true,
             "ngswConfigPath": "ngsw-config.json"
           },
           "configurations": {
