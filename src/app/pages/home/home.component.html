@@ -14,8 +14,8 @@
                         <button class="btn-light btn-lg btn rounded-0">Shop now -></button>
                     </div>
                 </div>
-                <div class="col-md-6 px-md-0 position-relative banner">
-                    <img src="{{ banner.bannerImage }}" alt="" class="img-fluid">
+                <div class="col-md-6 px-md-0 position-relative banner banner-image" [ngStyle]="{'background-image' : 'url('+banner.bannerImage+')'}">
+                    <!-- <img src="{{  }}" alt="" class="img-fluid"> -->
                     <div class="px-5 mobile-banner-text d-block d-md-none py-3">
                         <div class="d-flex justify-content-end h-100 flex-column align-items-start">
                             <p class="banner-small-text">{{ banner.bannerSmallText }}</p>
@@ -41,7 +41,7 @@
 </section>
 <!-- Product Card Row -->
 
-<section class="container py-5" *ngIf="lstPopularProducts">
+<section class="container py-5" *ngIf="lstPopularProducts.length > 0">
     <div class="row">
         <div class="col-md-12 text-center text-slate-blue">
             <h5>Find Your Favorites</h5>
@@ -110,7 +110,7 @@
 
 <!-- This Week's Featured -->
 
-<section class="bg-dark-subtle py-5 overflow-hidden" *ngIf="lstBestSeller">
+<section class="bg-dark-subtle py-5 overflow-hidden" *ngIf="lstBestSeller.length > 0">
     <div class="container">
         <div class="row">
             <div class="col-md-12 text-slate-blue">

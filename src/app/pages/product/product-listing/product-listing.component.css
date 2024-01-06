@@ -11,12 +11,12 @@ h5{
 
 .sort-card{
     position: sticky;
-    top: 63px;
+    top: 4.8rem;
     z-index:10
 }
 
 .sort-card-mobile{
     position: sticky;
-    top: 55px;
+    top: 7rem;
     z-index:10
 }

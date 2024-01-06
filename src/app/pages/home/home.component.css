@@ -98,6 +98,12 @@ letter-spacing: 1.3px;
  height: 90vh;
 }
 
+.banner-image{
+  background-position: top;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 /* .banner img {
   height: 100%;
   width: 100%;
