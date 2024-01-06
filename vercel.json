@@ -1,0 +1,13 @@
+{
+    "version": 1,
+    "public": true,
+    "name": "VogueVista",
+    "rewrites": [
+      { "source": "/(.*)", "destination": "/api" }
+    ],
+    "functions": {
+      "api/index.js": {
+        "includeFiles": "dist/VogueVista/browser/**"
+      }
+    }
+  }
