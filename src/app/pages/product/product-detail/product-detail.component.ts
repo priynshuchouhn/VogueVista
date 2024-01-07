@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { SlickCarouselComponent } from 'ngx-slick-carousel';
-import { Product } from 'src/app/shared/model/product.model';
+import { Product } from 'src/app/shared/model/product/product.model';
 
 @Component({
   selector: 'app-product-detail',

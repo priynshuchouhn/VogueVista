@@ -1,6 +1,6 @@
 import { isPlatformBrowser } from '@angular/common';
 import { AfterViewInit, Component, ElementRef, Inject, Input, PLATFORM_ID } from '@angular/core';
-import { Product } from '../../model/product.model';
+import { Product } from '../../model/product/product.model';
 
 
 @Component({

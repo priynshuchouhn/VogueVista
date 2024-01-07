@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { SideMenuService } from '../../services/side-menu.service';
 import { CategoryService } from '../../services/product/category.service';
-import { Category } from '../../model/category.model';
+import { Category } from '../../model/product/category.model';
+import { Store } from '@ngrx/store';
+import { selectCartItemsLength } from '../../services/store/cart/cart.selectors';
+import { selectWishlistItemsLength } from '../../services/store/wishlist/wishlist.selectors';
 
 @Component({
   selector: 'app-header',
@@ -10,8 +13,10 @@ import { Category } from '../../model/category.model';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(public sideMenuService: SideMenuService, private categoryService: CategoryService) { }
+  constructor(public sideMenuService: SideMenuService, private categoryService: CategoryService, private store: Store) { }
   lstCategory: Category[] = []
+  cartItems$ = this.store.select(selectCartItemsLength);
+  wishlistItems$ = this.store.select(selectWishlistItemsLength);
   async ngOnInit() {
     this.lstCategory = await this.categoryService.getAllCategory();
   }

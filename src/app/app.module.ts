@@ -9,6 +9,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
+import { StoreModule } from '@ngrx/store';
+import { cartReducer } from './shared/services/store/cart/cart.reducer';
+import { wishlistReducer } from './shared/services/store/wishlist/wishlist.reducer';
 
 @NgModule({
   declarations: [
@@ -29,6 +32,7 @@ import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
     }),
+    StoreModule.forRoot({'cart' : cartReducer, 'wishlist' : wishlistReducer}, {}),
   ],
   providers: [
     provideHttpClient(withFetch()),

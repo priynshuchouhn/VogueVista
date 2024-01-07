@@ -1,7 +1,7 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { SharedService } from '../shared.service';
-import { Product } from '../../model/product.model';
+import { Product } from '../../model/product/product.model';
 import { API } from '../../API/API';
 import { lastValueFrom } from 'rxjs';
 

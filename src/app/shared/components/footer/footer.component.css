@@ -22,6 +22,11 @@ li a {
   padding: 9px 12px;
 }
 
+.badge{
+  top: -0.5rem;
+  right: -0.5rem;
+  }
+
 .nav-btn:hover {
   background-color: #a2a2a2;
   border-radius: 50%;

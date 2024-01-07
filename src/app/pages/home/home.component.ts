@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from 'src/app/shared/model/product.model';
+import { Product } from 'src/app/shared/model/product/product.model';
 import { Banner, homePageBanner } from 'src/app/shared/model/promotionals/banner.model';
 import { ProductService } from 'src/app/shared/services/product/product.service';
 import { BannerService } from 'src/app/shared/services/promotionals/banner.service';
