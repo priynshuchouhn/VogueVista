@@ -44,5 +44,11 @@ export class UserService {
     }
   }
 
+  logout(){
+    localStorage.clear();
+    sessionStorage.clear();
+    this.router.navigate(['/']);
+  }
+
   constructor(private http: HttpClient, private router: Router, private sharedService: SharedService) { }
 }

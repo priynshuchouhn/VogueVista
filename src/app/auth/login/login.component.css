@@ -1,13 +1,15 @@
-.main-div{
+.main-div {
     height: 100vh;
     overflow: hidden;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    background-image: url('https://img.freepik.com/free-photo/front-view-cyber-monday-composition_23-2149055988.jpg?w=1800&t=st=1701839635~exp=1701840235~hmac=e9bb4be8a3944cd3d553a57b12733d4b12b5254c1ac70826bc32392fc1e2cc9e');
+    background-image: url('/assets/images/congruent_pentagon.webp');
 }
 
-.card{
+.card {
+    background: #ffffff72;
+    backdrop-filter: blur(1px);
     border: none;
     border-radius: 0;
 }
@@ -17,15 +19,25 @@ a {
     text-decoration: none;
 }
 
-.sign-in-divider{
+.sign-in-divider {
     top: 10%;
     right: 35%;
+    backdrop-filter: blur(100px);
+}
+
+.form-control {
+    background-color: transparent !important;
 }
 
 @media only screen and (max-width:768px) {
-    .sign-in-divider{
+    .sign-in-divider {
         top: 10%;
         right: 27%;
     }
-    
+
+    input[type=checkbox].form-check-input {
+        height: 1.3rem;
+        width: 1.3rem !important;
+    }
+
 }

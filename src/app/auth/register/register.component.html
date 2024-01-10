@@ -33,9 +33,11 @@
                             </div>
                         </div>
                         <div class="col-md-8 mb-3 text-center position-relative">
-                            <hr>
-                            <span class="bg-white position-absolute text-slate-blue sign-in-divider px-3">or Sign up
-                                with Email</span>
+                            <div class="row">
+                                <div class="col-4 px-0"><hr></div>
+                                <div class="col-4 px-0"><span class="text-slate-blue sign-in-divider">or Sign in with Email</span></div>
+                                <div class="col-4 px-0"><hr></div>
+                            </div>
                         </div>
                         <div class="col-md-8">
                             <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
@@ -44,7 +46,7 @@
                                         <div class="form-group mb-3">
                                             <label for="name" class="form-label">Your Name</label>
                                             <input type="text" id="name" class="form-control form-control-lg rounded-0"
-                                                placeholder="Priyanshu" formControlName="username">
+                                                placeholder="your name" formControlName="username">
                                                 <small class="text-danger" *ngIf="isSubmitted && f['username'].errors?.['required']">Name is required</small>
                                         </div>
                                     </div>
