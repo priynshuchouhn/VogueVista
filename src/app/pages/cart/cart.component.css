@@ -28,3 +28,9 @@ tfoot tr{
     font-weight: 600;
 }
 
+
+
+a{
+    text-decoration: none;
+    font-style: italic;
+}

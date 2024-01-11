@@ -8,5 +8,5 @@ import { Component, ElementRef } from '@angular/core';
 export class CartComponent {
   
 
-  cartItem = Array(3).fill(0)
+  cartItem = []
 }

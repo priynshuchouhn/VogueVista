@@ -1,24 +1,66 @@
-<div class="container p-2 py-5 d-flex flex-column align-items-center">
-    <div class="col-10">
-        <div class="row justify-content-center">
-            <div class="col-md-8 mb-4">
-                <h1>Cart</h1>
+<ng-container *ngIf="!(cartItem.length > 0); else cartSection">
+<div class="container p-2 py-5">
+    <div class="row">
+        <div class="col-md-6">
+            <img src="/assets/images/empty-cart.jpg" alt="" class="img-fluid">
+        </div>
+        <div class="col-md-6">
+            <div class="d-flex justify-content-center align-items-center h-100">
+                <div>
+                    <p class="fs-1 fw-bold text-forest-green">Your cart is empty!</p>
+                    <p class="text-center"><a routerLink="/" class="text-forest-green fs-5">Continue Shopping</a></p>
+                </div>
             </div>
-            <div class="col-md-8">
-                <ng-container *ngFor="let item of cartItem">
-                    <div class="row mb-5">
-                        <div class="col-3 text-center mb-3">
-                            <img src="https://static.nike.com/a/images/t_PDP_864_v1,f_auto,q_auto:eco/a277aa72-0b73-48da-8a6a-1fe1a21a6f03/victori-one-slides-QTTJHP.png"
-                                alt="" class="img-fluid" />
-                        </div>
-                        <div class="col-9">
-                            <p class="product-name">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam,
-                                dolorum!
-                            </p>
-                            <p class="seller-name">Seller: Lorem, ipsum.</p>
-                            <p class="price">&#8377;1700</p>
-                            <div class="row align-items-center d-none d-md-flex">
+        </div>
+    </div>
+</div>
+</ng-container>
+<ng-template #cartSection>
+    <div class="container p-2 py-5 d-flex flex-column align-items-center">
+        <div class="col-10">
+            <div class="row justify-content-center">
+                <div class="col-md-8 mb-4">
+                    <h1>Cart</h1>
+                </div>
+                <div class="col-md-8">
+                    <ng-container *ngFor="let item of cartItem">
+                        <div class="row mb-5">
+                            <div class="col-3 text-center mb-3">
+                                <img src="https://static.nike.com/a/images/t_PDP_864_v1,f_auto,q_auto:eco/a277aa72-0b73-48da-8a6a-1fe1a21a6f03/victori-one-slides-QTTJHP.png"
+                                    alt="" class="img-fluid" />
+                            </div>
+                            <div class="col-9">
+                                <p class="product-name">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam,
+                                    dolorum!
+                                </p>
+                                <p class="seller-name">Seller: Lorem, ipsum.</p>
+                                <p class="price">&#8377;1700</p>
+                                <div class="row align-items-center d-none d-md-flex">
+                                    <div class="col-md-4 gap-2 col-6">
+                                        <button class="btn me-2">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                                fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                                                <path
+                                                    d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15" />
+                                            </svg>
+                                        </button>
+                                        <button class="btn ms-2">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                                fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z" />
+                                                <path
+                                                    d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <div class="col-md-4 col-6">
+                                        <app-quantity-control></app-quantity-control>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row align-items-center d-md-none d-flex">
                                 <div class="col-md-4 gap-2 col-6">
                                     <button class="btn me-2">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
@@ -38,77 +80,54 @@
                                     </button>
                                 </div>
                                 <div class="col-md-4 col-6">
-                                    <app-quantity-control></app-quantity-control>
+                                   <app-quantity-control></app-quantity-control>
                                 </div>
                             </div>
                         </div>
-                        <div class="row align-items-center d-md-none d-flex">
-                            <div class="col-md-4 gap-2 col-6">
-                                <button class="btn me-2">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
-                                        fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
-                                        <path
-                                            d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15" />
-                                    </svg>
-                                </button>
-                                <button class="btn ms-2">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
-                                        fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
-                                        <path
-                                            d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z" />
-                                        <path
-                                            d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z" />
-                                    </svg>
-                                </button>
-                            </div>
-                            <div class="col-md-4 col-6">
-                               <app-quantity-control></app-quantity-control>
-                            </div>
-                        </div>
+                        <hr />
+                    </ng-container>
+                </div>
+                <div class="col-md-4 mb-5">
+                    <div class="mb-3">
+                        <h2>Summary</h2>
                     </div>
-                    <hr />
-                </ng-container>
-            </div>
-            <div class="col-md-4 mb-5">
-                <div class="mb-3">
-                    <h2>Summary</h2>
-                </div>
-                <div class="mb-3">
-                    <table class="table">
-                        <tbody>
-                            <tr>
-                                <td>Subtotal</td>
-                                <td class="text-end">&#8377;1700</td>
-                            </tr>
-                            <tr>
-                                <td>Discount</td>
-                                <td class="text-end">&#8377;700</td>
-                            </tr>
-                            <tr>
-                                <td>Delivery Charges</td>
-                                <td class="text-end">&#8377;50</td>
-                            </tr>
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <td>Total Amount</td>
-                                <td class="text-end">&#8377;2450</td>
-                            </tr>
-                        </tfoot>
-                    </table>
-                </div>
-                <div class="mb-2">
-                    <p class="text-success">Lorem ipsum dolor sit amet.</p>
-                </div>
-                <div class="text-center">
-                    <a [routerLink]="['../checkout']">
-                        <button class="btn btn-lg btn-dark w-100 rounded-0">Checkout</button>
-                    </a>
+                    <div class="mb-3">
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <td>Subtotal</td>
+                                    <td class="text-end">&#8377;1700</td>
+                                </tr>
+                                <tr>
+                                    <td>Discount</td>
+                                    <td class="text-end">&#8377;700</td>
+                                </tr>
+                                <tr>
+                                    <td>Delivery Charges</td>
+                                    <td class="text-end">&#8377;50</td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td>Total Amount</td>
+                                    <td class="text-end">&#8377;2450</td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                    <div class="mb-2">
+                        <p class="text-success">Lorem ipsum dolor sit amet.</p>
+                    </div>
+                    <div class="text-center">
+                        <a [routerLink]="['../checkout']">
+                            <button class="btn btn-lg btn-dark w-100 rounded-0">Checkout</button>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<div class="container-fuild px-3">
-   <app-similar-products></app-similar-products>
-</div>
+    <div class="container-fuild px-3">
+       <app-similar-products></app-similar-products>
+    </div>
+</ng-template>

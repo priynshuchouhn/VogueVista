@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class WishlistComponent {
 
-  cartItem = Array(3).fill(0)
+  wishlistItem = []
   similarProducts = Array(5).fill(0)
 
 }
