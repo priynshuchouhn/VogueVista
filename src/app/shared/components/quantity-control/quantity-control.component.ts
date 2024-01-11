@@ -7,7 +7,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class QuantityControlComponent {
 
-  quantity : number = 1
+  @Input('quantity') quantity : number = 1
   @Input('stockQuantity') stockQuantity : number = 1
   @Output('quantityUpdated') quantityUpdated = new EventEmitter<Number>();
 

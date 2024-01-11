@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CartService } from 'src/app/shared/services/product/cart.service';
 import { UserService } from 'src/app/shared/services/user.service';
 
 @Component({
@@ -14,7 +15,7 @@ export class LoginComponent {
   isSubmitted: boolean = false
   errorMessage: string = '';
 
-  constructor(private userService: UserService, private router: Router) {
+  constructor(private userService: UserService, private router: Router, private cartService: CartService) {
     this.loginForm = new FormGroup({
       'email': new FormControl(null, [Validators.required, Validators.email]),
       'password': new FormControl(null, Validators.required),
@@ -45,6 +46,7 @@ export class LoginComponent {
       } else {
         sessionStorage.setItem('user', JSON.stringify(user));
       }
+      this.cartService.loadCartItem();
       this.router.navigate(['/']);
     }else{
       this.errorMessage = res;

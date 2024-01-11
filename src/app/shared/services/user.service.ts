@@ -22,9 +22,14 @@ export class UserService {
     return tempUser;
   }
 
-  async login(body: any){
+  getUserData() {
+    const user = JSON.parse(sessionStorage.getItem('user')!) || JSON.parse(localStorage.getItem('user')!) || null
+    this.sharedService.userData = user
+  }
+
+  async login(body: any) {
     try {
-      const res =  this.http.post(API.LOGIN, body);
+      const res = this.http.post(API.LOGIN, body);
       const data = await lastValueFrom(res);
       return data;
     } catch (error: any) {
@@ -33,9 +38,9 @@ export class UserService {
     }
   }
 
- async register(body: any){
+  async register(body: any) {
     try {
-      const res =   this.http.post(API.REGISTER, body);
+      const res = this.http.post(API.REGISTER, body);
       const data = await lastValueFrom(res);
       return data;
     } catch (error: any) {
@@ -44,7 +49,7 @@ export class UserService {
     }
   }
 
-  logout(){
+  logout() {
     localStorage.clear();
     sessionStorage.clear();
     this.router.navigate(['/']);

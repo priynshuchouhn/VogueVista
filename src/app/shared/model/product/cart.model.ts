@@ -14,6 +14,7 @@ export class Cart {
         this.userId = userId
         this.productId = productId
         this.quantity = quantity
-
+        this.sizeVariant = sizeVariant
+        this.product = product
     }
 }

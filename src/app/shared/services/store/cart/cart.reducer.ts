@@ -13,6 +13,10 @@ const initialState: CartState = {
 
 export const cartReducer = createReducer(
     initialState,
+    on(CartActions.loadCartItems, (state, { items }) => ({
+      ...state,
+      items: items,
+    })),
     on(CartActions.addItemToCart, (state, { item }) => ({
       ...state,
       items: [...state.items, item],
