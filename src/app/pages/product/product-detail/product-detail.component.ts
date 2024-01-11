@@ -10,6 +10,7 @@ import { Product } from 'src/app/shared/model/product/product.model';
 })
 export class ProductDetailComponent {
   product!: Product
+  selectedSizeVariant!: string
   similarProducts: Product[] = []
 
 
@@ -18,6 +19,9 @@ export class ProductDetailComponent {
     this.route.data.subscribe(res => {
       this.product = res['productDetailData']['product'];
       this.similarProducts = res['productDetailData']['similarProducts']
+      if(this.product.size!.length > 0){
+        this.selectedSizeVariant = this.product.size![0].sizeName
+      }
       this.onDataChange()
     })
   }
@@ -47,4 +51,20 @@ export class ProductDetailComponent {
       }, 500)
     }
   }
+
+  toggleSizeVairant(sizeName:string){
+    this.selectedSizeVariant = sizeName
+  }
+
+  quantityChanged(quanity: Number){
+    console.log(quanity);
+  }
+
+
+  addProductToCart(){
+
+    const cart = {}
+
+  }
+
 }

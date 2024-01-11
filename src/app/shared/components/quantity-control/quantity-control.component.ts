@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-quantity-control',
@@ -8,14 +8,20 @@ import { Component } from '@angular/core';
 export class QuantityControlComponent {
 
   quantity : number = 1
+  @Input('stockQuantity') stockQuantity : number = 1
+  @Output('quantityUpdated') quantityUpdated = new EventEmitter<Number>();
 
   increment(){
-    this.quantity++
+    if(this.quantity < this.stockQuantity){
+      this.quantity++
+      this.quantityUpdated.emit(this.quantity);
+    }
   }
-
+  
   decrement(){
     if(this.quantity>1){
       this.quantity--;
+      this.quantityUpdated.emit(this.quantity);
     }
   }
 

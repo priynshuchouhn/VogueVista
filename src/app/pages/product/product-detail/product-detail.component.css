@@ -60,3 +60,9 @@
     background-color: #fff !important;
     color: #000;
 }
+
+
+.size-variant.active {
+    background-color: #000;
+    color: #fff;
+}
