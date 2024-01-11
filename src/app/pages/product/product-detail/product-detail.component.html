@@ -52,7 +52,7 @@
                 </div>
                 <div class="row mb-4">
                     <div class="col-md-10 col-8">
-                        <button class="btn btn-dark btn-lg w-100 rounded-0">Add to Cart</button>
+                        <button class="btn btn-dark btn-lg w-100 rounded-0" (click)="addProductToCart()">Add to Cart</button>
                     </div>
                     <div class="col-md-2 col-4">
                         <button class="btn btn-outline-dark btn-lg w-100 rounded-0"><svg xmlns="http://www.w3.org/2000/svg"
@@ -121,6 +121,6 @@
         </div>
     </div>
 }
-<div class="container" *ngIf="similarProducts.length >0">
+<div class="container" *ngIf="similarProducts.length > 0">
     <app-similar-products [products]="similarProducts"></app-similar-products>
 </div>

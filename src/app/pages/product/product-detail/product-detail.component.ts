@@ -1,7 +1,11 @@
 import { Component, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { SlickCarouselComponent } from 'ngx-slick-carousel';
+import { Cart } from 'src/app/shared/model/product/cart.model';
 import { Product } from 'src/app/shared/model/product/product.model';
+import { CartService } from 'src/app/shared/services/product/cart.service';
+import { addItemToCart } from 'src/app/shared/services/store/cart/cart.actions';
 
 @Component({
   selector: 'app-product-detail',
@@ -10,16 +14,17 @@ import { Product } from 'src/app/shared/model/product/product.model';
 })
 export class ProductDetailComponent {
   product!: Product
+  quantity: Number = 1
   selectedSizeVariant!: string
   similarProducts: Product[] = []
 
 
 
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute, private cartService: CartService, private store: Store) {
     this.route.data.subscribe(res => {
       this.product = res['productDetailData']['product'];
       this.similarProducts = res['productDetailData']['similarProducts']
-      if(this.product.size!.length > 0){
+      if (this.product.size!.length > 0) {
         this.selectedSizeVariant = this.product.size![0].sizeName
       }
       this.onDataChange()
@@ -52,18 +57,27 @@ export class ProductDetailComponent {
     }
   }
 
-  toggleSizeVairant(sizeName:string){
+  toggleSizeVairant(sizeName: string) {
     this.selectedSizeVariant = sizeName
   }
 
-  quantityChanged(quanity: Number){
-    console.log(quanity);
+  quantityChanged(quanity: Number) {
+    this.quantity = quanity
   }
 
 
-  addProductToCart(){
+  async addProductToCart() {
 
-    const cart = {}
+    const cart = {
+      productId: this.product.productId,
+      sizeVariant: this.selectedSizeVariant,
+      quantity: this.quantity
+    }
+    const cartItem = await this.cartService.addToCart(cart)
+    console.log(cartItem);
+    if(cartItem){
+      this.store.dispatch(addItemToCart({item: <Cart>cartItem}));
+    }
 
   }
 
