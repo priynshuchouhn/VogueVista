@@ -79,7 +79,7 @@
                                     </button>
                                 </div>
                                 <div class="col-md-4 col-6">
-                                   <app-quantity-control [quantity]="item.quantity" [stockQuantity]="item.product!.stockQuantity"></app-quantity-control>
+                                   <app-quantity-control [quantity]="item.quantity" [stockQuantity]="item.product!.stockQuantity" (quantityUpdated)="changedQuantity($event, item)"></app-quantity-control>
                                 </div>
                             </div>
                         </div>
