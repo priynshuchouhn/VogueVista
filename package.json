@@ -11,7 +11,7 @@
     "serve:ssr": "node dist/VogueVista/server/main.js",
     "build:ssr": "ng build && ng run VogueVista:server",
     "prerender": "ng run VogueVista:prerender",
-    "vercel-build": "npm run build:ssr"
+    "build:azure": "npm run build:ssr"
   },
   "private": true,
   "dependencies": {
