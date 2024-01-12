@@ -24,5 +24,14 @@ export const cartReducer = createReducer(
     on(CartActions.removeItemFromCart, (state, { itemId }) => ({
       ...state,
       items: state.items.filter(item => item.cartId !== itemId),
-    }))
+    })),
+    on(CartActions.updateCartItem, (state, { updatedItem }) => {
+      const index = state.items.findIndex(item => item.cartId == updatedItem.cartId);
+      if(index > -1){
+        const updatedCart = [...state.items];
+        updatedCart[index] = updatedItem
+        return { ...state, items: updatedCart };
+      }
+      return state;
+    })
   );

@@ -9,7 +9,7 @@ export class QuantityControlComponent {
 
   @Input('quantity') quantity : number = 1
   @Input('stockQuantity') stockQuantity : number = 1
-  @Output('quantityUpdated') quantityUpdated = new EventEmitter<Number>();
+  @Output('quantityUpdated') quantityUpdated = new EventEmitter<number>();
 
   increment(){
     if(this.quantity < this.stockQuantity){

@@ -2,10 +2,12 @@ import { Component, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { SlickCarouselComponent } from 'ngx-slick-carousel';
+import { lastValueFrom, take } from 'rxjs';
 import { Cart } from 'src/app/shared/model/product/cart.model';
 import { Product } from 'src/app/shared/model/product/product.model';
 import { CartService } from 'src/app/shared/services/product/cart.service';
-import { addItemToCart } from 'src/app/shared/services/store/cart/cart.actions';
+import { addItemToCart, updateCartItem } from 'src/app/shared/services/store/cart/cart.actions';
+import { selectCartItemById } from 'src/app/shared/services/store/cart/cart.selectors';
 
 @Component({
   selector: 'app-product-detail',
@@ -67,18 +69,34 @@ export class ProductDetailComponent {
 
 
   async addProductToCart() {
+    try {
+      const item$ = this.store.select(selectCartItemById(this.product.productId, this.selectedSizeVariant))
+      item$.pipe(take(1)).subscribe(async item => {
+        if (!item) {
+          const cart = {
+            productId: this.product.productId,
+            sizeVariant: this.selectedSizeVariant,
+            quantity: this.quantity
+          }
+          const cartItem = await this.cartService.addToCart(cart)
+          if (cartItem) {
+            this.store.dispatch(addItemToCart({ item: <Cart>cartItem }));
+          }
+        } else {
+          const cart = {
+           cartId: item.cartId,
+            quantity: ++item.quantity
+          }
+          const cartItem = await this.cartService.updateCart(cart)
+          console.log(cartItem);
+          if (cartItem) {
+            this.store.dispatch(updateCartItem({ updatedItem: <Cart>cartItem }));
+          }
+        }
+      })
+    } catch (error) {
+      console.log(error);
 
-    const cart = {
-      productId: this.product.productId,
-      sizeVariant: this.selectedSizeVariant,
-      quantity: this.quantity
     }
-    const cartItem = await this.cartService.addToCart(cart)
-    console.log(cartItem);
-    if(cartItem){
-      this.store.dispatch(addItemToCart({item: <Cart>cartItem}));
-    }
-
   }
-
 }

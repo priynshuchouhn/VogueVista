@@ -53,9 +53,25 @@ export class CartService {
       return null;
     }
   }
+  async updateCart(cartItem: any) {
+    try {
+      const res = this.http.post(API.UPDATE_CART, cartItem, {
+        headers: {
+          'Authorization': `Bearer ${this.sharedService.userData.token}`
+        }
+      });
+      const data = await lastValueFrom(res);
+      const cart: Cart = this.fromJsonData((data as any).data)
+      return cart;
+    } catch (error: any) {
+      console.log(error)
+      const err = this.sharedService.handleError(error)
+      return null;
+    }
+  }
   async deleteFromCart(cartId: string) {
     try {
-      const res = this.http.post(API.REMOVE_TO_CART, cartId, {
+      const res = this.http.post(API.REMOVE_TO_CART, {cartId : cartId}, {
         headers: {
           'Authorization': `Bearer ${this.sharedService.userData.token}`
         }
@@ -63,7 +79,7 @@ export class CartService {
       const data = await lastValueFrom(res);
       return (data as any).data;
     } catch (error: any) {
-      console.log(error)
+      console.log(error);
       const err = this.sharedService.handleError(error)
       return null;
     }

@@ -31,6 +31,7 @@ export class API {
     public static ADD_TO_CART = this.BASE_URL+'cart/addToCart'
     public static REMOVE_TO_CART = this.BASE_URL+'cart/delete'
     public static CART_LIST = this.BASE_URL+'cart/list'
+    public static UPDATE_CART = this.BASE_URL+'cart/update'
 
 
 }

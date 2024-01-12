@@ -55,7 +55,7 @@
                                         </button>
                                     </div>
                                     <div class="col-md-4 col-6">
-                                        <app-quantity-control [quantity]="item.quantity" [stockQuantity]="item.product!.stockQuantity"></app-quantity-control>
+                                        <app-quantity-control [quantity]="item.quantity" [stockQuantity]="item.product!.stockQuantity" (quantityUpdated)="changedQuantity($event, item)"></app-quantity-control>
                                     </div>
                                 </div>
                             </div>
@@ -95,7 +95,7 @@
                             <tbody>
                                 <tr>
                                     <td>Subtotal</td>
-                                    <td class="text-end">&#8377;1700</td>
+                                    <td class="text-end">&#8377;{{cartTotal$ | async}}</td>
                                 </tr>
                                 <!-- <tr>
                                     <td>Discount</td>
@@ -115,7 +115,7 @@
                         </table>
                     </div>
                     <div class="mb-2">
-                        <p class="text-success">Lorem ipsum dolor sit amet.</p>
+                        <p class="text-success">Order now, get it by {{deliveryDate | date:'d MMMM, yyyy'}}</p>
                     </div>
                     <div class="text-center">
                         <a [routerLink]="['../checkout']">
