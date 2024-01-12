@@ -32,7 +32,7 @@
           <div ngbAccordionCollapse>
             <div ngbAccordionBody>
               <ng-template>
-                <form>
+                <form [formGroup]="addressForm">
                   <div class="row">
                     <div class="col-md-6">
                       <div class="form-group mb-3">
@@ -75,6 +75,9 @@
                         <label for="pincode" class="form-label">Pincode</label>
                         <input type="text" appOnlyNumbers maxlength="6" name="pincode" id="pincode" class="form-control rounded-0" placeholder="enter pincode">
                       </div>
+                    </div>
+                    <div class="col-md-12 text-end">
+                      <button class="btn btn-dark btn-lg rounded-0">Add</button>
                     </div>
                   </div>
                 </form>

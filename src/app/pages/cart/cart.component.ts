@@ -14,8 +14,8 @@ import { selectCartItems, selectCartTotal } from 'src/app/shared/services/store/
 })
 export class CartComponent implements OnInit {
   similarProducts!: Product[]
-  cartItem$ = this.store.select(selectCartItems);
   deliveryDate!: Date
+  cartItem$ = this.store.select(selectCartItems);
   cartTotal$ = this.store.select(selectCartTotal)
   constructor(private store: Store, private productService: ProductService, private cartService: CartService){}
   async ngOnInit() {

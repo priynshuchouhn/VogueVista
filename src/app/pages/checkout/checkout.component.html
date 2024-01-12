@@ -13,32 +13,30 @@
                         <div ngbAccordionCollapse>
                             <div ngbAccordionBody>
                                 <ng-template>
-                                    <ng-container *ngFor="let item of cartItem; let i = index">
+                                    <ng-container *ngFor="let item of (cartItem$ | async); let i = index">
                                         <div class="row">
-                                            <div class="col-3 text-center">
-                                                <img src="https://static.nike.com/a/images/t_PDP_864_v1,f_auto,q_auto:eco/a277aa72-0b73-48da-8a6a-1fe1a21a6f03/victori-one-slides-QTTJHP.png"
-                                                    alt="" class="img-fluid" />
+                                            <div class="col-2 text-center">
+                                                <img src="{{item.product!.images[0]}}" alt="" class="img-fluid" />
                                             </div>
-                                            <div class="col-9">
+                                            <div class="col-10">
                                                 <p class="product-name mb-0">
-                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam,
-                                                    dolorum!
+                                                    {{item.product!.name}}
                                                 </p>
-                                                <p class="seller-name">Quantity: <strong>1</strong></p>
-                                                <p class="price mb-1">&#8377;1700</p>
-                                                <!-- <button class="btn text-danger"> -->
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28"
-                                                    fill="currentColor" class="bi bi-trash text-danger"
-                                                    viewBox="0 0 16 16">
-                                                    <path
-                                                        d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z" />
-                                                    <path
-                                                        d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z" />
-                                                </svg>
-                                                <!-- </button> -->
+                                                <p class="seller-name">Quantity: <strong>{{item.quantity}}</strong></p>
+                                                <p class="price mb-1">&#8377;{{item.product!.price}}</p>
+                                                <button class="btn text-danger" (click)="deleteFromCart(item.cartId)"  *ngIf="(cartItem$ | async)!.length > 1">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28"
+                                                        fill="currentColor" class="bi bi-trash text-danger"
+                                                        viewBox="0 0 16 16">
+                                                        <path
+                                                            d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z" />
+                                                        <path
+                                                            d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z" />
+                                                    </svg>
+                                                </button>
                                             </div>
                                         </div>
-                                        <hr *ngIf="i < (cartItem.length-1)" />
+                                        <hr *ngIf="i < ((cartItem$ | async)!.length-1)" />
                                     </ng-container>
                                 </ng-template>
                             </div>
@@ -201,12 +199,12 @@
                         <tbody>
                             <tr>
                                 <td>Subtotal</td>
-                                <td class="text-end">&#8377;1700</td>
+                                <td class="text-end">&#8377;{{cartTotal$| async }}</td>
                             </tr>
-                            <tr>
+                            <!-- <tr>
                                 <td>Discount</td>
                                 <td class="text-end">&#8377;700</td>
-                            </tr>
+                            </tr> -->
                             <tr>
                                 <td>Delivery Charges</td>
                                 <td class="text-end">&#8377;50</td>
@@ -215,7 +213,7 @@
                         <tfoot>
                             <tr>
                                 <td>Total Amount</td>
-                                <td class="text-end">&#8377;2450</td>
+                                <td class="text-end">&#8377;{{(cartTotal$| async )! + 50}}</td>
                             </tr>
                         </tfoot>
                     </table>
