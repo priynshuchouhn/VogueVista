@@ -4,6 +4,8 @@ import { CheckoutComponent } from './checkout.component';
 import { CheckoutRoutingModule } from './checkout-routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
+import { NgxStripeModule } from 'ngx-stripe';
+import { environment } from 'src/environments/environment';
 
 
 
@@ -15,7 +17,8 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     CheckoutRoutingModule,
     NgbModule,
-    FormsModule
+    FormsModule,
+    NgxStripeModule.forRoot(environment.STRIPE_PUBLIC_KEY),
 
   ]
 })

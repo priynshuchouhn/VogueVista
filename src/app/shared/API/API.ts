@@ -1,9 +1,9 @@
+import { environment } from "src/environments/environment";
 export class API {
 
     // ! ===================== Base URL ====================== !//
     
-    public static BASE_URL = 'https://vogue-vista.onrender.com/api/';
-    // public static BASE_URL = 'http://localhost:3000/api/';
+    public static BASE_URL = environment.API_URL;
     
     // ! ===================== Auth ====================== !//
     
@@ -32,6 +32,12 @@ export class API {
     public static REMOVE_TO_CART = this.BASE_URL+'cart/delete'
     public static CART_LIST = this.BASE_URL+'cart/list'
     public static UPDATE_CART = this.BASE_URL+'cart/update'
-
-
+    
+    
+    // ! ===================== Payment ====================== !//
+    public static CREATE_PAYMENT_INTENT = this.BASE_URL+'payment/createPaymentIntent'
+    
+    // ! ===================== Address ====================== !//
+    public static GET_ADDRESSES = this.BASE_URL+'address/getAddress';
+    public static ADD_ADDRESS = this.BASE_URL+'address/add';
 }

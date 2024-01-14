@@ -12,6 +12,9 @@ import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/
 import { StoreModule } from '@ngrx/store';
 import { cartReducer } from './shared/services/store/cart/cart.reducer';
 import { wishlistReducer } from './shared/services/store/wishlist/wishlist.reducer';
+import { NgxStripeModule } from 'ngx-stripe';
+import { environment } from 'src/environments/environment';
+
 
 @NgModule({
   declarations: [
@@ -33,6 +36,8 @@ import { wishlistReducer } from './shared/services/store/wishlist/wishlist.reduc
       registrationStrategy: 'registerWhenStable:30000'
     }),
     StoreModule.forRoot({'cart' : cartReducer, 'wishlist' : wishlistReducer}, {}),
+    NgxStripeModule.forRoot(environment.STRIPE_PUBLIC_KEY),
+    
   ],
   providers: [
     provideHttpClient(withFetch()),

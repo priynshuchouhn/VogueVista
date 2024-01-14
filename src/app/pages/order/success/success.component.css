@@ -27,3 +27,6 @@ svg{
 td{
     padding: 1rem .5rem;
 }
+a{
+    text-decoration: unset;
+}

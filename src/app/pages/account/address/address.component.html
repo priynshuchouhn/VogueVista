@@ -32,52 +32,72 @@
           <div ngbAccordionCollapse>
             <div ngbAccordionBody>
               <ng-template>
-                <form [formGroup]="addressForm">
+                <form [formGroup]="addressForm" (ngSubmit)="onAddressAdd()">
                   <div class="row">
+                    <div class="col-md-6 d-flex justify-content-between">
+                      <div class="form-check form-check-inline mb-3 d-flex align-items-center">
+                        <input class="form-check-input" type="radio" name="addressType" id="home" value="Home"  formControlName="addressType">
+                        <label class="form-check-label ms-2" for="home">Home</label>
+                      </div>
+                      <div class="form-check form-check-inline mb-3 d-flex align-items-center">
+                        <input class="form-check-input" type="radio" name="addressType" id="office" value="Office" formControlName="addressType">
+                        <label class="form-check-label ms-2" for="office">Office</label>
+                      </div>
+                      <div class="form-check form-check-inline mb-3 d-flex align-items-center">
+                        <input class="form-check-input" type="radio" name="addressType" id="other" value="Other" formControlName="addressType">
+                        <label class="form-check-label ms-2" for="other">Other</label>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-check form-check-inline mb-3 d-flex align-items-center">
+                        <input class="form-check-input" type="checkbox" id="default" value="isDefault" formControlName="isDefault">
+                        <label class="form-check-label ms-2" for="default">Is this your default address?</label>
+                      </div>
+                    </div>
                     <div class="col-md-6">
                       <div class="form-group mb-3">
                         <label for="name" class="form-label">Name</label>
-                        <input type="text" name="name" id="name" class="form-control rounded-0" placeholder="Enter name here">
+                        <input type="text" name="name" id="name" class="form-control rounded-0" placeholder="Enter name here" formControlName="name">
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-group mb-3">
                         <label for="phone" class="form-label">Phone</label>
-                        <input type="text" appOnlyNumbers name="phone" id="phone" class="form-control rounded-0" maxlength="10" placeholder="Enter phone">
+                        <input type="text" appOnlyNumbers name="phone" id="phone" class="form-control rounded-0" maxlength="10" placeholder="Enter phone" formControlName="phone">
                       </div>
                     </div>
                     <div class="col-md-12">
                       <div class="form-group mb-3">
                         <label for="address_line_1" class="form-label">Address line 1</label>
-                        <input type="text" name="address_line_1" id="address_line_1" class="form-control rounded-0" placeholder="Address line 1">
+                        <input type="text" name="address_line_1" id="address_line_1" class="form-control rounded-0" placeholder="Address line 1" formControlName="address_line_1">
                       </div>
                     </div>
                     <div class="col-md-12">
                       <div class="form-group mb-3">
                         <label for="address_line_2" class="form-label">Address line 2</label>
-                        <input type="text" name="address_line_2" id="address_line_2" class="form-control rounded-0" placeholder="Address line 2">
+                        <input type="text" name="address_line_2" id="address_line_2" class="form-control rounded-0" placeholder="Address line 2" formControlName="address_line_2">
                       </div>
                     </div>
                     <div class="col-md-4">
                       <div class="form-group mb-3">
                         <label for="city" class="form-label">City</label>
-                        <input type="text" name="city" id="city" class="form-control rounded-0" placeholder="enter city">
+                        <input type="text" name="city" id="city" class="form-control rounded-0" placeholder="enter city" formControlName="city">
                       </div>
                     </div>
                     <div class="col-md-4">
                       <div class="form-group mb-3">
                         <label for="state" class="form-label">State</label>
-                        <input type="text" name="state" id="state" class="form-control rounded-0" placeholder="enter state">
+                        <input type="text" name="state" id="state" class="form-control rounded-0" placeholder="enter state" formControlName="state">
                       </div>
                     </div>
                     <div class="col-md-4">
                       <div class="form-group mb-3">
                         <label for="pincode" class="form-label">Pincode</label>
-                        <input type="text" appOnlyNumbers maxlength="6" name="pincode" id="pincode" class="form-control rounded-0" placeholder="enter pincode">
+                        <input type="text" appOnlyNumbers maxlength="6" name="pincode" id="pincode" class="form-control rounded-0" placeholder="enter pincode" formControlName="pincode">
                       </div>
                     </div>
                     <div class="col-md-12 text-end">
-                      <button class="btn btn-dark btn-lg rounded-0">Add</button>
+                      <button class="btn btn-dark rounded-0 w-50">Add</button>
                     </div>
                   </div>
                 </form>
@@ -99,9 +119,12 @@
     <div class="col-md-12">
       <div class="border px-3 p-2 d-flex align-items-center">
         <div class="row w-100">
-          <div class="col-md-10">
+          <div class="col-md-10 d-flex gap-2">
             <div class="address-type">
-              <small>Home</small>
+              <small>{{address.addressType}}</small>
+            </div>
+            <div class="is-default" *ngIf="address.isDefault">
+              <small class="p-badge bg-warning">Default</small>
             </div>
           </div>
           <div class="col-md-2 text-end">
@@ -112,13 +135,13 @@
             </svg>
           </div>
           <div class="col-auto">
-            <strong>Priyanshu Chouhan</strong>
+            <strong>{{address.name}}</strong>
           </div>
           <div class="col-auto">
-            <p>7339996617</p>
+            <p>{{address.phone}}</p>
           </div>
           <div class="col-md-12">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, sit!
+            {{address.addressLine1+", "+(address.addressLine2 ? +address.addressLine2+", " : '')+address.city+", "+address.state+", "+address.pincode}}
           </div>
         </div>
       </div>
