@@ -2,9 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { SharedService } from './shared.service';
 import { lastValueFrom } from 'rxjs';
-import { Order } from '../model/order.model';
+import { Order, ProductDetail } from '../model/order.model';
 import { ProductService } from './product/product.service';
-import { Product } from '../model/product/product.model';
 import { AddressService } from './user/address.service';
 import { API } from '../API/API';
 
@@ -26,12 +25,15 @@ export class OrderService {
       paymentMethod,
       products,
     } = data;
-
-    const parsedProduct: Product[] = [];
+    const parsedProducts: ProductDetail[] = [];
     products.forEach((el: any) => {
-      console.log(el);
-      const product = this.productService.fromJsonData(el);
-      parsedProduct.push(product);
+      const product: ProductDetail = {
+        productId: el.productId,
+        product: this.productService.fromJsonData(el.product),
+        quantity: el.quantity,
+        sizeVariant: el.sizeVariant
+      }
+      parsedProducts.push(product);
     })
     const parsedAddress = this.addressService.fromJsonData(shippingAddress);
 
@@ -48,7 +50,7 @@ export class OrderService {
       orderStatus,
       paymentId,
       paymentMethod,
-      parsedProduct,
+      parsedProducts,
       discount,
       shippingCharges,
     )
@@ -87,9 +89,10 @@ export class OrderService {
         }
       })
       const data = await lastValueFrom(res);
-      const parsedOrder = this.fromJsonData(data);
+      const parsedOrder = this.fromJsonData((data as any).data);
       return parsedOrder;
     } catch (error:any) {
+      console.log(error);
       const err = this.sharedService.handleError(error);
       console.log(err);
       return null;

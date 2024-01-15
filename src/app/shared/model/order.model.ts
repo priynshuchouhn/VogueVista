@@ -11,11 +11,11 @@ export class Order {
     orderStatus: number
     paymentId: string
     paymentMethod : string
-    products: Product[]
+    products: ProductDetail[]
     discount?: number
     shippingCharges?: number
 
-    constructor(orderId: number, userId: number,orderNumber: string, orderDate: Date, shippingAddress: Address, totalAmount: number, orderStatus: number,  paymentId: string, paymentMethod : string, products: Product[], discount?: number, shippingCharges?: number) {
+    constructor(orderId: number, userId: number,orderNumber: string, orderDate: Date, shippingAddress: Address, totalAmount: number, orderStatus: number,  paymentId: string, paymentMethod : string, products: ProductDetail[], discount?: number, shippingCharges?: number) {
         this.orderId = orderId
         this.userId = userId
         this.orderNumber = orderNumber
@@ -29,4 +29,9 @@ export class Order {
         this.discount = discount
         this.shippingCharges = shippingCharges
     }
+}
+
+
+export class ProductDetail {
+    constructor(public productId:String,public product:Product, public quantity: number, public sizeVariant?: string){}
 }

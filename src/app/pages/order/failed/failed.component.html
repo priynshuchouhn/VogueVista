@@ -22,28 +22,18 @@
                             <div class="col-md-6 text-center text-md-start">
                                 <div>
                                     <p class="text-danger fs-5 mb-0">Order Date:</p>
-                                    <p class="text-danger fw-bold">Dec 12, 2023</p>
+                                    <p class="text-danger fw-bold">{{data.orderDate | date:'d MMMM, yyyy'}}</p>
                                 </div>
                             </div>
-                            <!-- <div class="col-md-4 text-center text-md-end">
-                                <div class="">
-                                    <p class="text-danger fs-5 mb-0">Expected Delivery:</p>
-                                    <p class="text-danger fw-bold">Dec 18, 2023</p>
-                                </div>
-                            </div>
-                            <div class="col-md-6 text-center text-md-start">
-                                <p class="text-danger fs-5 mb-0">Order Number:</p>
-                                <p class="text-danger fw-bold">#456456</p>
-                            </div> -->
                             <div class="col-md-4 text-center text-md-end ">
                                 <div>
                                     <p class="text-danger fs-5 mb-0">Payment Method:</p>
-                                    <p class="text-danger fw-bold">Cash On Delivery</p>
+                                    <p class="text-danger fw-bold">{{data.paymentMethod}}</p>
                                 </div>
                             </div>
                         </div>
                         <div class="row justify-content-center">
-                            <div class="col-md-5 mb-3"><button class="w-100 btn btn-lg btn-danger rounded-0">Try Again</button></div>
+                            <div class="col-md-5 mb-3"><a [routerLink]="['/checkout']"><button class="w-100 btn btn-lg btn-danger rounded-0">Try Again</button></a></div>
                             <div class="col-md-5 mb-3"><a [routerLink]="['/']"><button class="w-100 btn btn-lg btn-outline-dark rounded-0">Continue Shopping</button></a></div>
                         </div>
                     </div>
@@ -68,7 +58,13 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
+                                            @for (item of data.productList; track $index) {
+                                                <tr>
+                                                    <td>{{item.product.name}}</td>
+                                                    <td class="text-end">&#8377;{{item.product.price}}</td>
+                                                </tr>
+                                            }
+                                            <!-- <tr>
                                                 <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro, enim.</td>
                                                 <td class="text-end">$130</td>
                                             </tr>
@@ -79,20 +75,20 @@
                                             <tr>
                                                 <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro, enim.</td>
                                                 <td class="text-end">$130</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro, enim.</td>
-                                                <td class="text-end">$130</td>
-                                            </tr>
+                                            </tr> -->
                                         </tbody>
                                         <tfoot>
                                             <tr>
                                                 <td class="fw-bold">Discount</td>
-                                                <td class="text-end">$0.0</td>
+                                                <td class="text-end text-success">- &#8377;{{data.discount}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fw-bold">Shipping Charge</td>
+                                                <td class="text-end">+ &#8377;{{data.shippingCharges}}</td>
                                             </tr>
                                             <tr class="total-price">
                                                 <td class="fs-3 fw-bold">Total Price</td>
-                                                <td class="fs-3 text-end">$130</td>
+                                                <td class="fs-3 text-end">&#8377;{{data.totalAmount}}</td>
                                             </tr>
                                         </tfoot>
                                     </table>

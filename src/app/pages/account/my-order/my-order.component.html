@@ -8,7 +8,7 @@
     </div>
 </div>
 <div class="contianer h-100 p-2 py-4">
-    <ng-container *ngIf="lstOrder.length < 0; else orderList">
+    <ng-container *ngIf="lstOrder.length < 1; else orderList">
         <div class="container p-2 py-5">
             <div class="row">
                 <div class="col-md-6">
@@ -44,10 +44,10 @@
                                 <td>
                                     <div class="row align-items-center">
                                         <div class="col-2">
-                                            <img src="{{order.products[0].images[0]}}" alt="" class="img-fluid">
+                                            <img src="{{order.products[0].product.images[0]}}" alt="" class="img-fluid">
                                         </div>
                                         <div class="col-10">
-                                            <p>{{order.products[0].name}}<strong *ngIf="order.products.length>1">{{" + "+(order.products.length-1)+" more"}}</strong></p>
+                                            <p>{{order.products[0].product.name}}<strong *ngIf="order.products.length>1">{{" + "+(order.products.length-1)+" more"}}</strong></p>
                                         </div>
                                     </div>
                                 </td>
@@ -69,11 +69,11 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-3 h-100">
-                                <img src="{{order.products[0].images[0]}}" alt="" class="img-fluid">
+                                <img src="{{order.products[0].product.images[0]}}" alt="" class="img-fluid">
                             </div>
                             <div class="col-9">
                                 <div>
-                                    <p>{{order.products[0].name}}<strong *ngIf="order.products.length>1">{{" + "+(order.products.length-1)+" more"}}</strong></p>
+                                    <p>{{order.products[0].product.name}}<strong *ngIf="order.products.length>1">{{" + "+(order.products.length-1)+" more"}}</strong></p>
                                     <p><span class="badge bg-success rounded-0">{{order.orderStatus}}</span></p>
                                 </div>
                             </div>

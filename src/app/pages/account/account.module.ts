@@ -10,7 +10,7 @@ import { AddressComponent } from './address/address.component';
 import { AccountComponent } from './account.component';
 import { AccountWebComponent } from './account-web/account-web.component';
 import { AccountMobileComponent } from './account-mobile/account-mobile.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SharedModule } from 'src/app/shared/shared.module';
 
@@ -32,6 +32,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
   imports: [
     SharedModule,
     CommonModule,
+    FormsModule,
     AccountRoutingModule,
     ReactiveFormsModule,
     NgbModule

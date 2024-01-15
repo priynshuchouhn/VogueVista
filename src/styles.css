@@ -132,6 +132,13 @@ input[type='radio'].form-check-input {
   color: #ccc !important;
 }
 
+.p-badge{ 
+  padding: 0.25rem;
+  font-size: .75rem;
+  color: #fff;
+  font-weight: 600;
+}
+
 @media only screen and (max-width: 768px) {
   .slick-prev:before {
     margin-top: 2rem;

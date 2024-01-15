@@ -50,13 +50,13 @@
                             <div ngbAccordionBody>
                                 <ng-template>
                                     @for (address of lstAddress; track $index) {
-                                    <div class="row mb-3 mx-0">
+                                        <div class="row mb-3 mx-0">
                                         <div class="col-1 d-flex align-items-center">
                                             <input type="radio" class="form-check-input" name="address"
-                                                id="{{ $index }}" [checked]="address.isDefault">
+                                                id="{{ $index }}" value="{{lstAddress[$index]}}" [checked]="selectedAddress == lstAddress[$index]" (change)="addressChanged(lstAddress[$index])">
                                         </div>
                                         <div class="col-11">
-                                            <div class="border px-3 p-2 d-flex align-items-center">
+                                            <label for="{{$index}}" class="border px-3 p-2 d-flex align-items-center">
                                                 <div class="row w-100">
                                                   <div class="col-md-10 d-flex gap-2">
                                                     <div class="address-type">
@@ -83,7 +83,7 @@
                                                     {{address.addressLine1+", "+(address.addressLine2 ? +address.addressLine2+", " : '')+address.city+", "+address.state+", "+address.pincode}}
                                                   </div>
                                                 </div>
-                                              </div>
+                                            </label>
                                         </div>
                                     </div>
                                     }
@@ -117,13 +117,30 @@
                             <div ngbAccordionBody>
                                 <ng-template>
                                     <div class="row">
-                                        <div class="col-md-12">
-                                            <ngx-stripe-elements [stripe]="stripe" [elementsOptions]="elementsOptions">
-                                                <ngx-stripe-payment [options]="paymentElementOptions" />
-                                            </ngx-stripe-elements>   
+                                        <div class="col-md-12 mb-3">
+                                            <div class="form-check mb-3 d-flex align-items-end">
+                                                <input type="radio" name="payment-method" id="card" class="form-check-input" [(ngModel)]="paymentMethod"
+                                                    value="card">
+                                                <label for="card" class="form-check-label"> Credit / Debit / ATM
+                                                    Card</label>
+                                            </div>
+                                            <ng-container *ngIf="paymentMethod == 'card'">
+                                                <ngx-stripe-elements [stripe]="stripe" [elementsOptions]="elementsOptions">
+                                                    <ngx-stripe-payment [options]="paymentElementOptions" />
+                                                </ngx-stripe-elements> 
+                                            </ng-container>
                                         </div>
-                                        <div class="col-md-12">
-                                            <button class="btn btn-dark" type="button" (click)="pay()">Pay Now</button>
+                                        <div class="col-md-12 mb-3">
+                                            <div class="form-check mb-3 d-flex align-items-end">
+                                                <input type="radio" name="payment-method" id="cod" class="form-check-input" [(ngModel)]="paymentMethod"
+                                                    value="COD">
+                                                <label for="cod" class="form-check-label"> Cash On Delivery</label>
+                                            </div>
+                                            <ng-container *ngIf="paymentMethod == 'COD'">
+                                            </ng-container>
+                                        </div>
+                                        <div class="col-md-12 text-end">
+                                            <button class="btn btn-dark rounded-0 w-50 btn-lg" type="button" (click)="pay()">Pay Now</button>
                                         </div>
                                     </div>
                                 </ng-template>

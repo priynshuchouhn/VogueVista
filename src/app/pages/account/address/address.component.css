@@ -40,11 +40,3 @@ p{
     border-color: transparent !important;
     box-shadow : none !important;
 }
-
-
-.p-badge{ 
-    padding: 0.25rem;
-    font-size: .75rem;
-    color: #fff;
-    font-weight: 600;
-}
