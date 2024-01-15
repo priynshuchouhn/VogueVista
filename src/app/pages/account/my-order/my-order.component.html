@@ -8,61 +8,80 @@
     </div>
 </div>
 <div class="contianer h-100 p-2 py-4">
-    <div class="row mb-4 mx-0">
-        <div class="col-md-12 d-md-flex d-none">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th width="15%">Order ID</th>
-                        <th class="text-center">Product</th>
-                        <th width="10%">Status</th>
-                        <th width="10%">Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @for (order of lstOrder; track $index) {
-                        <tr class="align-middle">
-                            <td>#8659{{ $index }}</td>
-                            <td>
-                                <div class="row">
-                                    <div class="col-2">
-                                        <img src="https://systematixmedia.com/storage/product_varient/large/MQ0G3HN-A_1_20220909103130.PNG" alt="" class="img-fluid">
-                                    </div>
-                                    <div class="col-10">
-                                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis, voluptas.</p>
-                                    </div>
-                                </div>
-                            </td>
-                            <td><span class="badge bg-success">Delivered</span></td>
-                            <td class="text-center action-icons"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="" class="bi bi-eye-fill" viewBox="0 0 16 16">
-                                <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0"/>
-                                <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8m8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7"/>
-                              </svg></td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
-        </div>
-    </div>
-    <div class="row mx-0 d-flex d-md-none">
-        @for (order of lstOrder; track $index) {
-        <div class="col-md-12 mb-3">
-            <div class="card">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-3 h-100">
-                            <img src="https://systematixmedia.com/storage/product_varient/large/MQ0G3HN-A_1_20220909103130.PNG" alt="" class="img-fluid">
-                        </div>
-                        <div class="col-9">
-                            <div>
-                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis, voluptas.</p>
-                                <p><span class="badge bg-success rounded-0">Delivered</span></p>
-                            </div>
+    <ng-container *ngIf="lstOrder.length < 0; else orderList">
+        <div class="container p-2 py-5">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="/assets/images/empty-order.jpg" alt="" class="img-fluid">
+                </div>
+                <div class="col-md-6">
+                    <div class="d-flex justify-content-center align-items-center h-100">
+                        <div>
+                            <p class="fs-1 fw-bold text-center text-forest-green">Place your first order now!</p>
+                            <p class="text-center"><a routerLink="/" class="text-forest-green fs-5">Continue Shopping</a></p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    }
-    </div>
+    </ng-container>
+    <ng-template #orderList>
+        <div class="row mb-4 mx-0">
+            <div class="col-md-12 d-md-flex d-none">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th width="15%">Order ID</th>
+                            <th class="text-center">Product</th>
+                            <th width="10%">Status</th>
+                            <th width="10%">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (order of lstOrder; track $index) {
+                            <tr class="align-middle">
+                                <td>#{{order.orderNumber}}</td>
+                                <td>
+                                    <div class="row align-items-center">
+                                        <div class="col-2">
+                                            <img src="{{order.products[0].images[0]}}" alt="" class="img-fluid">
+                                        </div>
+                                        <div class="col-10">
+                                            <p>{{order.products[0].name}}<strong *ngIf="order.products.length>1">{{" + "+(order.products.length-1)+" more"}}</strong></p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td><span class="badge bg-success rounded-0">{{order.orderStatus}}</span></td>
+                                <td class="text-center action-icons"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="" class="bi bi-eye-fill" viewBox="0 0 16 16">
+                                    <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0"/>
+                                    <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8m8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7"/>
+                                  </svg></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row mx-0 d-flex d-md-none">
+            @for (order of lstOrder; track $index) {
+            <div class="col-md-12 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-3 h-100">
+                                <img src="{{order.products[0].images[0]}}" alt="" class="img-fluid">
+                            </div>
+                            <div class="col-9">
+                                <div>
+                                    <p>{{order.products[0].name}}<strong *ngIf="order.products.length>1">{{" + "+(order.products.length-1)+" more"}}</strong></p>
+                                    <p><span class="badge bg-success rounded-0">{{order.orderStatus}}</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+        </div>
+    </ng-template>
 </div>

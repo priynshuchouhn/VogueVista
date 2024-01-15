@@ -14,7 +14,7 @@ export class UserService {
 
   fromJsonData(data: any): User {
     const tempUser = new User(
-      data.id,
+      data._id,
       data.name,
       data.email,
       data.mobileNo,

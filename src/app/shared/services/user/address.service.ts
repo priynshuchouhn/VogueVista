@@ -11,7 +11,8 @@ import { Address } from '../../model/user/address.model';
 export class AddressService {
 
   fromJsonData(data: any) {
-    const { addressId,
+    const { 
+      _id,
       userId,
       addressType,
       name,
@@ -24,7 +25,7 @@ export class AddressService {
 
     const addressLine2 = data.addressLine2 ?? null;
     const tempAddress = new Address(
-      addressId,
+      _id,
       userId,
       addressType,
       name,

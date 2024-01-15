@@ -40,4 +40,9 @@ export class API {
     // ! ===================== Address ====================== !//
     public static GET_ADDRESSES = this.BASE_URL+'address/getAddress';
     public static ADD_ADDRESS = this.BASE_URL+'address/add';
+
+
+    // ! ===================== order ====================== !//
+    public static GET_ORDER = this.BASE_URL+'order/getOrders'
+    public static Add_ORDER = this.BASE_URL+'order/add'
 }
