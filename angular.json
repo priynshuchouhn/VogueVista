@@ -64,7 +64,8 @@
                   "maximumError": "4kb"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "serviceWorker": true
             },
             "development": {
               "buildOptimizer": false,
