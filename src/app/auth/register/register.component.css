@@ -32,5 +32,10 @@ a {
         top: 10%;
         right: 27%;
     }
+    input[type=checkbox].form-check-input {
+        height: 1.3rem;
+        width: 1.3rem !important;
+    }
+
     
 }
