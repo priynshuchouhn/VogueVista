@@ -40,7 +40,7 @@ export class RegisterComponent {
     }
     const res = await this.userService.register(body) as any
     if (res['success'] == true) {
-      this.router.navigate(['/']);
+      this.router.navigate(['/login']);
     }else{
       this.errorMessage = res
     }

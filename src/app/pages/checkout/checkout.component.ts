@@ -12,6 +12,7 @@ import { take } from 'rxjs';
 import { Cart } from 'src/app/shared/model/product/cart.model';
 import { OrderService } from 'src/app/shared/services/order.service';
 import { Router } from '@angular/router';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 
 @Component({
@@ -20,6 +21,8 @@ import { Router } from '@angular/router';
   styleUrl: './checkout.component.css'
 })
 export class CheckoutComponent implements OnInit {
+  isSubmitted: boolean = false
+  addressForm: FormGroup
   cartItem$ = this.store.select(selectCartItems);
   cartTotal$ = this.store.select(selectCartTotal)
   similarProducts = Array(5).fill(0)
@@ -49,9 +52,19 @@ export class CheckoutComponent implements OnInit {
   };
 
 
-  constructor(private store: Store, private cartService: CartService, public stripe: StripeService, private paymentService: PaymentService, private addressService: AddressService, private orderService: OrderService, private router: Router) { }
-
-
+  constructor(private store: Store, private cartService: CartService, public stripe: StripeService, private paymentService: PaymentService, private addressService: AddressService, private orderService: OrderService, private router: Router) {
+    this.addressForm = new FormGroup({
+      'addressType': new FormControl('Home', Validators.required),
+      'isDefault': new FormControl(true, Validators.required),
+      'name': new FormControl(null, Validators.required),
+      'phone': new FormControl(null, Validators.required),
+      'address_line_1': new FormControl(null, Validators.required),
+      'address_line_2': new FormControl(null),
+      'city': new FormControl(null, Validators.required),
+      'state': new FormControl(null, Validators.required),
+      'pincode': new FormControl(null, Validators.required),
+    })
+  }
   ngOnInit() {
     this.cartTotal$.subscribe(total => {
       if (total > 0) {
@@ -63,6 +76,33 @@ export class CheckoutComponent implements OnInit {
     })
     this.getAddresses();
   }
+
+  async onAddressAdd() {
+    this.isSubmitted = true
+    console.log(this.addressForm.value);
+    if (this.addressForm.invalid) {
+      return;
+    }
+    const value = this.addressForm.value
+    const body = {
+      'isDefault': value['isDefault'],
+      'addressType': value['addressType'],
+      'name': value['name'],
+      'phone': value['phone'],
+      'addressLine1': value['address_line_1'],
+      'addressLine2': value['address_line_2'],
+      'city': value['city'],
+      'state': value['state'],
+      'pincode': value['pincode'],
+    }
+    const address = await this.addressService.addAddress(body);
+    if(address){
+      this.addressForm.reset();
+      this.getAddresses();
+    }
+
+  }
+
 
   async getAddresses() {
     try {
@@ -156,7 +196,7 @@ export class CheckoutComponent implements OnInit {
               const res = await this.orderService.addOrder(body);
               if (res) {
                 this.router.navigate(['/order/success'], { state: { data: res } });
-                this.store.dispatch(emptyCart());
+                this.emptyCart();
               }
             }
           }
@@ -170,13 +210,21 @@ export class CheckoutComponent implements OnInit {
       this.paying.set(false);
       if (res) {
         this.router.navigate(['/order/success'], { state: { data: res } });
-        this.store.dispatch(emptyCart());
+        this.emptyCart();
       }else{
         this.router.navigate(['/order/failed'], { state: { data: body } });
       }
     }
   }
 
-
+async emptyCart(){
+  const cartItems = await new Promise(resolve => {
+    this.cartItem$.pipe(take(1)).subscribe(resolve)
+  }) as Cart[]
+  cartItems.forEach(async el =>{
+    const res = await this.cartService.deleteFromCart(el.cartId);
+  })
+  this.store.dispatch(emptyCart());
+}
 
 }
