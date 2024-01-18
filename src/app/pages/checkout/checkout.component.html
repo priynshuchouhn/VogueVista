@@ -89,7 +89,7 @@
                                     }
                                     <div class="row mb-3 mx-0 justify-content-end">
                                         <div class="col-11">
-                                            <div ngbAccordion [closeOthers]="true" #accordion="ngbAccordion">
+                                            <div ngbAccordion [closeOthers]="true" #accordionAddress="ngbAccordion">
                                                 <div ngbAccordionItem>
                                                   <h2 ngbAccordionHeader>
                                                     <button ngbAccordionButton>
@@ -229,7 +229,7 @@
                                             </ng-container>
                                         </div>
                                         <div class="col-md-12 text-end">
-                                            <button class="btn btn-dark rounded-0 w-50 btn-lg" type="button" (click)="pay()">Pay Now</button>
+                                            <button class="btn btn-dark rounded-0 w-50 btn-lg" type="button" (click)="pay()" [disabled]="isLoading"><span *ngIf="!isLoading">Pay Now</span><app-loader *ngIf="isLoading"></app-loader></button>
                                         </div>
                                     </div>
                                 </ng-template>

@@ -33,6 +33,7 @@ export class CheckoutComponent implements OnInit {
   paying = signal(false);
   deliveryCharges: number = 50
   selectedAddress!: Address
+  isLoading: Boolean = false
 
   elementsOptions: StripeElementsOptions = {
     locale: 'en',
@@ -160,6 +161,7 @@ export class CheckoutComponent implements OnInit {
   }
 
   async pay() {
+    this.isLoading = true
     if (this.paying()) return;
     this.paying.set(true);
     if (this.paymentMethod == 'card') {
@@ -185,7 +187,7 @@ export class CheckoutComponent implements OnInit {
         })
         .subscribe(async (result: any) => {
           this.paying.set(false);
-          console.log(result);
+          // console.log(result);
           const body = await this.createOrderDetail();
           Object.assign(body, { orderDate: new Date().toLocaleString('en-US', { timeZone: 'Asia/Kolkata', hour12: true }) })
           if (result.error) {
@@ -200,14 +202,15 @@ export class CheckoutComponent implements OnInit {
               }
             }
           }
+          this.isLoading = false
         });
     } else {
       const body = await this.createOrderDetail();
       Object.assign(body, { paymentId: this.generatePaymentId() })
       Object.assign(body, { orderDate: new Date().toLocaleString('en-US', { timeZone: 'Asia/Kolkata', hour12: true }) })
-      // this.router.navigate(['/order/failed'], { state: { data: body } });
       const res = await this.orderService.addOrder(body);
       this.paying.set(false);
+      this.isLoading = false
       if (res) {
         this.router.navigate(['/order/success'], { state: { data: res } });
         this.emptyCart();

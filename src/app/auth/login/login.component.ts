@@ -40,7 +40,7 @@ export class LoginComponent {
 
     const res = await this.userService.login(body) as any
     if(res['success']== true){
-      const user = res['data'];
+      const user = this.userService.fromJsonData(res['data']);
       if (value['rememberMe'] == true) {
         localStorage.setItem('user', JSON.stringify(user));
       } else {

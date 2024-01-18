@@ -16,6 +16,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { QuantityControlComponent } from './components/quantity-control/quantity-control.component';
 import { FormsModule } from '@angular/forms';
 import { OnlyNumbersDirective } from './directive/only-numbers.directive';
+import { LoaderComponent } from './components/loader/loader.component';
 
 
 
@@ -33,7 +34,8 @@ import { OnlyNumbersDirective } from './directive/only-numbers.directive';
     SimilarProductsComponent,
     SideMenuComponent,
     QuantityControlComponent,
-    OnlyNumbersDirective
+    OnlyNumbersDirective,
+    LoaderComponent
   ],
   imports: [
     CommonModule,
@@ -50,7 +52,8 @@ import { OnlyNumbersDirective } from './directive/only-numbers.directive';
     DropdownComponent,
     SimilarProductsComponent,
     QuantityControlComponent,
-    OnlyNumbersDirective
+    OnlyNumbersDirective,
+    LoaderComponent
   ]
 })
 export class SharedModule { }

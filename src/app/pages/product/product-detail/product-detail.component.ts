@@ -2,7 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { SlickCarouselComponent } from 'ngx-slick-carousel';
-import { lastValueFrom, take } from 'rxjs';
+import { take } from 'rxjs';
 import { Cart } from 'src/app/shared/model/product/cart.model';
 import { Product } from 'src/app/shared/model/product/product.model';
 import { CartService } from 'src/app/shared/services/product/cart.service';
@@ -19,6 +19,7 @@ export class ProductDetailComponent {
   quantity: Number = 1
   selectedSizeVariant!: string
   similarProducts: Product[] = []
+  isLoading: boolean = false
 
 
 
@@ -69,6 +70,7 @@ export class ProductDetailComponent {
 
 
   async addProductToCart() {
+    this.isLoading = true
     try {
       const item$ = this.store.select(selectCartItemById(this.product.productId, this.selectedSizeVariant))
       item$.pipe(take(1)).subscribe(async item => {
@@ -79,6 +81,7 @@ export class ProductDetailComponent {
             quantity: this.quantity
           }
           const cartItem = await this.cartService.addToCart(cart)
+          this.isLoading = false
           if (cartItem) {
             this.store.dispatch(addItemToCart({ item: <Cart>cartItem }));
           }
@@ -88,6 +91,7 @@ export class ProductDetailComponent {
             quantity: ++item.quantity
           }
           const cartItem = await this.cartService.updateCart(cart)
+          this.isLoading = false
           console.log(cartItem);
           if (cartItem) {
             this.store.dispatch(updateCartItem({ updatedItem: <Cart>cartItem }));
@@ -96,7 +100,7 @@ export class ProductDetailComponent {
       })
     } catch (error) {
       console.log(error);
-
     }
+
   }
 }

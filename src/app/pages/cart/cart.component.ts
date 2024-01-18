@@ -27,21 +27,21 @@ export class CartComponent implements OnInit {
 
   async deleteFromCart(cartId: string){
     const res = await this.cartService.deleteFromCart(cartId);
-    console.log(res);
+    // console.log(res);
     if(res){
       this.store.dispatch(removeItemFromCart({itemId : cartId}));
     }
   }
 
   async changedQuantity(quantity: number, item: Cart){
-    console.log(quantity, item.quantity)
+    // console.log(quantity, item.quantity)
     if(quantity > item.quantity){
       const cart = {
         cartId: item.cartId,
          quantity: ++item.quantity
        }
        const cartItem = await this.cartService.updateCart(cart)
-       console.log(cartItem);
+      //  console.log(cartItem);
        if (cartItem) {
          this.store.dispatch(updateCartItem({ updatedItem: <Cart>cartItem }));
        }
@@ -51,7 +51,7 @@ export class CartComponent implements OnInit {
          quantity: --item.quantity
        }
        const cartItem = await this.cartService.updateCart(cart)
-       console.log(cartItem);
+      //  console.log(cartItem);
        if (cartItem) {
          this.store.dispatch(updateCartItem({ updatedItem: <Cart>cartItem }));
        }
