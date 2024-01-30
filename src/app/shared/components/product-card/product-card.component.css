@@ -1,36 +1,85 @@
-.card{
+.main{
+    overflow: hidden;
+}
+.card {
     border-radius: 0;
     border: none;
 }
-p{
-    margin-bottom:0;
+
+.card:hover .options{
+left: 18px;
+visibility: visible;
+opacity: 1;
+transition: all .3s ease;
 }
-.category-name{
+
+p {
+    margin-bottom: 0;
+}
+
+.category-name {
     color: #777;
     font-size: 1rem;
     text-transform: uppercase;
 }
-.product-rating{
+
+.product-rating {
     color: rgb(255, 178, 29);
 }
-.product-name{
+
+.product-name {
     font-size: 1.5rem;
 }
-.product-price{
+
+.product-price {
     font-size: 1.4rem;
 }
 
-.product-image{
+.product-image {
     aspect-ratio: 4/5;
     object-fit: cover;
     overflow: hidden;
 }
-.card-header{
+
+.card-header {
     border: none;
     border-radius: 0;
     padding: 0;
 }
 
-a{
+a {
     text-decoration: none;
+    color: unset;
+}
+
+.options {
+    transition: all .1s ease;
+    left: -18px;
+    top: 0;
+    height: 100%;
+    width: 20%;
+    z-index: 9;
+    opacity: 0;
+    visibility: hidden;
+}
+button {
+    border: none;
+    box-shadow: none;
+}
+.action-button{
+    
+        position: relative;
+        display: inline-block;
+        aspect-ratio: 1/1;
+        width: 3rem;
+        height: 3rem;
+        line-height: 1rem;
+        text-align: center;
+        font-size: 18px;
+        color: #000;
+        background-color: #fff;
+        border-bottom: 0;
+        box-shadow: 0 1px 10px #010f1c33;
+        border-radius: 50%;
+        /* margin-bottom: 6px; */
 }
