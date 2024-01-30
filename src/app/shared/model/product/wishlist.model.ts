@@ -1,7 +1,13 @@
-export class wishlist {
-    wishlistId: String
+import { Product } from "./product.model";
 
-    constructor(wishlistId: String){
+export class Wishlist {
+    wishlistId: String
+    userId: string;
+    product: Product
+
+    constructor(wishlistId: String, userId:string, product: Product){
         this.wishlistId = wishlistId
+        this.userId = userId
+        this.product = product
     }
 }

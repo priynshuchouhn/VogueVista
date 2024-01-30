@@ -28,10 +28,15 @@ export class API {
     public static POPULAR_PRODUCT = this.BASE_URL+'product/popular'
     
     // ! ===================== Cart ====================== !//
-    public static ADD_TO_CART = this.BASE_URL+'cart/addToCart'
+    public static ADD_TO_CART = this.BASE_URL+'cart/add'
     public static REMOVE_TO_CART = this.BASE_URL+'cart/delete'
     public static CART_LIST = this.BASE_URL+'cart/list'
     public static UPDATE_CART = this.BASE_URL+'cart/update'
+
+     // ! ===================== Wishlist ====================== !//
+     public static ADD_TO_WISHLIST = this.BASE_URL+'wishlist/add'
+     public static REMOVE_FROM_WISHLIST = this.BASE_URL+'wishlist/delete'
+     public static GET_WISHLIST = this.BASE_URL+'wishlist/list'
     
     
     // ! ===================== Payment ====================== !//

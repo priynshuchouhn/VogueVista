@@ -1,4 +1,4 @@
-<ng-container *ngIf="!(wishlistItem.length > 0); else wishlistSection">
+<ng-container *ngIf="!((wishlistItem$ | async)!.length > 0); else wishlistSection">
     <div class="container p-2 py-5">
         <div class="row">
             <div class="col-md-6">
@@ -23,19 +23,18 @@
                         <h1>Wishlist</h1>
                     </div>
                     <div class="col-md-8 order-2 order-md-1">
-                        <ng-container *ngFor="let item of wishlistItem">
+                        <ng-container *ngFor="let item of wishlistItem$ | async">
                             <div class="row mb-5">
                                 <div class="col-3 text-center mb-3">
-                                    <img src="https://static.nike.com/a/images/t_PDP_864_v1,f_auto,q_auto:eco/a277aa72-0b73-48da-8a6a-1fe1a21a6f03/victori-one-slides-QTTJHP.png"
+                                    <img src="{{item.product.images[0]}}"
                                         alt="" class="img-fluid" />
                                 </div>
                                 <div class="col-9">
                                     <p class="product-name">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam,
-                                        dolorum!
+                                            {{item.product.name}}
                                     </p>
-                                    <p class="seller-name">Seller: Lorem, ipsum.</p>
-                                    <p class="price">&#8377;1700</p>
+                                    <p class="seller-name">Seller: {{item.product.sellerName}}</p>
+                                    <p class="price">&#8377;{{item.product.price}}</p>
                                     <div class="row align-items-center">
                                         <div class="col-md-12 d-flex align-items-center gap-2">
                                             <button class="btn btn-lg rounded-0 btn-outline-dark">
@@ -61,6 +60,6 @@
             </div>
         </div>
         <div class="container-fuild px-3">
-           <app-similar-products></app-similar-products>
+           <app-similar-products [products]="similarProducts"></app-similar-products>
         </div>
     </ng-template>

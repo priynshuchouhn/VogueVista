@@ -5,6 +5,9 @@ import { API } from '../API/API';
 import { Router } from '@angular/router';
 import { catchError, lastValueFrom } from 'rxjs';
 import { SharedService } from './shared.service';
+import { Store } from '@ngrx/store';
+import { emptyCart } from './store/cart/cart.actions';
+import { emptyWishlist } from './store/wishlist/wishlist.actions';
 
 
 @Injectable({
@@ -52,8 +55,10 @@ export class UserService {
   logout() {
     localStorage.clear();
     sessionStorage.clear();
+    this.store.dispatch(emptyCart());
+    this.store.dispatch(emptyWishlist());
     this.router.navigate(['/']);
   }
 
-  constructor(private http: HttpClient, private router: Router, private sharedService: SharedService) { }
+  constructor(private http: HttpClient, private router: Router, private sharedService: SharedService, private store: Store) { }
 }

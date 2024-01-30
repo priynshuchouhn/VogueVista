@@ -9,6 +9,7 @@ import { CartService } from '../../services/product/cart.service';
 import { loadCartItems } from '../../services/store/cart/cart.actions';
 import { Cart } from '../../model/product/cart.model';
 import { UserService } from '../../services/user.service';
+import { WishlistService } from '../../services/product/wishlist.service';
 
 @Component({
   selector: 'app-header',
@@ -21,15 +22,14 @@ export class HeaderComponent implements OnInit {
   cartItems$ = this.store.select(selectCartItemsLength);
   wishlistItems$ = this.store.select(selectWishlistItemsLength);
   
-  constructor(public sideMenuService: SideMenuService, private categoryService: CategoryService, private store: Store, private cartService: CartService, private userService: UserService) { }
+  constructor(public sideMenuService: SideMenuService, private categoryService: CategoryService, private store: Store, private cartService: CartService, private userService: UserService, private wishlistService: WishlistService) { }
   
   async ngOnInit() {
     this.userService.getUserData();
     this.lstCategory = await this.categoryService.getAllCategory();
     this.cartService.loadCartItem();
+    this.wishlistService.loadWishlist();
   }
-  userLogined: boolean = false;
-  authPage: boolean = false
 
   toggleSideMenu() {
     this.sideMenuService.sideMenuCollapsed = !this.sideMenuService.sideMenuCollapsed
