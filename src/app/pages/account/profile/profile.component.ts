@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { SharedService } from 'src/app/shared/services/shared.service';
 import { UserService } from 'src/app/shared/services/user.service';
 
 @Component({
@@ -6,9 +7,14 @@ import { UserService } from 'src/app/shared/services/user.service';
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.css'
 })
-export class ProfileComponent {
+export class ProfileComponent implements OnInit {
 
-  constructor(private userService: UserService){}
+  username: string = 'User'
+
+  constructor(private userService: UserService, private sharedService: SharedService){}
+  ngOnInit(): void {
+   this.username = this.sharedService.userData.username
+  }
 
   logoutClick(){
     this.userService.logout();

@@ -13,72 +13,74 @@
             <h4 class="fw-bold">Personal Details</h4>
         </div>
     </div>
-    <div class="row mx-0">
-        <div class="col-md-6">
-            <div class="form-group">
-                <div class="input-group mb-3">
-                    <span class="input-group-text rounded-0" id="basic-addon1">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="grey"
-                            class="bi bi-person-circle" viewBox="0 0 16 16">
-                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
-                            <path fill-rule="evenodd"
-                                d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
-                        </svg>
-                    </span>
-                    <input type="text" class="form-control form-control-lg border-start-0 rounded-0 py-3"
-                        placeholder="Your Name" aria-label="Username" aria-describedby="basic-addon1">
+    <form [formGroup]="profileDetail" (ngSubmit)="onSubmit()">
+        <div class="row mx-0">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text rounded-0" id="basic-addon1">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="grey"
+                                class="bi bi-person-circle" viewBox="0 0 16 16">
+                                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+                                <path fill-rule="evenodd"
+                                    d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
+                            </svg>
+                        </span>
+                        <input type="text" class="form-control form-control-lg border-start-0 rounded-0 py-3"
+                            placeholder="Your Name" aria-label="Username" aria-describedby="basic-addon1" formControlName="username">
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-md-6">
-            <div class="form-group">
-                <div class="input-group mb-3">
-                    <span class="input-group-text rounded-0" id="basic-addon1">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="grey"
-                            class="bi bi-envelope" viewBox="0 0 16 16">
-                            <path
-                                d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z" />
-                        </svg>
-                    </span>
-                    <input type="email" class="form-control form-control-lg border-start-0 rounded-0 py-3"
-                        placeholder="Your Email" aria-label="Username" aria-describedby="basic-addon1">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text rounded-0" id="basic-addon1">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="grey"
+                                class="bi bi-envelope" viewBox="0 0 16 16">
+                                <path
+                                    d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z" />
+                            </svg>
+                        </span>
+                        <input type="email" class="form-control form-control-lg border-start-0 rounded-0 py-3"
+                            placeholder="Your Email" aria-label="Username" aria-describedby="basic-addon1" formControlName="email">
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-md-6">
-            <div class="form-group">
-                <div class="input-group mb-3">
-                    <span class="input-group-text rounded-0" id="basic-addon1">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="grey" class="bi bi-phone" viewBox="0 0 16 16">
-                            <path d="M11 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM5 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
-                            <path d="M8 14a1 1 0 1 0 0-2 1 1 0 0 0 0 2"/>
-                          </svg>
-                    </span>
-                    <input type="tel" class="form-control form-control-lg border-start-0 rounded-0 py-3"
-                        placeholder="Your Mobile" aria-label="Username" aria-describedby="basic-addon1">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text rounded-0" id="basic-addon1">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="grey" class="bi bi-phone" viewBox="0 0 16 16">
+                                <path d="M11 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM5 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
+                                <path d="M8 14a1 1 0 1 0 0-2 1 1 0 0 0 0 2"/>
+                              </svg>
+                        </span>
+                        <input type="tel" class="form-control form-control-lg border-start-0 rounded-0 py-3"
+                            placeholder="Your Mobile" aria-label="Username" aria-describedby="basic-addon1" formControlName="mobile">
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-md-6">
-            <div class="form-group">
-                <div class="input-group mb-3">
-                    <span class="input-group-text rounded-0" id="basic-addon1">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="grey" class="bi bi-gender-ambiguous" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd" d="M11.5 1a.5.5 0 0 1 0-1h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V1.707l-3.45 3.45A4 4 0 0 1 8.5 10.97V13H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V14H6a.5.5 0 0 1 0-1h1.5v-2.03a4 4 0 1 1 3.471-6.648L14.293 1zm-.997 4.346a3 3 0 1 0-5.006 3.309 3 3 0 0 0 5.006-3.31z"/>
-                          </svg>
-                    </span>
-                    <select class="form-select form-select-lg border-start-0 rounded-0 py-3" aria-label="Large select example">
-                        <option selected>Select Gender</option>
-                        <option value="1">Male</option>
-                        <option value="2">Female</option>
-                        <option value="3">Other</option>
-                    </select>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text rounded-0" id="basic-addon1">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="grey" class="bi bi-gender-ambiguous" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M11.5 1a.5.5 0 0 1 0-1h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V1.707l-3.45 3.45A4 4 0 0 1 8.5 10.97V13H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V14H6a.5.5 0 0 1 0-1h1.5v-2.03a4 4 0 1 1 3.471-6.648L14.293 1zm-.997 4.346a3 3 0 1 0-5.006 3.309 3 3 0 0 0 5.006-3.31z"/>
+                              </svg>
+                        </span>
+                        <select class="form-select form-select-lg border-start-0 rounded-0 py-3" aria-label="Large select example" formControlName="gender">
+                            <option selected disabled [value]="null">Select Gender</option>
+                            <option value="1">Male</option>
+                            <option value="2">Female</option>
+                            <option value="3">Other</option>
+                        </select>
+                    </div>
                 </div>
             </div>
+            <div class="col-md-6 mt-md-5 mt-3">
+                <button class="btn btn-lg btn-outline-dark rounded-0 d-none d-md-block">Update Profile</button>
+                <button class="btn btn-lg btn-outline-dark rounded-0 w-100 d-md-none">Update Profile</button>
+            </div>
         </div>
-        <div class="col-md-6 mt-md-5 mt-3">
-            <button class="btn btn-lg btn-outline-dark rounded-0 d-none d-md-block">Update Profile</button>
-            <button class="btn btn-lg btn-outline-dark rounded-0 w-100 d-md-none">Update Profile</button>
-        </div>
-    </div>
+    </form>
 </div>

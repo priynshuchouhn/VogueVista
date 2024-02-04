@@ -3,7 +3,7 @@ import { User } from '../model/user.model';
 import { HttpClient } from '@angular/common/http';
 import { API } from '../API/API';
 import { Router } from '@angular/router';
-import { catchError, lastValueFrom } from 'rxjs';
+import { lastValueFrom } from 'rxjs';
 import { SharedService } from './shared.service';
 import { Store } from '@ngrx/store';
 import { emptyCart } from './store/cart/cart.actions';
