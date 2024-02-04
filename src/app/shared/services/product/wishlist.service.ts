@@ -6,6 +6,7 @@ import { lastValueFrom } from 'rxjs';
 import { Wishlist } from '../../model/product/wishlist.model';
 import { Store } from '@ngrx/store';
 import { loadWishlist } from '../store/wishlist/wishlist.actions';
+import { ProductService } from './product.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +14,8 @@ import { loadWishlist } from '../store/wishlist/wishlist.actions';
 export class WishlistService {
 
   fromJsonData(data: any){
-    const { wishlistId , userId , productId} = data;
-    const tempWishlist = new Wishlist(wishlistId, userId, productId);
+    const { _id , userId , productId} = data;
+    const tempWishlist = new Wishlist(_id, userId, productId);
     return tempWishlist;
   }
 
@@ -35,7 +36,9 @@ export class WishlistService {
       const data = await lastValueFrom(res);
       const lstWishlist: Wishlist[] = [];
       (data as any).data.forEach((el:any) => {
+        const parsedProduct = this.productService.fromJsonData(el.productId);
         const parsedWishlist = this.fromJsonData(el);
+        parsedWishlist.product = parsedProduct
         lstWishlist.push(parsedWishlist);
       });
       return lstWishlist;
@@ -46,5 +49,35 @@ export class WishlistService {
     }
   }
 
-  constructor(private http: HttpClient, private sharedService: SharedService, private store: Store) { }
+  async addWishlistItem(body: any){
+    try {
+      const res = this.http.post(API.ADD_TO_WISHLIST,body, {
+        headers: {
+          'Authorization' : `Bearer ${this.sharedService.userData.token}`
+        }
+      })
+      const data = await lastValueFrom(res);
+      const wishlist = this.fromJsonData((data as any).data);
+      return wishlist;
+    } catch (error:any) {
+      const err = this.sharedService.handleError(error);
+      return null;
+    }
+  }
+  async removeFromWishlist(body: any){
+    try {
+      const res = this.http.post(API.REMOVE_FROM_WISHLIST,body, {
+        headers: {
+          'Authorization' : `Bearer ${this.sharedService.userData.token}`
+        }
+      })
+      const data = await lastValueFrom(res);
+      return data;
+    } catch (error:any) {
+      const err = this.sharedService.handleError(error);
+      return null;
+    }
+  }
+
+  constructor(private http: HttpClient, private sharedService: SharedService, private store: Store, private productService: ProductService) { }
 }

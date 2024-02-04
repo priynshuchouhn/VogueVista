@@ -7,3 +7,4 @@ export const selectWishlistState = createFeatureSelector<WishlistState>('wishlis
 
 export const selectWishlistItems = createSelector(selectWishlistState, (state: WishlistState) => state.items);
 export const selectWishlistItemsLength = createSelector(selectWishlistState, (state: WishlistState) => state.items ? state.items.length : 0);
+export const selectWishlistItemById = (productId: string) => createSelector( selectWishlistItems, (wishlistItems) => wishlistItems.find((item) => item.product.productId == productId ));

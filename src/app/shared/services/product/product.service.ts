@@ -34,6 +34,7 @@ export class ProductService {
     const productOtherDetail = otherDetail ?? null;
     const productReturnRefundPolicy = returnRefundPolicy ?? null;
     const productDisclaimer = disclaimer ?? null;
+    const isFavorite = false
 
     let tempProduct = new Product(
       _id,
@@ -50,6 +51,7 @@ export class ProductService {
       productOtherDetail,
       productReturnRefundPolicy,
       productDisclaimer,
+      isFavorite
     );
     return tempProduct;
   }

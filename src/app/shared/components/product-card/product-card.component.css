@@ -73,7 +73,6 @@ button {
         aspect-ratio: 1/1;
         width: 3rem;
         height: 3rem;
-        line-height: 1rem;
         text-align: center;
         font-size: 18px;
         color: #000;
@@ -81,5 +80,4 @@ button {
         border-bottom: 0;
         box-shadow: 0 1px 10px #010f1c33;
         border-radius: 50%;
-        /* margin-bottom: 6px; */
 }

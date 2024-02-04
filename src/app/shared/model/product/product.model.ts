@@ -15,8 +15,9 @@ export class Product {
     otherDetail?: string;
     returnRefundPolicy?: string
     disclaimer?: string
+    isFavorite?: boolean = false
 
-    constructor(productId: string, name: string, description: string, price: number, stockQuantity: number, categoryId: string, sellerName: string, images: string[], category?: Category, size?: Size[], shippingPolicy?: string, otherDetail?: string, returnRefundPolicy?: string, disclaimer?: string) {
+    constructor(productId: string, name: string, description: string, price: number, stockQuantity: number, categoryId: string, sellerName: string, images: string[], category?: Category, size?: Size[], shippingPolicy?: string, otherDetail?: string, returnRefundPolicy?: string, disclaimer?: string, isFavorite? : boolean) {
         this.productId = productId;
         this.name = name;
         this.description = description;
@@ -31,6 +32,7 @@ export class Product {
         this.otherDetail = otherDetail
         this.returnRefundPolicy = returnRefundPolicy
         this.disclaimer = disclaimer
+        this.isFavorite = isFavorite
     }
 }
 
