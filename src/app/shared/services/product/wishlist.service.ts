@@ -27,6 +27,9 @@ export class WishlistService {
   }
 
   async getWishlistItems(){
+    if(!this.sharedService.userData){
+      return;
+    }
     try {
       const res = this.http.get(API.GET_WISHLIST, {
         headers: {
