@@ -16,12 +16,14 @@ import { emptyWishlist } from './store/wishlist/wishlist.actions';
 export class UserService {
 
   fromJsonData(data: any): User {
+    const profileImage =  data.profileImage ?? null
     const tempUser = new User(
       data._id,
       data.name,
       data.email,
       data.mobileNo,
-      data.token);
+      data.token,profileImage);
+
     return tempUser;
   }
 
@@ -34,6 +36,17 @@ export class UserService {
     try {
       const res = this.http.post(API.LOGIN, body);
       const data = await lastValueFrom(res);
+      return data;
+    } catch (error: any) {
+      const err = this.sharedService.handleError(error)
+      return err;
+    }
+  }
+  async logInWithGoogle(body: any) {
+    try {
+      const res = this.http.post(API.LOGIN_WITH_GOOGLE, body);
+      const data = await lastValueFrom(res);
+      console.log(data);
       return data;
     } catch (error: any) {
       const err = this.sharedService.handleError(error)

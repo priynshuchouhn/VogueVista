@@ -10,10 +10,12 @@ import { UserService } from 'src/app/shared/services/user.service';
 export class ProfileComponent implements OnInit {
 
   username: string = 'User'
+  profileImage: string = ''
 
   constructor(private userService: UserService, private sharedService: SharedService){}
   ngOnInit(): void {
    this.username = this.sharedService.userData.username
+   this.profileImage = this.sharedService.userData.profileImage ?? ''
   }
 
   logoutClick(){

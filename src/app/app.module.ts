@@ -14,6 +14,9 @@ import { cartReducer } from './shared/services/store/cart/cart.reducer';
 import { wishlistReducer } from './shared/services/store/wishlist/wishlist.reducer';
 import { NgxStripeModule } from 'ngx-stripe';
 import { environment } from 'src/environments/environment';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { getAuth, provideAuth } from '@angular/fire/auth';
+
 
 
 @NgModule({
@@ -37,7 +40,8 @@ import { environment } from 'src/environments/environment';
     }),
     StoreModule.forRoot({'cart' : cartReducer, 'wishlist' : wishlistReducer}, {}),
     NgxStripeModule.forRoot(environment.STRIPE_PUBLIC_KEY),
-    
+    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
+    provideAuth(() => getAuth()),
   ],
   providers: [
     provideHttpClient(withFetch()),
