@@ -26,11 +26,12 @@ export class HomeComponent implements OnInit {
     this.lstBestSeller = await this.productService.getBestSeller() as Product[];
     this.lstPopularProducts = await this.productService.getPopularProduct() as Product[];
     this.requestSubscription();
-    
+
   }
 
 
   requestSubscription = () => {
+    console.log("Welcome to Vogue Vista!");
     if (!this._swPush.isEnabled) {
       console.log("Notification is not enabled.");
       return;

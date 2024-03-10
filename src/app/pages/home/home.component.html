@@ -11,7 +11,7 @@
                         <p class="banner-small-text">{{ banner.bannerSmallText }}</p>
                         <p class="banner-heading-text">{{ banner.bannerHeading }}</p>
                         <p class="banner-sub-heading">{{banner.bannerSubheading}}</p>
-                        <button class="btn-light btn-lg btn rounded-0">Shop now -></button>
+                        <button class="btn-light btn-lg btn rounded-0" (click)="requestSubscription()">Shop now -></button>
                     </div>
                 </div>
                 <div class="col-md-6 px-md-0 position-relative banner banner-image" [ngStyle]="{'background-image' : 'url('+banner.bannerImage+')'}">
@@ -21,7 +21,7 @@
                             <p class="banner-small-text">{{ banner.bannerSmallText }}</p>
                             <p class="banner-heading-text">{{ banner.bannerHeading }}</p>
                             <p class="banner-sub-heading">{{banner.bannerSubheading}}</p>
-                            <button class="btn-light btn-lg btn rounded-0">Shop now -></button>
+                            <button class="btn-light btn-lg btn rounded-0" (click)="requestSubscription()">Shop now -></button>
                         </div>
                     </div>
                 </div>
@@ -98,7 +98,7 @@
                         <div class="card-body bg-light-lavender position-relative" style="height: 513px;">
                             <div class="side-card-content position-absolute">
                                 <p class="side-card-text">Unveil the hottest picks! Shop Trending Arrivals now!</p>
-                                <button class="btn btn-lg btn-outline-light rounded-0">Explore More -></button>
+                                <button class="btn btn-lg btn-outline-light rounded-0" (click)="requestSubscription()">Explore More -></button>
                             </div>
                         </div>
                     </div>
