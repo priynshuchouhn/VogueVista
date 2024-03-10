@@ -4,7 +4,7 @@ export const environment = {
     STRIPE_PUBLIC_KEY:'pk_test_51OXrXnSCO6d0uM2qbjAbtEdhjUuy8T9HaFwTL5upsD0r7P6KnbtnaZXSaTtiKYwiR8HyI7IDHijTbk9z4LllKlhB00m0PRTGWG',
     firebaseConfig : {
       apiKey: "AIzaSyBoZQHLLZVQPDZC_Z0qPG8WTpoXdjnUpN0",
-      authDomain: "voguevista.live",
+      authDomain: "app.voguevista.live",
       projectId: "voguevistalive",
       storageBucket: "voguevistalive.appspot.com",
       messagingSenderId: "770162137314",
