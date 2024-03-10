@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { SwPush } from '@angular/service-worker';
 import { Product } from 'src/app/shared/model/product/product.model';
 import { Banner, homePageBanner } from 'src/app/shared/model/promotionals/banner.model';
 import { ProductService } from 'src/app/shared/services/product/product.service';
 import { BannerService } from 'src/app/shared/services/promotionals/banner.service';
+import { PushNotificationService } from 'src/app/shared/services/push-notification.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-home',
@@ -14,7 +17,7 @@ export class HomeComponent implements OnInit {
   bannerSlides: homePageBanner[] = []
   promoBanner!: Banner
 
-  constructor(private bannerService: BannerService, private productService: ProductService) { }
+  constructor(private bannerService: BannerService, private productService: ProductService,private _swPush: SwPush, private pushNotificationService: PushNotificationService) { }
 
   async ngOnInit() {
     this.bannerSlides = await this.bannerService.getHomeBanner();
@@ -22,7 +25,24 @@ export class HomeComponent implements OnInit {
     this.lstTrendingArrivals = await this.productService.getTrendingArrivals() as Product[];
     this.lstBestSeller = await this.productService.getBestSeller() as Product[];
     this.lstPopularProducts = await this.productService.getPopularProduct() as Product[];
+    this.requestSubscription();
+    
   }
+
+
+  requestSubscription = () => {
+    if (!this._swPush.isEnabled) {
+      console.log("Notification is not enabled.");
+      return;
+    }
+
+    this._swPush.requestSubscription({
+      serverPublicKey: environment.vapidPublicKey
+    }).then((_) => {
+      this.pushNotificationService.addSub(_)
+      // console.log(JSON.stringify(_));
+    }).catch((_) => console.log);
+  };
 
   lstTrendingArrivals : Product[] = []
   lstBestSeller : Product[] = []
