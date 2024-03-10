@@ -5,7 +5,7 @@ export const environment = {
     // For Firebase JS SDK v7.20.0 and later, measurementId is optional
     firebaseConfig : {
     apiKey: "AIzaSyBoZQHLLZVQPDZC_Z0qPG8WTpoXdjnUpN0",
-    authDomain: "voguevistalive.firebaseapp.com",
+    authDomain: "voguevista.live",
     projectId: "voguevistalive",
     storageBucket: "voguevistalive.appspot.com",
     messagingSenderId: "770162137314",
