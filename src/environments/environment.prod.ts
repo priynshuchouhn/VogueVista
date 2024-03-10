@@ -11,4 +11,5 @@ export const environment = {
       appId: "1:770162137314:web:217a9ad3911e5ca115e6bb",
       measurementId: "G-7632LYS39P"
     },
+    vapidPublicKey: 'BLgvjTO0RxBmKAAWw0y1WX_cLppHAJ2FH5jdUH-seEqKDlHtuk8WOnIRuElmquWjeU05KO07_mqhLHhs-bhw1gQ'
   };

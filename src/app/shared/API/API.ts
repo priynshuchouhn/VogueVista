@@ -10,6 +10,9 @@ export class API {
     public static LOGIN = this.BASE_URL+ 'auth/login';
     public static REGISTER = this.BASE_URL+ 'auth/register';
     public static LOGIN_WITH_GOOGLE = this.BASE_URL+ 'auth/loginInWithGoogle';
+
+
+    public static  ADD_PUSH_NOTIFICATION_SUBSCRIPTION = this.BASE_URL+ 'promotional/addPushNotificationSubscription';
     
     
     // ! ===================== Banner ====================== !//
