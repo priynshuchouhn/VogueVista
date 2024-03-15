@@ -12,4 +12,4 @@ export const environment = {
       measurementId: "G-7632LYS39P"
     },
     vapidPublicKey: 'BLgvjTO0RxBmKAAWw0y1WX_cLppHAJ2FH5jdUH-seEqKDlHtuk8WOnIRuElmquWjeU05KO07_mqhLHhs-bhw1gQ'
-  };
+  }
