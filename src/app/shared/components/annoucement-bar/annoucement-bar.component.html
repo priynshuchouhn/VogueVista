@@ -14,7 +14,12 @@
             </div>
         </div>
         <div class="col-md-6 text-center">
-            25% OFF on all Products <a routerLink="/" class="annoucement-bar-link">Shop Now</a>
+            <span *ngIf="showAnnoucementBar; else message">
+                25% OFF on all Products <a routerLink="/" class="annoucement-bar-link">Shop Now</a>
+            </span>
+            <ng-template #message>
+                We are on Free Server 🙂, it might take few seconds to show content.
+            </ng-template>
         </div>
         <div class="col-3 d-md-flex d-none justify-content-end align-items-center">
             <div class="row">

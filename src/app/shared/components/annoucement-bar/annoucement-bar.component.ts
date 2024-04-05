@@ -1,11 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ExtraService } from '../../services/extra.service';
 
 @Component({
   selector: 'app-annoucement-bar',
   templateUrl: './annoucement-bar.component.html',
   styleUrls: ['./annoucement-bar.component.css']
 })
-export class AnnoucementBarComponent {
+export class AnnoucementBarComponent implements OnInit {
+  showAnnoucementBar: boolean = false
+  constructor(private extraService: ExtraService){}
+  async ngOnInit() {
+   const res = await this.extraService.checkServerWorking()
+   console.log(res);
+   if(res){
+    this.showAnnoucementBar = true;
+   }
+  }
 
   lstLanguage = [
     { name: 'English', code: 'en' },

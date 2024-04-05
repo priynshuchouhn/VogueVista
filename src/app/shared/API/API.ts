@@ -5,6 +5,7 @@ export class API {
     
     public static BASE_URL = environment.API_URL;
     
+    public static CHECK_SERVER = this.BASE_URL+ 'check';
     // ! ===================== Auth ====================== !//
     
     public static LOGIN = this.BASE_URL+ 'auth/login';
