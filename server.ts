@@ -34,7 +34,6 @@ export function app(): express.Express {
     commonEngine
       .render({
         bootstrap: AppServerModule,
-        inlineCriticalCss: false,
         documentFilePath: indexHtml,
         url: `${protocol}://${headers.host}${originalUrl}`,
         publicPath: distFolder,
@@ -64,7 +63,7 @@ declare const __non_webpack_require__: NodeRequire;
 const mainModule = __non_webpack_require__.main;
 const moduleFilename = mainModule && mainModule.filename || '';
 if (moduleFilename === __filename || moduleFilename.includes('iisnode')) {
-  // run();
+  run();
 }
 
 export default AppServerModule;
